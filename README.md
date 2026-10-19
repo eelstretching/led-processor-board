@@ -10,8 +10,9 @@ The core (RP2350B, flash, PSRAM, RM2, crystal, BOOTSEL/RUN buttons, 3.3 V regula
 unchanged, except that its micro-B USB is now USB-C. That board's single-row J2/J3 headers are
 gone; the rest is new.
 
-Status: **schematic only.** ERC is clean apart from the four items inherited from Pi's design
-(see "Verification"). No layout yet.
+Status: **schematic and first layout done, not yet built.** ERC is clean apart from the four items
+inherited from Pi's design, and DRC has no copper errors and nothing unconnected (see
+"Verification").
 
 ![Root sheet](docs/sheet-root.png)
 
@@ -102,6 +103,45 @@ J4 (DORABO DB301V-3.5-2P, C695629) is in the same family as the output boards' s
 uses KiCad's stock 3.5 mm Phoenix PT footprint; check the hole size against the DB301V drawing when
 laying out.
 
+## Layout
+
+![Top, zone fills hidden](docs/pcb-top.png)
+
+100 x 89.5 mm, **2 layers**, four 2.75 mm (M2.5) mounting holes. 3D views:
+[top](docs/pcb-3d-top.png), [bottom](docs/pcb-3d-bottom.png); bottom copper:
+[docs/pcb-bottom-copper.png](docs/pcb-bottom-copper.png).
+
+- **The core is Pi's layout unchanged**: the RP2350B, flash, crystal, regulator, buttons and RM2 keep
+  their placement and routing from the reference board, including **U4 (PSRAM), C22, R11 and R13 on
+  the bottom side**, as on the reference. Pi's +3V3 top pour and full GND bottom plane stay; the
+  board widens with a top GND pour on either side, stitched to the bottom plane.
+- **Shrouds**: OUT1/OUT2 (J5, J6) down the left edge, OUT3/OUT4 (J7, J8) along the bottom, either
+  side of the RM2 antenna. The 33R resistors sit in a row next to each shroud's data pins.
+- **Power** in the top right: J4 (12 V) on the right edge, D3, the TPS54202 buck (U7, L2, output
+  caps) and D5. The 12 V runs are 0.8 mm, +5V 0.5 mm.
+- **USB-C** at the top edge where Pi's micro-B was. The RTC (U6, BT1) is on the right; J2 (spare
+  GPIO) is beside the core and J3 (SWD) is right under it.
+- The antenna keepout runs the full width along the bottom edge past the RM2.
+
+### Regenerating it
+
+The layout was built by scripts in `tools/pcb/` (KiCad 10 Python API plus Freerouting 1.9.0). From
+here on it is a normal KiCad board, so edit it in KiCad; the scripts are a record of how it was made.
+
+1. `build_pcb.py REF.kicad_pcb net.xml OUT.kicad_pcb .` loads the reference layout, drops its
+   micro-B and headers, clips the routes that went to them, places the new parts
+   (`placement.py`) and hand-routes the power, USB-C, OUT4, RM2 and SWD runs (`preroute.py`).
+   `net.xml` is `kicad-cli sch export netlist --format kicadxml`.
+2. `route.sh in out 20` exports a Specctra DSN, freezes the existing copper and sets net classes
+   (`dsn_prep.py`), runs Freerouting 1.9.0 (`xvfb-run java -jar freerouting-1.9.0.jar`; 2.x
+   ignores the pass limit and never writes the session), and imports the result.
+3. `post.py` trims dangling tails and adds GND stitching vias; `fix.py` adds the two +3V3 jumpers
+   under the +5V run to J7 and C40's link; `rip.py` plus a second `route.sh` rerouted the J2/RTC
+   fan-out (GPIO32-42), which the first pass left one net short on; `silk.py` places the reference
+   designators.
+4. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
+   `rendernz` hides zone fills).
+
 ## Files
 
 | Path | What |
@@ -112,7 +152,10 @@ laying out.
 | `rp2350b_rm2.kicad_sym`, `rp2350b_rm2.pretty/` | RM2 symbol and footprint (from the reference) |
 | `bom-jlcpcb.csv` | BOM with LCSC numbers |
 | `docs/schematic.pdf`, `docs/sheet-*.png` | all three sheets |
+| `led-processor-board.kicad_pcb` | the layout |
+| `docs/pcb-*.png` | layout previews |
 | `tools/build_schematic.py` | the one-off script that built these sheets from the reference (kept for reference; edit the schematic in KiCad from here on) |
+| `tools/pcb/` | the scripts that built the layout (see "Regenerating it") |
 
 ## Verification
 
@@ -122,6 +165,12 @@ board, all in Pi's part of the design: U2's two OUT pins tied together, U1 VREG_
 libraries (`RPI_DB`, `RPI - Power`, `RPI_COMPILED`) aren't in the library table, as on the
 reference board. A netlist check confirms each shroud's GND, +3V3, +5V and data pins, the RTC nets
 and the 12 V to VSYS chain.
+
+`kicad-cli pcb drc --severity-all` reports no clearance, short, hole or unconnected items. What's
+left: 44 warnings that Pi's `RPI_COMPILED` footprint library isn't in the library table (as on the
+reference board), and 4 silkscreen-past-the-edge warnings from J1 and J4, whose bodies overhang the
+board edge (the USB-C opening and the terminal block). C7 and C27 have their reference designators hidden
+for lack of room.
 
 ## License
 
