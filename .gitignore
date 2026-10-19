@@ -1,0 +1,9 @@
+build/
+firmware/blink/build/
+*.uf2
+*-backups/
+fp-info-cache
+*.kicad_prl
+_autosave-*
+~*.lck
+__pycache__/

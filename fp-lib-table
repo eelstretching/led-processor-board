@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "rp2350b_rm2")(type "KiCad")(uri "${KIPRJMOD}/rp2350b_rm2.pretty")(options "")(descr "RM2 radio module footprint"))
+)
