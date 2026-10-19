@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "d3a7abec-a14a-5472-b00f-b99941944e65")
+	(uuid "43fb624d-51cd-5a7d-96f4-3ed1f274c0d7")
 	(paper "A3")
 	(title_block
 		(title "LED processor board: Outputs")
@@ -2190,29 +2190,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 58.42 55.88) (xy 63.5 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b972ad3a-cfe5-58d9-ac55-a6638739699c")
-	)
-	(label "OUT1_D1"
-		(at 63.5 55.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fec28109-586c-5ffe-a495-e5d58c77ebed")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 45.72 90)
+		(at 71.12 55.88 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2220,9 +2200,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "629dde66-3328-56f1-9ce9-e46c5e0da5c4")
+		(uuid "b972ad3a-cfe5-58d9-ac55-a6638739699c")
 		(property "Reference" "R24"
-			(at 86.36 43.688 90)
+			(at 61.214 54.61 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2232,7 +2212,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 43.688 90)
+			(at 64.77 54.61 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2242,7 +2222,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 45.72 0)
+			(at 71.12 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2253,7 +2233,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 45.72 0)
+			(at 71.12 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2264,7 +2244,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 45.72 0)
+			(at 71.12 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2275,7 +2255,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 45.72 0)
+			(at 71.12 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2286,7 +2266,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 45.72 0)
+			(at 71.12 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2297,7 +2277,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 45.72 0)
+			(at 71.12 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2308,10 +2288,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "90ed21c2-c754-53b0-bd8a-d9185cc07fab")
+			(uuid "fec28109-586c-5ffe-a495-e5d58c77ebed")
 		)
 		(pin "2"
-			(uuid "2f9f0a0b-eb01-5bd7-9e02-1af4bf7147c7")
+			(uuid "629dde66-3328-56f1-9ce9-e46c5e0da5c4")
 		)
 		(instances
 			(project "led-processor-board"
@@ -2324,68 +2304,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 45.72) (xy 82.55 45.72)
+			(xy 58.42 55.88) (xy 67.31 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c1c208ec-8f93-5eb7-9040-76dd64da2f72")
-	)
-	(label "OUT1_D1"
-		(at 82.55 45.72 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a091983b-842b-596f-aadf-807670f99005")
+		(uuid "90ed21c2-c754-53b0-bd8a-d9185cc07fab")
 	)
 	(wire
 		(pts
-			(xy 92.71 45.72) (xy 95.25 45.72)
+			(xy 74.93 55.88) (xy 96.52 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d3e489c9-989b-54ca-ac5d-63a25567a51b")
+		(uuid "2f9f0a0b-eb01-5bd7-9e02-1af4bf7147c7")
 	)
 	(hierarchical_label "GPIO0"
 		(shape bidirectional)
-		(at 95.25 45.72 0)
+		(at 96.52 55.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "76e81b38-a692-56fa-a209-f5e997b9909b")
-	)
-	(wire
-		(pts
-			(xy 58.42 58.42) (xy 63.5 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "19a39a9e-dce2-527e-a0d7-82b19075d9f4")
-	)
-	(label "OUT1_D2"
-		(at 63.5 58.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "32b45169-8899-5745-8691-9c009ca4cd1d")
+		(uuid "c1c208ec-8f93-5eb7-9040-76dd64da2f72")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 50.8 90)
+		(at 81.28 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2393,9 +2343,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "abb61ac9-b140-5a10-9618-e37d46c8205a")
+		(uuid "a091983b-842b-596f-aadf-807670f99005")
 		(property "Reference" "R25"
-			(at 86.36 48.768 90)
+			(at 87.63 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2405,7 +2355,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 48.768 90)
+			(at 91.186 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2415,7 +2365,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 50.8 0)
+			(at 81.28 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2426,7 +2376,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 50.8 0)
+			(at 81.28 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2437,7 +2387,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 50.8 0)
+			(at 81.28 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2448,7 +2398,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 50.8 0)
+			(at 81.28 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2459,7 +2409,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 50.8 0)
+			(at 81.28 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2470,7 +2420,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 50.8 0)
+			(at 81.28 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2481,10 +2431,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "77b6bee5-0e4f-5eeb-ba2b-7092cd1c4874")
+			(uuid "d3e489c9-989b-54ca-ac5d-63a25567a51b")
 		)
 		(pin "2"
-			(uuid "f246b86a-8c4d-57d0-9d7f-6048b84ad20d")
+			(uuid "76e81b38-a692-56fa-a209-f5e997b9909b")
 		)
 		(instances
 			(project "led-processor-board"
@@ -2497,68 +2447,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 50.8) (xy 82.55 50.8)
+			(xy 58.42 58.42) (xy 77.47 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "32d961fc-a036-57d6-bf69-8cc53e5d1662")
-	)
-	(label "OUT1_D2"
-		(at 82.55 50.8 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f564321e-f760-5636-b98a-9cb892e98c55")
+		(uuid "19a39a9e-dce2-527e-a0d7-82b19075d9f4")
 	)
 	(wire
 		(pts
-			(xy 92.71 50.8) (xy 95.25 50.8)
+			(xy 85.09 58.42) (xy 96.52 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "872d13c1-25c4-5023-89d8-e4b878c9e3ba")
+		(uuid "32b45169-8899-5745-8691-9c009ca4cd1d")
 	)
 	(hierarchical_label "GPIO1"
 		(shape bidirectional)
-		(at 95.25 50.8 0)
+		(at 96.52 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "339e736f-d796-5587-b309-c54bcc655348")
-	)
-	(wire
-		(pts
-			(xy 58.42 60.96) (xy 63.5 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5e8e38ff-aef6-5e43-b624-d14ca021ab6d")
-	)
-	(label "OUT1_D3"
-		(at 63.5 60.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d7eab0db-6e96-5522-bc9c-4841b2b35623")
+		(uuid "abb61ac9-b140-5a10-9618-e37d46c8205a")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 55.88 90)
+		(at 71.12 60.96 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2566,9 +2486,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5de4657b-2ce3-55c9-8ae6-1246caca3dee")
+		(uuid "77b6bee5-0e4f-5eeb-ba2b-7092cd1c4874")
 		(property "Reference" "R26"
-			(at 86.36 53.848 90)
+			(at 61.214 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2578,7 +2498,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 53.848 90)
+			(at 64.77 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2588,7 +2508,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 55.88 0)
+			(at 71.12 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2599,7 +2519,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 55.88 0)
+			(at 71.12 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2610,7 +2530,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 55.88 0)
+			(at 71.12 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2621,7 +2541,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 55.88 0)
+			(at 71.12 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2632,7 +2552,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 55.88 0)
+			(at 71.12 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2643,7 +2563,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 55.88 0)
+			(at 71.12 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2654,10 +2574,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "62f5da63-ae42-53ef-b6ec-52e8903bb918")
+			(uuid "f246b86a-8c4d-57d0-9d7f-6048b84ad20d")
 		)
 		(pin "2"
-			(uuid "41109474-3519-5254-9eb7-c41dbf7f6f85")
+			(uuid "32d961fc-a036-57d6-bf69-8cc53e5d1662")
 		)
 		(instances
 			(project "led-processor-board"
@@ -2670,68 +2590,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 55.88) (xy 82.55 55.88)
+			(xy 58.42 60.96) (xy 67.31 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1f98549c-e7ca-5c81-a315-bf344a33e359")
-	)
-	(label "OUT1_D3"
-		(at 82.55 55.88 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "28743e6d-26f4-5b12-bf31-0263fd5d69b3")
+		(uuid "f564321e-f760-5636-b98a-9cb892e98c55")
 	)
 	(wire
 		(pts
-			(xy 92.71 55.88) (xy 95.25 55.88)
+			(xy 74.93 60.96) (xy 96.52 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d2058e5c-7fa5-5d22-971f-75144ab35997")
+		(uuid "872d13c1-25c4-5023-89d8-e4b878c9e3ba")
 	)
 	(hierarchical_label "GPIO2"
 		(shape bidirectional)
-		(at 95.25 55.88 0)
+		(at 96.52 60.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "1f4e45c6-c84d-53b7-8290-089817bda53a")
-	)
-	(wire
-		(pts
-			(xy 58.42 63.5) (xy 63.5 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb22c204-4be2-501a-b1ef-94e5e42705e0")
-	)
-	(label "OUT1_D4"
-		(at 63.5 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9942a2d6-8730-50c6-bbdb-c8bc65a54039")
+		(uuid "339e736f-d796-5587-b309-c54bcc655348")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 60.96 90)
+		(at 81.28 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2739,9 +2629,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "81638df9-e2c0-5074-9765-ff1d2a990041")
+		(uuid "5e8e38ff-aef6-5e43-b624-d14ca021ab6d")
 		(property "Reference" "R27"
-			(at 86.36 58.928 90)
+			(at 87.63 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2751,7 +2641,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 58.928 90)
+			(at 91.186 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2761,7 +2651,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 60.96 0)
+			(at 81.28 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2772,7 +2662,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 60.96 0)
+			(at 81.28 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2783,7 +2673,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 60.96 0)
+			(at 81.28 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2794,7 +2684,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 60.96 0)
+			(at 81.28 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2805,7 +2695,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 60.96 0)
+			(at 81.28 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2816,7 +2706,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 60.96 0)
+			(at 81.28 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2827,10 +2717,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "64b6382e-e666-54b1-92f9-55f0cfbacf41")
+			(uuid "d7eab0db-6e96-5522-bc9c-4841b2b35623")
 		)
 		(pin "2"
-			(uuid "0587c6da-5bef-5510-bd3b-691a702a6090")
+			(uuid "5de4657b-2ce3-55c9-8ae6-1246caca3dee")
 		)
 		(instances
 			(project "led-processor-board"
@@ -2843,68 +2733,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 60.96) (xy 82.55 60.96)
+			(xy 58.42 63.5) (xy 77.47 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9da3d203-70a7-5dc9-b7d9-77d0e3ea3bc4")
-	)
-	(label "OUT1_D4"
-		(at 82.55 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6cdb3537-358d-5dd1-af1b-0911aeebcdd2")
+		(uuid "62f5da63-ae42-53ef-b6ec-52e8903bb918")
 	)
 	(wire
 		(pts
-			(xy 92.71 60.96) (xy 95.25 60.96)
+			(xy 85.09 63.5) (xy 96.52 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "32263f59-e3d9-5694-a173-e758a21574a5")
+		(uuid "41109474-3519-5254-9eb7-c41dbf7f6f85")
 	)
 	(hierarchical_label "GPIO3"
 		(shape bidirectional)
-		(at 95.25 60.96 0)
+		(at 96.52 63.5 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "7a2bd449-c8fc-5c71-b4c4-1f2db06524bc")
-	)
-	(wire
-		(pts
-			(xy 58.42 66.04) (xy 63.5 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14cde888-8992-5860-9e73-14fba90e61bf")
-	)
-	(label "OUT1_D5"
-		(at 63.5 66.04 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "84ee6c02-9207-59d4-99d6-5c89b7fdc770")
+		(uuid "1f98549c-e7ca-5c81-a315-bf344a33e359")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 66.04 90)
+		(at 71.12 66.04 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2912,9 +2772,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "f11b6ac3-2df1-5b95-ac14-d002d752fbe2")
+		(uuid "28743e6d-26f4-5b12-bf31-0263fd5d69b3")
 		(property "Reference" "R28"
-			(at 86.36 64.008 90)
+			(at 61.214 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2924,7 +2784,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 64.008 90)
+			(at 64.77 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2934,7 +2794,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 66.04 0)
+			(at 71.12 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2945,7 +2805,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 66.04 0)
+			(at 71.12 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2956,7 +2816,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 66.04 0)
+			(at 71.12 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2967,7 +2827,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 66.04 0)
+			(at 71.12 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2978,7 +2838,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 66.04 0)
+			(at 71.12 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2989,7 +2849,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 66.04 0)
+			(at 71.12 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3000,10 +2860,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "3646897b-2515-5086-b56f-1f6a3d69ed9f")
+			(uuid "d2058e5c-7fa5-5d22-971f-75144ab35997")
 		)
 		(pin "2"
-			(uuid "9d413a68-61d0-5c22-a470-ebae52fa9512")
+			(uuid "1f4e45c6-c84d-53b7-8290-089817bda53a")
 		)
 		(instances
 			(project "led-processor-board"
@@ -3016,68 +2876,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 66.04) (xy 82.55 66.04)
+			(xy 58.42 66.04) (xy 67.31 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f88afb2c-237e-5b18-8ef1-6a02d2fae50a")
-	)
-	(label "OUT1_D5"
-		(at 82.55 66.04 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "33145a30-d645-571b-9b9e-299f860ee2ea")
+		(uuid "eb22c204-4be2-501a-b1ef-94e5e42705e0")
 	)
 	(wire
 		(pts
-			(xy 92.71 66.04) (xy 95.25 66.04)
+			(xy 74.93 66.04) (xy 96.52 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4d98498f-98a2-5215-8ecf-46c93b09b48e")
+		(uuid "9942a2d6-8730-50c6-bbdb-c8bc65a54039")
 	)
 	(hierarchical_label "GPIO4"
 		(shape bidirectional)
-		(at 95.25 66.04 0)
+		(at 96.52 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "724b3d7a-1f04-5d83-a903-af1495275caf")
-	)
-	(wire
-		(pts
-			(xy 58.42 68.58) (xy 63.5 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aa7e496f-f1d3-5952-8ae9-d718fcd080a8")
-	)
-	(label "OUT1_D6"
-		(at 63.5 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3d88baf6-35b2-5d59-848b-7ba3e1fff674")
+		(uuid "81638df9-e2c0-5074-9765-ff1d2a990041")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 71.12 90)
+		(at 81.28 68.58 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3085,9 +2915,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "0945b89b-0f7b-5004-b822-6f6e26542818")
+		(uuid "64b6382e-e666-54b1-92f9-55f0cfbacf41")
 		(property "Reference" "R29"
-			(at 86.36 69.088 90)
+			(at 87.63 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3097,7 +2927,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 69.088 90)
+			(at 91.186 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3107,7 +2937,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 71.12 0)
+			(at 81.28 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3118,7 +2948,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 71.12 0)
+			(at 81.28 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3129,7 +2959,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 71.12 0)
+			(at 81.28 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3140,7 +2970,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 71.12 0)
+			(at 81.28 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3151,7 +2981,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 71.12 0)
+			(at 81.28 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3162,7 +2992,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 71.12 0)
+			(at 81.28 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3173,10 +3003,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "7242924a-fd66-5b0f-b648-58fa178519cb")
+			(uuid "0587c6da-5bef-5510-bd3b-691a702a6090")
 		)
 		(pin "2"
-			(uuid "2b6c7d67-9626-5c1e-9993-d3746ef5e5f8")
+			(uuid "9da3d203-70a7-5dc9-b7d9-77d0e3ea3bc4")
 		)
 		(instances
 			(project "led-processor-board"
@@ -3189,68 +3019,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 71.12) (xy 82.55 71.12)
+			(xy 58.42 68.58) (xy 77.47 68.58)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8e45ae17-8b74-5dbd-934f-2ab6a75e0cd5")
-	)
-	(label "OUT1_D6"
-		(at 82.55 71.12 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "1cd175f7-80ab-53e3-87af-98312e1b77ac")
+		(uuid "6cdb3537-358d-5dd1-af1b-0911aeebcdd2")
 	)
 	(wire
 		(pts
-			(xy 92.71 71.12) (xy 95.25 71.12)
+			(xy 85.09 68.58) (xy 96.52 68.58)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "799810ff-0b5e-5c3a-96ed-f6135cafbcc5")
+		(uuid "32263f59-e3d9-5694-a173-e758a21574a5")
 	)
 	(hierarchical_label "GPIO5"
 		(shape bidirectional)
-		(at 95.25 71.12 0)
+		(at 96.52 68.58 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ea0c144e-b9bf-5647-9fea-c7d412c19dd9")
-	)
-	(wire
-		(pts
-			(xy 58.42 71.12) (xy 63.5 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bbc99c62-72f6-528b-8389-7f442cc0076f")
-	)
-	(label "OUT1_D7"
-		(at 63.5 71.12 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f0352267-6b68-52b5-b06a-2cfc114c0a39")
+		(uuid "7a2bd449-c8fc-5c71-b4c4-1f2db06524bc")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 76.2 90)
+		(at 71.12 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3258,9 +3058,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d86dc948-f048-5c1a-94b6-c7f4b220c320")
+		(uuid "14cde888-8992-5860-9e73-14fba90e61bf")
 		(property "Reference" "R30"
-			(at 86.36 74.168 90)
+			(at 61.214 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3270,7 +3070,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 74.168 90)
+			(at 64.77 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3280,7 +3080,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 76.2 0)
+			(at 71.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3291,7 +3091,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 76.2 0)
+			(at 71.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3302,7 +3102,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 76.2 0)
+			(at 71.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3313,7 +3113,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 76.2 0)
+			(at 71.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3324,7 +3124,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 76.2 0)
+			(at 71.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3335,7 +3135,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 76.2 0)
+			(at 71.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3346,10 +3146,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "583dea47-f5b1-5e00-983c-d903504d1db0")
+			(uuid "84ee6c02-9207-59d4-99d6-5c89b7fdc770")
 		)
 		(pin "2"
-			(uuid "2fa418fb-34e3-59c5-980e-dbe968c5e680")
+			(uuid "f11b6ac3-2df1-5b95-ac14-d002d752fbe2")
 		)
 		(instances
 			(project "led-processor-board"
@@ -3362,68 +3162,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 76.2) (xy 82.55 76.2)
+			(xy 58.42 71.12) (xy 67.31 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "96479001-a3cf-539f-a184-497734efaaf9")
-	)
-	(label "OUT1_D7"
-		(at 82.55 76.2 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "224c73c9-5d96-57f0-af0a-0359bd4caa7f")
+		(uuid "3646897b-2515-5086-b56f-1f6a3d69ed9f")
 	)
 	(wire
 		(pts
-			(xy 92.71 76.2) (xy 95.25 76.2)
+			(xy 74.93 71.12) (xy 96.52 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5f978393-384d-52b0-9f09-fc455ee8ba26")
+		(uuid "9d413a68-61d0-5c22-a470-ebae52fa9512")
 	)
 	(hierarchical_label "GPIO6"
 		(shape bidirectional)
-		(at 95.25 76.2 0)
+		(at 96.52 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "8c6501e1-3f7b-56e0-9395-f3a3d282d78d")
-	)
-	(wire
-		(pts
-			(xy 58.42 73.66) (xy 63.5 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dd175a5d-15ef-50f5-b88b-d467c4afdf5c")
-	)
-	(label "OUT1_D8"
-		(at 63.5 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ae5648d2-d82f-5795-bec0-f6264804eb64")
+		(uuid "f88afb2c-237e-5b18-8ef1-6a02d2fae50a")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 81.28 90)
+		(at 81.28 73.66 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3431,9 +3201,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "3fc4f02e-b140-5363-bef5-7cdc12316bcd")
+		(uuid "33145a30-d645-571b-9b9e-299f860ee2ea")
 		(property "Reference" "R31"
-			(at 86.36 79.248 90)
+			(at 87.63 72.39 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3443,7 +3213,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 79.248 90)
+			(at 91.186 72.39 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3453,7 +3223,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 81.28 0)
+			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3464,7 +3234,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 81.28 0)
+			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3475,7 +3245,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 81.28 0)
+			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3486,7 +3256,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 81.28 0)
+			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3497,7 +3267,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 81.28 0)
+			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3508,7 +3278,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 81.28 0)
+			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3519,10 +3289,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "1611920d-40b3-53c8-8e92-80bc620f1733")
+			(uuid "4d98498f-98a2-5215-8ecf-46c93b09b48e")
 		)
 		(pin "2"
-			(uuid "70c0311b-4714-5138-8722-dd705df75631")
+			(uuid "724b3d7a-1f04-5d83-a903-af1495275caf")
 		)
 		(instances
 			(project "led-processor-board"
@@ -3535,44 +3305,34 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 81.28) (xy 82.55 81.28)
+			(xy 58.42 73.66) (xy 77.47 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "238a2259-66ff-5de8-bb58-1b8a9bc7154f")
-	)
-	(label "OUT1_D8"
-		(at 82.55 81.28 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "1c06fca9-a60c-5d13-b7e2-2bff3286efca")
+		(uuid "aa7e496f-f1d3-5952-8ae9-d718fcd080a8")
 	)
 	(wire
 		(pts
-			(xy 92.71 81.28) (xy 95.25 81.28)
+			(xy 85.09 73.66) (xy 96.52 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ffbd8026-9c4f-52c7-95fc-e9f6b8199fa9")
+		(uuid "3d88baf6-35b2-5d59-848b-7ba3e1fff674")
 	)
 	(hierarchical_label "GPIO7"
 		(shape bidirectional)
-		(at 95.25 81.28 0)
+		(at 96.52 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "513d8c3f-8f00-551f-9042-d21d74fe4a6a")
+		(uuid "0945b89b-0f7b-5004-b822-6f6e26542818")
 	)
 	(text "OUT2: GPIO8-15"
 		(exclude_from_sim no)
@@ -3583,7 +3343,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c2b14639-cd6c-5cec-943b-2f4e166b8433")
+		(uuid "7242924a-fd66-5b0f-b648-58fa178519cb")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x08_Odd_Even")
@@ -3595,7 +3355,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "db12072a-597d-5c2c-bad4-1eac4c34e03c")
+		(uuid "2b6c7d67-9626-5c1e-9993-d3746ef5e5f8")
 		(property "Reference" "J6"
 			(at 240.03 52.07 0)
 			(show_name no)
@@ -3674,52 +3434,52 @@
 			)
 		)
 		(pin "1"
-			(uuid "cc12c675-58d4-5cec-90f0-3d4bf4564383")
+			(uuid "8e45ae17-8b74-5dbd-934f-2ab6a75e0cd5")
 		)
 		(pin "2"
-			(uuid "1fc72ee8-7ae6-5df0-a10f-1987cc487fd7")
+			(uuid "1cd175f7-80ab-53e3-87af-98312e1b77ac")
 		)
 		(pin "3"
-			(uuid "19bca299-a59d-5803-8132-94edd6b4a14a")
+			(uuid "799810ff-0b5e-5c3a-96ed-f6135cafbcc5")
 		)
 		(pin "4"
-			(uuid "63254db5-ec24-51fa-b213-f9475e5d3e78")
+			(uuid "ea0c144e-b9bf-5647-9fea-c7d412c19dd9")
 		)
 		(pin "5"
-			(uuid "262e3d9e-af7f-53eb-a313-792a95fba563")
+			(uuid "bbc99c62-72f6-528b-8389-7f442cc0076f")
 		)
 		(pin "6"
-			(uuid "5a1b90ef-6b22-5037-a106-8db76ab4728e")
+			(uuid "f0352267-6b68-52b5-b06a-2cfc114c0a39")
 		)
 		(pin "7"
-			(uuid "74aef9b6-e819-5f44-bc24-ea322a943172")
+			(uuid "d86dc948-f048-5c1a-94b6-c7f4b220c320")
 		)
 		(pin "8"
-			(uuid "b750ddee-acbe-5574-9ef9-8087545d8af2")
+			(uuid "583dea47-f5b1-5e00-983c-d903504d1db0")
 		)
 		(pin "9"
-			(uuid "93d02214-87f2-55d2-a3f6-215c03204311")
+			(uuid "2fa418fb-34e3-59c5-980e-dbe968c5e680")
 		)
 		(pin "10"
-			(uuid "1828c513-4d13-5fda-a7fa-e73a86ecba42")
+			(uuid "96479001-a3cf-539f-a184-497734efaaf9")
 		)
 		(pin "11"
-			(uuid "82785360-6645-5237-88e0-645c8ae123be")
+			(uuid "224c73c9-5d96-57f0-af0a-0359bd4caa7f")
 		)
 		(pin "12"
-			(uuid "79deffcc-731f-551d-a44a-45269ac95851")
+			(uuid "5f978393-384d-52b0-9f09-fc455ee8ba26")
 		)
 		(pin "13"
-			(uuid "02f8c06a-4b57-54e0-ac1c-782b56ba687f")
+			(uuid "8c6501e1-3f7b-56e0-9395-f3a3d282d78d")
 		)
 		(pin "14"
-			(uuid "c7b37272-6bcc-5de7-aa15-44cb4a65d485")
+			(uuid "dd175a5d-15ef-50f5-b88b-d467c4afdf5c")
 		)
 		(pin "15"
-			(uuid "e23e8385-6667-591d-8471-37dcd9929d7e")
+			(uuid "ae5648d2-d82f-5795-bec0-f6264804eb64")
 		)
 		(pin "16"
-			(uuid "729f1388-c894-5957-91ac-8012b9b64974")
+			(uuid "3fc4f02e-b140-5363-bef5-7cdc12316bcd")
 		)
 		(instances
 			(project "led-processor-board"
@@ -3738,7 +3498,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9bedcbd2-9974-5235-9674-ebbc6c64cbab")
+		(uuid "1611920d-40b3-53c8-8e92-80bc620f1733")
 	)
 	(wire
 		(pts
@@ -3748,7 +3508,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "92edb254-731f-585e-8140-058b1c808c42")
+		(uuid "70c0311b-4714-5138-8722-dd705df75631")
 	)
 	(wire
 		(pts
@@ -3758,7 +3518,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f532a798-cc71-531b-8f29-0b3430f8e891")
+		(uuid "238a2259-66ff-5de8-bb58-1b8a9bc7154f")
 	)
 	(wire
 		(pts
@@ -3768,7 +3528,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e7fbea73-7a7a-5e2f-9b6c-7029b8060a19")
+		(uuid "1c06fca9-a60c-5d13-b7e2-2bff3286efca")
 	)
 	(wire
 		(pts
@@ -3778,7 +3538,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0c54c659-a22a-5128-bd25-d779347ce225")
+		(uuid "ffbd8026-9c4f-52c7-95fc-e9f6b8199fa9")
 	)
 	(wire
 		(pts
@@ -3788,7 +3548,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2aaaa05e-1266-5860-a8af-8c66c730baf9")
+		(uuid "513d8c3f-8f00-551f-9042-d21d74fe4a6a")
 	)
 	(wire
 		(pts
@@ -3798,31 +3558,31 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b792d23-3845-53c0-986c-86de1f99d7d9")
+		(uuid "c2b14639-cd6c-5cec-943b-2f4e166b8433")
 	)
 	(junction
 		(at 233.68 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e83dcf28-a9aa-5c9f-9952-2b198a753b2a")
+		(uuid "db12072a-597d-5c2c-bad4-1eac4c34e03c")
 	)
 	(junction
 		(at 233.68 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7dba5777-94c9-5e12-9190-54732df03640")
+		(uuid "cc12c675-58d4-5cec-90f0-3d4bf4564383")
 	)
 	(junction
 		(at 233.68 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a5f378fc-0a90-5f5e-b076-4a273296e57e")
+		(uuid "1fc72ee8-7ae6-5df0-a10f-1987cc487fd7")
 	)
 	(junction
 		(at 233.68 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "50da3ba4-0963-5d8e-9cd9-d8de05d3ef57")
+		(uuid "19bca299-a59d-5803-8132-94edd6b4a14a")
 	)
 	(wire
 		(pts
@@ -3832,13 +3592,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ef73d758-3838-5213-880d-30822d5368f6")
+		(uuid "63254db5-ec24-51fa-b213-f9475e5d3e78")
 	)
 	(junction
 		(at 233.68 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "68fb60b2-e7bd-5e7c-bf66-928103ced7fa")
+		(uuid "262e3d9e-af7f-53eb-a313-792a95fba563")
 	)
 	(symbol
 		(lib_id "RPI - Power:GND")
@@ -3850,7 +3610,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "08f2f1a2-4d5c-593e-8b39-ef04a6f9cc2f")
+		(uuid "5a1b90ef-6b22-5037-a106-8db76ab4728e")
 		(property "Reference" "#PWR136"
 			(at 228.6 54.61 0)
 			(hide yes)
@@ -3906,7 +3666,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "2729e470-eb27-50a7-9f2e-d2314b67a04e")
+			(uuid "74aef9b6-e819-5f44-bc24-ea322a943172")
 		)
 		(instances
 			(project "led-processor-board"
@@ -3925,7 +3685,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4026c5ed-2156-5b44-9f24-43c72f19797a")
+		(uuid "b750ddee-acbe-5574-9ef9-8087545d8af2")
 	)
 	(symbol
 		(lib_id "RPI - Power:PWR_NET")
@@ -3937,7 +3697,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "d3e99694-6c93-5a35-b1e6-6aa81efad45d")
+		(uuid "93d02214-87f2-55d2-a3f6-215c03204311")
 		(property "Reference" "#PWR137"
 			(at 231.14 69.85 0)
 			(hide yes)
@@ -3993,7 +3753,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "d094207d-2623-5fb9-b185-424d18dc979a")
+			(uuid "1828c513-4d13-5fda-a7fa-e73a86ecba42")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4012,7 +3772,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f4e5ea18-c7a6-5ac6-8852-0bc31f34b5c6")
+		(uuid "82785360-6645-5237-88e0-645c8ae123be")
 	)
 	(symbol
 		(lib_id "RPI - Power:PWR_NET")
@@ -4024,7 +3784,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "7e2886fa-c164-57f5-aec0-f8f60bb8bb31")
+		(uuid "79deffcc-731f-551d-a44a-45269ac95851")
 		(property "Reference" "#PWR138"
 			(at 226.06 72.39 0)
 			(hide yes)
@@ -4080,7 +3840,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "42010955-a3a2-5009-8dce-26e7bb9224de")
+			(uuid "02f8c06a-4b57-54e0-ac1c-782b56ba687f")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4101,7 +3861,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "93995ca4-6bba-5991-b8b3-6143be9eec34")
+		(uuid "c7b37272-6bcc-5de7-aa15-44cb4a65d485")
 		(property "Reference" "C38"
 			(at 222.25 87.63 0)
 			(show_name no)
@@ -4191,10 +3951,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "98036094-f7a2-5e26-b497-456170d59fd7")
+			(uuid "e23e8385-6667-591d-8471-37dcd9929d7e")
 		)
 		(pin "2"
-			(uuid "857cf7ae-05ea-58c9-afc9-759e63b2a8d3")
+			(uuid "729f1388-c894-5957-91ac-8012b9b64974")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4215,7 +3975,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "5c426bf1-2603-5a13-ac0f-7c444e7520d2")
+		(uuid "9bedcbd2-9974-5235-9674-ebbc6c64cbab")
 		(property "Reference" "#PWR139"
 			(at 223.52 83.82 0)
 			(hide yes)
@@ -4271,7 +4031,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "3ffe7473-2a93-5ce8-b003-dddf648354fb")
+			(uuid "92edb254-731f-585e-8140-058b1c808c42")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4292,7 +4052,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "8f4d766e-6a57-5545-97f0-388cba5cf105")
+		(uuid "f532a798-cc71-531b-8f29-0b3430f8e891")
 		(property "Reference" "#PWR140"
 			(at 223.52 91.44 0)
 			(hide yes)
@@ -4348,7 +4108,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "b71db7df-25af-5032-a100-f7a15a547654")
+			(uuid "e7fbea73-7a7a-5e2f-9b6c-7029b8060a19")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4369,7 +4129,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5795cbe6-0e2f-586d-bb5b-4fc067864488")
+		(uuid "0c54c659-a22a-5128-bd25-d779347ce225")
 		(property "Reference" "C39"
 			(at 232.41 87.63 0)
 			(show_name no)
@@ -4459,10 +4219,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4c27de25-9c66-5754-9e8c-bd0f522e9d92")
+			(uuid "2aaaa05e-1266-5860-a8af-8c66c730baf9")
 		)
 		(pin "2"
-			(uuid "8ee88d05-cf9b-507c-9136-29a2ab94afd5")
+			(uuid "8b792d23-3845-53c0-986c-86de1f99d7d9")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4483,7 +4243,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "c303e7b9-201c-5e14-82d6-507343d25dd1")
+		(uuid "e83dcf28-a9aa-5c9f-9952-2b198a753b2a")
 		(property "Reference" "#PWR141"
 			(at 233.68 83.82 0)
 			(hide yes)
@@ -4539,7 +4299,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "648afcf3-04bf-5e44-9222-9b53d10f2915")
+			(uuid "7dba5777-94c9-5e12-9190-54732df03640")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4560,7 +4320,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "e856385c-e676-577c-acf7-167a87c6a4b0")
+		(uuid "a5f378fc-0a90-5f5e-b076-4a273296e57e")
 		(property "Reference" "#PWR142"
 			(at 233.68 91.44 0)
 			(hide yes)
@@ -4616,7 +4376,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "6d02fb50-b697-5ee9-a221-d5b51c76e14e")
+			(uuid "50da3ba4-0963-5d8e-9cd9-d8de05d3ef57")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4627,29 +4387,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 248.92 55.88) (xy 254 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5c90d08-b730-5471-990a-f2461bb3a0e0")
-	)
-	(label "OUT2_D1"
-		(at 254 55.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f16ac771-aa3e-5fd9-a77a-692ac3426747")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 45.72 90)
+		(at 261.62 55.88 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4657,9 +4397,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "24bf96ce-7c5b-54b0-b2a1-c79d74e2ca7c")
+		(uuid "ef73d758-3838-5213-880d-30822d5368f6")
 		(property "Reference" "R32"
-			(at 276.86 43.688 90)
+			(at 251.714 54.61 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4669,7 +4409,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 43.688 90)
+			(at 255.27 54.61 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4679,7 +4419,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 45.72 0)
+			(at 261.62 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4690,7 +4430,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 45.72 0)
+			(at 261.62 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4701,7 +4441,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 45.72 0)
+			(at 261.62 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4712,7 +4452,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 45.72 0)
+			(at 261.62 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4723,7 +4463,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 45.72 0)
+			(at 261.62 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4734,7 +4474,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 45.72 0)
+			(at 261.62 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4745,10 +4485,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4e6e9c79-5d83-5a4e-8d6c-dfbf37359974")
+			(uuid "68fb60b2-e7bd-5e7c-bf66-928103ced7fa")
 		)
 		(pin "2"
-			(uuid "e5f1e016-634f-5241-8919-d4936c00177f")
+			(uuid "08f2f1a2-4d5c-593e-8b39-ef04a6f9cc2f")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4761,68 +4501,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 45.72) (xy 273.05 45.72)
+			(xy 248.92 55.88) (xy 257.81 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "67656a00-f594-5d19-851a-5e8354661f7f")
-	)
-	(label "OUT2_D1"
-		(at 273.05 45.72 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "796c7093-eed3-5c6f-9251-ea0b33b06160")
+		(uuid "2729e470-eb27-50a7-9f2e-d2314b67a04e")
 	)
 	(wire
 		(pts
-			(xy 283.21 45.72) (xy 285.75 45.72)
+			(xy 265.43 55.88) (xy 287.02 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1702a6c8-0b14-5999-85b8-dfe5297c69f6")
+		(uuid "4026c5ed-2156-5b44-9f24-43c72f19797a")
 	)
 	(hierarchical_label "GPIO8"
 		(shape bidirectional)
-		(at 285.75 45.72 0)
+		(at 287.02 55.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "148619a2-9403-5870-831f-eec4aeec8d41")
-	)
-	(wire
-		(pts
-			(xy 248.92 58.42) (xy 254 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3dd6cbf7-4b66-5467-b09f-e3b0dd705476")
-	)
-	(label "OUT2_D2"
-		(at 254 58.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a2709ee1-6067-54da-80df-d3fb482c61ce")
+		(uuid "d3e99694-6c93-5a35-b1e6-6aa81efad45d")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 50.8 90)
+		(at 271.78 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4830,9 +4540,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "3c641ccf-5da6-5408-94d7-4042366cbe3d")
+		(uuid "d094207d-2623-5fb9-b185-424d18dc979a")
 		(property "Reference" "R33"
-			(at 276.86 48.768 90)
+			(at 278.13 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4842,7 +4552,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 48.768 90)
+			(at 281.686 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4852,7 +4562,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 50.8 0)
+			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4863,7 +4573,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 50.8 0)
+			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4874,7 +4584,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 50.8 0)
+			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4885,7 +4595,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 50.8 0)
+			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4896,7 +4606,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 50.8 0)
+			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4907,7 +4617,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 50.8 0)
+			(at 271.78 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4918,10 +4628,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "f868ac0a-23fa-55a7-b653-478b4d669f72")
+			(uuid "f4e5ea18-c7a6-5ac6-8852-0bc31f34b5c6")
 		)
 		(pin "2"
-			(uuid "8ea1b648-a778-50b4-beb0-4ed9d462e6ca")
+			(uuid "7e2886fa-c164-57f5-aec0-f8f60bb8bb31")
 		)
 		(instances
 			(project "led-processor-board"
@@ -4934,68 +4644,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 50.8) (xy 273.05 50.8)
+			(xy 248.92 58.42) (xy 267.97 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "74477996-f572-5e2c-a63c-2a2b363c1004")
-	)
-	(label "OUT2_D2"
-		(at 273.05 50.8 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "25082dfe-8251-5885-a02b-3a43a60f6bf4")
+		(uuid "42010955-a3a2-5009-8dce-26e7bb9224de")
 	)
 	(wire
 		(pts
-			(xy 283.21 50.8) (xy 285.75 50.8)
+			(xy 275.59 58.42) (xy 287.02 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8dd4e1c5-9196-50b5-b5fc-26edec3a6ce4")
+		(uuid "93995ca4-6bba-5991-b8b3-6143be9eec34")
 	)
 	(hierarchical_label "GPIO9"
 		(shape bidirectional)
-		(at 285.75 50.8 0)
+		(at 287.02 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "a209b2d8-9762-535a-890e-7e1d3347cb99")
-	)
-	(wire
-		(pts
-			(xy 248.92 60.96) (xy 254 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6332730b-3a2b-5ccd-80f4-edcc73f51fc2")
-	)
-	(label "OUT2_D3"
-		(at 254 60.96 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a11791e9-e2e8-58c3-94ac-ee94d64dd9b0")
+		(uuid "98036094-f7a2-5e26-b497-456170d59fd7")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 55.88 90)
+		(at 261.62 60.96 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5003,9 +4683,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8b0ac601-c0a3-5e4c-87c4-52a20ceb13a2")
+		(uuid "857cf7ae-05ea-58c9-afc9-759e63b2a8d3")
 		(property "Reference" "R34"
-			(at 276.86 53.848 90)
+			(at 251.714 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5015,7 +4695,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 53.848 90)
+			(at 255.27 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5025,7 +4705,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 55.88 0)
+			(at 261.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5036,7 +4716,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 55.88 0)
+			(at 261.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5047,7 +4727,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 55.88 0)
+			(at 261.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5058,7 +4738,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 55.88 0)
+			(at 261.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5069,7 +4749,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 55.88 0)
+			(at 261.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5080,7 +4760,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 55.88 0)
+			(at 261.62 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5091,10 +4771,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "cc466c26-aaa5-5fd2-a09f-b04480062c00")
+			(uuid "5c426bf1-2603-5a13-ac0f-7c444e7520d2")
 		)
 		(pin "2"
-			(uuid "1f11ecce-32ec-55b6-877e-796eb5f7e212")
+			(uuid "3ffe7473-2a93-5ce8-b003-dddf648354fb")
 		)
 		(instances
 			(project "led-processor-board"
@@ -5107,68 +4787,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 55.88) (xy 273.05 55.88)
+			(xy 248.92 60.96) (xy 257.81 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f2f69549-d5a1-54c9-94f3-d8cb585e6c05")
-	)
-	(label "OUT2_D3"
-		(at 273.05 55.88 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "4c5bf902-6633-567c-958c-af585f000f48")
+		(uuid "8f4d766e-6a57-5545-97f0-388cba5cf105")
 	)
 	(wire
 		(pts
-			(xy 283.21 55.88) (xy 285.75 55.88)
+			(xy 265.43 60.96) (xy 287.02 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "77cdb3b8-df4b-5ec1-bbfd-83b2dc73c6a7")
+		(uuid "b71db7df-25af-5032-a100-f7a15a547654")
 	)
 	(hierarchical_label "GPIO10"
 		(shape bidirectional)
-		(at 285.75 55.88 0)
+		(at 287.02 60.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "84eb77ee-9ec1-51a6-8fa7-c7838ec3f949")
-	)
-	(wire
-		(pts
-			(xy 248.92 63.5) (xy 254 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6937ac4b-003e-59a8-9b67-e1389a712d0e")
-	)
-	(label "OUT2_D4"
-		(at 254 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "19e23473-9a45-58b5-8829-b93af4245dce")
+		(uuid "5795cbe6-0e2f-586d-bb5b-4fc067864488")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 60.96 90)
+		(at 271.78 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5176,9 +4826,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2cde234c-ee0b-52b6-b9d1-bf283c70a2e2")
+		(uuid "4c27de25-9c66-5754-9e8c-bd0f522e9d92")
 		(property "Reference" "R35"
-			(at 276.86 58.928 90)
+			(at 278.13 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5188,7 +4838,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 58.928 90)
+			(at 281.686 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5198,7 +4848,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 60.96 0)
+			(at 271.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5209,7 +4859,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 60.96 0)
+			(at 271.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5220,7 +4870,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 60.96 0)
+			(at 271.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5231,7 +4881,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 60.96 0)
+			(at 271.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5242,7 +4892,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 60.96 0)
+			(at 271.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5253,7 +4903,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 60.96 0)
+			(at 271.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5264,10 +4914,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "ca3ac9f7-f040-56f3-bc4b-a65bda4ff550")
+			(uuid "8ee88d05-cf9b-507c-9136-29a2ab94afd5")
 		)
 		(pin "2"
-			(uuid "2782ee5f-e131-5977-82ed-e025a6711f0e")
+			(uuid "c303e7b9-201c-5e14-82d6-507343d25dd1")
 		)
 		(instances
 			(project "led-processor-board"
@@ -5280,68 +4930,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 60.96) (xy 273.05 60.96)
+			(xy 248.92 63.5) (xy 267.97 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "905aad85-e51b-51b0-8390-5c22f28ef497")
-	)
-	(label "OUT2_D4"
-		(at 273.05 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "eb8ae76e-cea9-578e-b9aa-4b0aec33ca65")
+		(uuid "648afcf3-04bf-5e44-9222-9b53d10f2915")
 	)
 	(wire
 		(pts
-			(xy 283.21 60.96) (xy 285.75 60.96)
+			(xy 275.59 63.5) (xy 287.02 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f116fb19-2f70-5529-9f82-40602a53f33e")
+		(uuid "e856385c-e676-577c-acf7-167a87c6a4b0")
 	)
 	(hierarchical_label "GPIO11"
 		(shape bidirectional)
-		(at 285.75 60.96 0)
+		(at 287.02 63.5 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "1c2f285e-c4be-5037-b207-948a134e5b77")
-	)
-	(wire
-		(pts
-			(xy 248.92 66.04) (xy 254 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a799e773-2975-5e5d-b644-897b036b2cf0")
-	)
-	(label "OUT2_D5"
-		(at 254 66.04 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "abdf2bb2-8418-55bd-b86e-d8ddb97cee62")
+		(uuid "6d02fb50-b697-5ee9-a221-d5b51c76e14e")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 66.04 90)
+		(at 261.62 66.04 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5349,9 +4969,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a80eff3a-a622-56ea-9306-90ea8c1b241c")
+		(uuid "f5c90d08-b730-5471-990a-f2461bb3a0e0")
 		(property "Reference" "R36"
-			(at 276.86 64.008 90)
+			(at 251.714 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5361,7 +4981,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 64.008 90)
+			(at 255.27 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5371,7 +4991,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 66.04 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5382,7 +5002,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 66.04 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5393,7 +5013,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 66.04 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5404,7 +5024,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 66.04 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5415,7 +5035,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 66.04 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5426,7 +5046,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 66.04 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5437,10 +5057,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4e3544df-a3f4-5c50-81c3-2e9386e1f9b7")
+			(uuid "f16ac771-aa3e-5fd9-a77a-692ac3426747")
 		)
 		(pin "2"
-			(uuid "526f22c3-3764-5f25-8942-f8c38ac57386")
+			(uuid "24bf96ce-7c5b-54b0-b2a1-c79d74e2ca7c")
 		)
 		(instances
 			(project "led-processor-board"
@@ -5453,68 +5073,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 66.04) (xy 273.05 66.04)
+			(xy 248.92 66.04) (xy 257.81 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "36a8b21b-05ba-54d9-b056-2076a402c5ac")
-	)
-	(label "OUT2_D5"
-		(at 273.05 66.04 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "34a86f19-4fa9-5f73-965f-eb890f64a5ec")
+		(uuid "4e6e9c79-5d83-5a4e-8d6c-dfbf37359974")
 	)
 	(wire
 		(pts
-			(xy 283.21 66.04) (xy 285.75 66.04)
+			(xy 265.43 66.04) (xy 287.02 66.04)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "03ffa824-7cf4-597e-880d-dc783a2239db")
+		(uuid "e5f1e016-634f-5241-8919-d4936c00177f")
 	)
 	(hierarchical_label "GPIO12"
 		(shape bidirectional)
-		(at 285.75 66.04 0)
+		(at 287.02 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ca5d4ac4-1d8c-5080-8c51-533ae0bfb934")
-	)
-	(wire
-		(pts
-			(xy 248.92 68.58) (xy 254 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9bd34e63-8063-5b07-9184-ae2ec16c8858")
-	)
-	(label "OUT2_D6"
-		(at 254 68.58 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f700ee7d-cd00-5861-a83f-4134858f25a6")
+		(uuid "67656a00-f594-5d19-851a-5e8354661f7f")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 71.12 90)
+		(at 271.78 68.58 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5522,9 +5112,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a9a95150-4e1a-546f-a8f6-278a5ca9e7a4")
+		(uuid "796c7093-eed3-5c6f-9251-ea0b33b06160")
 		(property "Reference" "R37"
-			(at 276.86 69.088 90)
+			(at 278.13 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5534,7 +5124,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 69.088 90)
+			(at 281.686 67.31 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5544,7 +5134,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 71.12 0)
+			(at 271.78 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5555,7 +5145,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 71.12 0)
+			(at 271.78 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5566,7 +5156,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 71.12 0)
+			(at 271.78 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5577,7 +5167,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 71.12 0)
+			(at 271.78 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5588,7 +5178,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 71.12 0)
+			(at 271.78 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5599,7 +5189,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 71.12 0)
+			(at 271.78 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5610,10 +5200,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "0907fd25-06ed-5e66-a0bc-6b2aaff1cd54")
+			(uuid "1702a6c8-0b14-5999-85b8-dfe5297c69f6")
 		)
 		(pin "2"
-			(uuid "f5c9f4e7-cac6-5d01-950d-f460790649e4")
+			(uuid "148619a2-9403-5870-831f-eec4aeec8d41")
 		)
 		(instances
 			(project "led-processor-board"
@@ -5626,68 +5216,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 71.12) (xy 273.05 71.12)
+			(xy 248.92 68.58) (xy 267.97 68.58)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1756f540-a0ae-52fe-b4d7-a911e39651bb")
-	)
-	(label "OUT2_D6"
-		(at 273.05 71.12 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8de083bd-c0f1-5bbe-97e0-6817a8bfb306")
+		(uuid "3dd6cbf7-4b66-5467-b09f-e3b0dd705476")
 	)
 	(wire
 		(pts
-			(xy 283.21 71.12) (xy 285.75 71.12)
+			(xy 275.59 68.58) (xy 287.02 68.58)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "30b65a92-66c8-5f01-8226-984e132fbcaa")
+		(uuid "a2709ee1-6067-54da-80df-d3fb482c61ce")
 	)
 	(hierarchical_label "GPIO13"
 		(shape bidirectional)
-		(at 285.75 71.12 0)
+		(at 287.02 68.58 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "244bc8d4-2e06-5573-ba42-3a057836073d")
-	)
-	(wire
-		(pts
-			(xy 248.92 71.12) (xy 254 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "394ee20b-f95e-5820-850f-bfed268385a6")
-	)
-	(label "OUT2_D7"
-		(at 254 71.12 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a7e0da0a-8352-5a45-96bc-f6f22bd54a78")
+		(uuid "3c641ccf-5da6-5408-94d7-4042366cbe3d")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 76.2 90)
+		(at 261.62 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5695,9 +5255,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "41ebecf3-d67f-5973-ada0-8186e3712d9c")
+		(uuid "f868ac0a-23fa-55a7-b653-478b4d669f72")
 		(property "Reference" "R38"
-			(at 276.86 74.168 90)
+			(at 251.714 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5707,7 +5267,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 74.168 90)
+			(at 255.27 69.85 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5717,7 +5277,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 76.2 0)
+			(at 261.62 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5728,7 +5288,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 76.2 0)
+			(at 261.62 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5739,7 +5299,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 76.2 0)
+			(at 261.62 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5750,7 +5310,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 76.2 0)
+			(at 261.62 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5761,7 +5321,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 76.2 0)
+			(at 261.62 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5772,7 +5332,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 76.2 0)
+			(at 261.62 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5783,10 +5343,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "95ed5aea-5d00-5aea-9d37-4777f3f5a6aa")
+			(uuid "8ea1b648-a778-50b4-beb0-4ed9d462e6ca")
 		)
 		(pin "2"
-			(uuid "d630720c-6cab-5254-bed8-68990e66797c")
+			(uuid "74477996-f572-5e2c-a63c-2a2b363c1004")
 		)
 		(instances
 			(project "led-processor-board"
@@ -5799,68 +5359,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 76.2) (xy 273.05 76.2)
+			(xy 248.92 71.12) (xy 257.81 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e2be07f0-c0cb-5572-86e3-dc54606dd8a9")
-	)
-	(label "OUT2_D7"
-		(at 273.05 76.2 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5874e4c1-7f5e-5916-8dfe-0c65d1b244c6")
+		(uuid "25082dfe-8251-5885-a02b-3a43a60f6bf4")
 	)
 	(wire
 		(pts
-			(xy 283.21 76.2) (xy 285.75 76.2)
+			(xy 265.43 71.12) (xy 287.02 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2edb6412-6a0f-59fd-907d-800131a1b3dd")
+		(uuid "8dd4e1c5-9196-50b5-b5fc-26edec3a6ce4")
 	)
 	(hierarchical_label "GPIO14"
 		(shape bidirectional)
-		(at 285.75 76.2 0)
+		(at 287.02 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "784ec11d-8fb6-5fb4-ad3d-1d5584024337")
-	)
-	(wire
-		(pts
-			(xy 248.92 73.66) (xy 254 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c77658c-7e21-5e92-af87-293978660d1a")
-	)
-	(label "OUT2_D8"
-		(at 254 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "139a4b32-c585-5e29-8b1f-10a33ba2b674")
+		(uuid "a209b2d8-9762-535a-890e-7e1d3347cb99")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 81.28 90)
+		(at 271.78 73.66 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5868,9 +5398,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "34979ec3-b427-59cd-a9f6-395d9f666aff")
+		(uuid "6332730b-3a2b-5ccd-80f4-edcc73f51fc2")
 		(property "Reference" "R39"
-			(at 276.86 79.248 90)
+			(at 278.13 72.39 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5880,7 +5410,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 79.248 90)
+			(at 281.686 72.39 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5890,7 +5420,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 81.28 0)
+			(at 271.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5901,7 +5431,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 81.28 0)
+			(at 271.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5912,7 +5442,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 81.28 0)
+			(at 271.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5923,7 +5453,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 81.28 0)
+			(at 271.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5934,7 +5464,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 81.28 0)
+			(at 271.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5945,7 +5475,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 81.28 0)
+			(at 271.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5956,10 +5486,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4f27b513-0fe6-5636-9640-0e5140339d06")
+			(uuid "a11791e9-e2e8-58c3-94ac-ee94d64dd9b0")
 		)
 		(pin "2"
-			(uuid "543fac65-8b5e-5b30-a6e2-d880f30ea82c")
+			(uuid "8b0ac601-c0a3-5e4c-87c4-52a20ceb13a2")
 		)
 		(instances
 			(project "led-processor-board"
@@ -5972,44 +5502,34 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 81.28) (xy 273.05 81.28)
+			(xy 248.92 73.66) (xy 267.97 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c5c05982-634c-568c-8e5d-d57478beb0af")
-	)
-	(label "OUT2_D8"
-		(at 273.05 81.28 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "16b0d6a9-61b4-5040-a7be-379db9c0e2fc")
+		(uuid "cc466c26-aaa5-5fd2-a09f-b04480062c00")
 	)
 	(wire
 		(pts
-			(xy 283.21 81.28) (xy 285.75 81.28)
+			(xy 275.59 73.66) (xy 287.02 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a993e887-39b8-56ff-a869-577b4d5b7e47")
+		(uuid "1f11ecce-32ec-55b6-877e-796eb5f7e212")
 	)
 	(hierarchical_label "GPIO15"
 		(shape bidirectional)
-		(at 285.75 81.28 0)
+		(at 287.02 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "3171854e-12a1-594e-8a91-8856970f2ef1")
+		(uuid "f2f69549-d5a1-54c9-94f3-d8cb585e6c05")
 	)
 	(text "OUT3: GPIO16-23"
 		(exclude_from_sim no)
@@ -6020,7 +5540,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "879adb61-1129-546d-8ecf-3802cb1decd0")
+		(uuid "4c5bf902-6633-567c-958c-af585f000f48")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x08_Odd_Even")
@@ -6032,7 +5552,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "9da2596d-cccc-5434-b8bc-8c5d98627624")
+		(uuid "77cdb3b8-df4b-5ec1-bbfd-83b2dc73c6a7")
 		(property "Reference" "J7"
 			(at 49.53 165.1 0)
 			(show_name no)
@@ -6111,52 +5631,52 @@
 			)
 		)
 		(pin "1"
-			(uuid "a54d4a2e-98d0-5bc4-ab72-99e7ffddd9c0")
+			(uuid "84eb77ee-9ec1-51a6-8fa7-c7838ec3f949")
 		)
 		(pin "2"
-			(uuid "c0ad1229-bf64-5ec1-b21f-ae291dbe48d1")
+			(uuid "6937ac4b-003e-59a8-9b67-e1389a712d0e")
 		)
 		(pin "3"
-			(uuid "f33c8432-d438-5472-adc8-883aa103360f")
+			(uuid "19e23473-9a45-58b5-8829-b93af4245dce")
 		)
 		(pin "4"
-			(uuid "e4870bad-ea35-5bc1-bc13-fde210d68655")
+			(uuid "2cde234c-ee0b-52b6-b9d1-bf283c70a2e2")
 		)
 		(pin "5"
-			(uuid "b2a42e4f-0a67-5c40-9edb-f18e6993f9a6")
+			(uuid "ca3ac9f7-f040-56f3-bc4b-a65bda4ff550")
 		)
 		(pin "6"
-			(uuid "78b28f0c-0a37-5178-8d6b-0ae8b6d2d91c")
+			(uuid "2782ee5f-e131-5977-82ed-e025a6711f0e")
 		)
 		(pin "7"
-			(uuid "9e5e154a-cc90-5346-bcff-2a693da6f8e6")
+			(uuid "905aad85-e51b-51b0-8390-5c22f28ef497")
 		)
 		(pin "8"
-			(uuid "37c04bf6-9656-5563-80f9-e34dda7e9eba")
+			(uuid "eb8ae76e-cea9-578e-b9aa-4b0aec33ca65")
 		)
 		(pin "9"
-			(uuid "47efba7f-fe4f-5332-bdab-cea553bfeb44")
+			(uuid "f116fb19-2f70-5529-9f82-40602a53f33e")
 		)
 		(pin "10"
-			(uuid "8dbb3d47-9786-527e-9860-33b0be4b367a")
+			(uuid "1c2f285e-c4be-5037-b207-948a134e5b77")
 		)
 		(pin "11"
-			(uuid "c856effe-13bf-5d02-b877-58f0246f0bc5")
+			(uuid "a799e773-2975-5e5d-b644-897b036b2cf0")
 		)
 		(pin "12"
-			(uuid "078cec8c-adb6-5aa3-b111-f0515c5d8e3a")
+			(uuid "abdf2bb2-8418-55bd-b86e-d8ddb97cee62")
 		)
 		(pin "13"
-			(uuid "ab551606-3586-5b59-9217-8d7e7ff955d4")
+			(uuid "a80eff3a-a622-56ea-9306-90ea8c1b241c")
 		)
 		(pin "14"
-			(uuid "9abf31a8-2c85-52db-83df-eeb29630f4dc")
+			(uuid "4e3544df-a3f4-5c50-81c3-2e9386e1f9b7")
 		)
 		(pin "15"
-			(uuid "073279a6-680d-59aa-8ff3-83aacf4e1930")
+			(uuid "526f22c3-3764-5f25-8942-f8c38ac57386")
 		)
 		(pin "16"
-			(uuid "db747ac6-6d2a-5064-80c9-a1e2d7fa7b39")
+			(uuid "36a8b21b-05ba-54d9-b056-2076a402c5ac")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6175,7 +5695,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dc6e371a-2f99-5d51-a584-62452a536f39")
+		(uuid "34a86f19-4fa9-5f73-965f-eb890f64a5ec")
 	)
 	(wire
 		(pts
@@ -6185,7 +5705,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f0d731dd-8ab9-5cf1-935f-9c90a8e4b1e3")
+		(uuid "03ffa824-7cf4-597e-880d-dc783a2239db")
 	)
 	(wire
 		(pts
@@ -6195,7 +5715,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "966e80d4-697f-54c4-b831-3c5126e336e6")
+		(uuid "ca5d4ac4-1d8c-5080-8c51-533ae0bfb934")
 	)
 	(wire
 		(pts
@@ -6205,7 +5725,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "18ef071c-6a30-5adf-aada-1d19329ee692")
+		(uuid "9bd34e63-8063-5b07-9184-ae2ec16c8858")
 	)
 	(wire
 		(pts
@@ -6215,7 +5735,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e5b8722d-370a-5a96-86ee-66f59c9acf38")
+		(uuid "f700ee7d-cd00-5861-a83f-4134858f25a6")
 	)
 	(wire
 		(pts
@@ -6225,7 +5745,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "98472b95-9320-5fc5-a6a2-27a9d468009d")
+		(uuid "a9a95150-4e1a-546f-a8f6-278a5ca9e7a4")
 	)
 	(wire
 		(pts
@@ -6235,31 +5755,31 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e1c35bd5-c16c-5fa2-862f-03cf8609e17a")
+		(uuid "0907fd25-06ed-5e66-a0bc-6b2aaff1cd54")
 	)
 	(junction
 		(at 43.18 171.45)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "3d286efd-c0e8-536b-919b-0e4afb072277")
+		(uuid "f5c9f4e7-cac6-5d01-950d-f460790649e4")
 	)
 	(junction
 		(at 43.18 173.99)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ad73712d-b1cb-5e25-9153-0fae21224a30")
+		(uuid "1756f540-a0ae-52fe-b4d7-a911e39651bb")
 	)
 	(junction
 		(at 43.18 176.53)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a9e8551f-a150-55c9-befd-69326da1bd60")
+		(uuid "8de083bd-c0f1-5bbe-97e0-6817a8bfb306")
 	)
 	(junction
 		(at 43.18 179.07)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d3e5073a-3c59-5faf-8ba7-8173f312b5f4")
+		(uuid "30b65a92-66c8-5f01-8226-984e132fbcaa")
 	)
 	(wire
 		(pts
@@ -6269,13 +5789,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9a17021c-d850-57c5-bcd5-bfe69c713aa3")
+		(uuid "244bc8d4-2e06-5573-ba42-3a057836073d")
 	)
 	(junction
 		(at 43.18 168.91)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ae400172-5c3d-5bfc-be32-62731807b42e")
+		(uuid "394ee20b-f95e-5820-850f-bfed268385a6")
 	)
 	(symbol
 		(lib_id "RPI - Power:GND")
@@ -6287,7 +5807,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "8446f0ba-a2d3-5c81-8a63-65b6b18024ce")
+		(uuid "a7e0da0a-8352-5a45-96bc-f6f22bd54a78")
 		(property "Reference" "#PWR143"
 			(at 38.1 167.64 0)
 			(hide yes)
@@ -6343,7 +5863,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "0b6e2c29-cb8c-5a91-ad8c-0e22eeb9779f")
+			(uuid "41ebecf3-d67f-5973-ada0-8186e3712d9c")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6362,7 +5882,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "0ea840ee-2e13-5300-9751-2f3ae13cf0e9")
+		(uuid "95ed5aea-5d00-5aea-9d37-4777f3f5a6aa")
 	)
 	(symbol
 		(lib_id "RPI - Power:PWR_NET")
@@ -6374,7 +5894,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "9359a94a-1997-5465-8e4f-98a88d97c5e1")
+		(uuid "d630720c-6cab-5254-bed8-68990e66797c")
 		(property "Reference" "#PWR144"
 			(at 40.64 182.88 0)
 			(hide yes)
@@ -6430,7 +5950,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "5bb6e54c-4ad7-508e-ba3b-bbc27dfd7232")
+			(uuid "e2be07f0-c0cb-5572-86e3-dc54606dd8a9")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6449,7 +5969,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c175473b-43c5-5442-b5a0-1b3c3830d1d7")
+		(uuid "5874e4c1-7f5e-5916-8dfe-0c65d1b244c6")
 	)
 	(symbol
 		(lib_id "RPI - Power:PWR_NET")
@@ -6461,7 +5981,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "cd97dbb2-15d0-52e1-8b84-03a00681b665")
+		(uuid "2edb6412-6a0f-59fd-907d-800131a1b3dd")
 		(property "Reference" "#PWR145"
 			(at 35.56 185.42 0)
 			(hide yes)
@@ -6517,7 +6037,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "2689ce03-8a3b-5145-98e1-759e794bd30c")
+			(uuid "784ec11d-8fb6-5fb4-ad3d-1d5584024337")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6538,7 +6058,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "196126d8-3244-5f55-9162-924ba9c4c907")
+		(uuid "4c77658c-7e21-5e92-af87-293978660d1a")
 		(property "Reference" "C40"
 			(at 31.75 200.66 0)
 			(show_name no)
@@ -6628,10 +6148,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "153a24fa-e5af-5ff1-808b-4e15daec6747")
+			(uuid "139a4b32-c585-5e29-8b1f-10a33ba2b674")
 		)
 		(pin "2"
-			(uuid "715edf6b-fe03-5915-bd5c-67b9953b587f")
+			(uuid "34979ec3-b427-59cd-a9f6-395d9f666aff")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6652,7 +6172,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "b08528c6-d9c5-57ae-851b-89c9df3e5def")
+		(uuid "4f27b513-0fe6-5636-9640-0e5140339d06")
 		(property "Reference" "#PWR146"
 			(at 33.02 196.85 0)
 			(hide yes)
@@ -6708,7 +6228,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "e2abe016-a781-51e6-bd03-cc02df94e582")
+			(uuid "543fac65-8b5e-5b30-a6e2-d880f30ea82c")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6729,7 +6249,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "4b48bb2e-991b-546e-941f-86e26306aa5c")
+		(uuid "c5c05982-634c-568c-8e5d-d57478beb0af")
 		(property "Reference" "#PWR147"
 			(at 33.02 204.47 0)
 			(hide yes)
@@ -6785,7 +6305,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "5e256e97-697e-5bf8-8b77-e9a0c309b4d4")
+			(uuid "16b0d6a9-61b4-5040-a7be-379db9c0e2fc")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6806,7 +6326,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "68694e02-3271-576a-8033-c1b4ae05247a")
+		(uuid "a993e887-39b8-56ff-a869-577b4d5b7e47")
 		(property "Reference" "C41"
 			(at 41.91 200.66 0)
 			(show_name no)
@@ -6896,10 +6416,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "126730c1-d821-5c21-bf83-08c71bdc7417")
+			(uuid "3171854e-12a1-594e-8a91-8856970f2ef1")
 		)
 		(pin "2"
-			(uuid "48111ccb-a395-5f90-bdf4-bbaa1e916e6f")
+			(uuid "879adb61-1129-546d-8ecf-3802cb1decd0")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6920,7 +6440,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "17cecd28-5276-5804-81a1-3ea5fcbc13ff")
+		(uuid "9da2596d-cccc-5434-b8bc-8c5d98627624")
 		(property "Reference" "#PWR148"
 			(at 43.18 196.85 0)
 			(hide yes)
@@ -6976,7 +6496,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "314ea9aa-040c-573b-a125-5d3d689eb458")
+			(uuid "a54d4a2e-98d0-5bc4-ab72-99e7ffddd9c0")
 		)
 		(instances
 			(project "led-processor-board"
@@ -6997,7 +6517,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "2d7119ec-6ffb-56e0-bc4f-69608a2224c3")
+		(uuid "c0ad1229-bf64-5ec1-b21f-ae291dbe48d1")
 		(property "Reference" "#PWR149"
 			(at 43.18 204.47 0)
 			(hide yes)
@@ -7053,7 +6573,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "ee6a52e6-8eff-59dc-8ca4-9c69547de351")
+			(uuid "f33c8432-d438-5472-adc8-883aa103360f")
 		)
 		(instances
 			(project "led-processor-board"
@@ -7064,29 +6584,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 58.42 168.91) (xy 63.5 168.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a4a44ec-6727-548a-9124-9f281db2668a")
-	)
-	(label "OUT3_D1"
-		(at 63.5 168.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "acb4c2a1-bc8c-53ce-bf66-9edf444f5f09")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 158.75 90)
+		(at 71.12 168.91 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7094,9 +6594,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "7b1f7cc5-819d-5d23-aad5-2d3a49db1ae1")
+		(uuid "e4870bad-ea35-5bc1-bc13-fde210d68655")
 		(property "Reference" "R40"
-			(at 86.36 156.718 90)
+			(at 61.214 167.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7106,7 +6606,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 156.718 90)
+			(at 64.77 167.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7116,7 +6616,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 158.75 0)
+			(at 71.12 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7127,7 +6627,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 158.75 0)
+			(at 71.12 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7138,7 +6638,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 158.75 0)
+			(at 71.12 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7149,7 +6649,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 158.75 0)
+			(at 71.12 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7160,7 +6660,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 158.75 0)
+			(at 71.12 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7171,7 +6671,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 158.75 0)
+			(at 71.12 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7182,10 +6682,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "771ca8eb-517d-570a-8fc7-3fb2fdf5bd91")
+			(uuid "b2a42e4f-0a67-5c40-9edb-f18e6993f9a6")
 		)
 		(pin "2"
-			(uuid "a7801ee2-7f5c-5507-a163-78f54c78469b")
+			(uuid "78b28f0c-0a37-5178-8d6b-0ae8b6d2d91c")
 		)
 		(instances
 			(project "led-processor-board"
@@ -7198,68 +6698,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 158.75) (xy 82.55 158.75)
+			(xy 58.42 168.91) (xy 67.31 168.91)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7bd3e737-ca16-5ff4-8c0a-34190b1f97bf")
-	)
-	(label "OUT3_D1"
-		(at 82.55 158.75 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "705f5907-2f4a-5de7-9b43-20ef33202f88")
+		(uuid "9e5e154a-cc90-5346-bcff-2a693da6f8e6")
 	)
 	(wire
 		(pts
-			(xy 92.71 158.75) (xy 95.25 158.75)
+			(xy 74.93 168.91) (xy 96.52 168.91)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d3940d8a-817e-5cc0-bcbf-ce1510c3f538")
+		(uuid "37c04bf6-9656-5563-80f9-e34dda7e9eba")
 	)
 	(hierarchical_label "GPIO16"
 		(shape bidirectional)
-		(at 95.25 158.75 0)
+		(at 96.52 168.91 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "7e36768c-62ff-577f-b895-3f14699dfd0b")
-	)
-	(wire
-		(pts
-			(xy 58.42 171.45) (xy 63.5 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "217d9ee1-45d5-5c2e-a571-15f8255440e9")
-	)
-	(label "OUT3_D2"
-		(at 63.5 171.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a559a06e-c379-5aed-9b8f-e2bce8bb0a31")
+		(uuid "47efba7f-fe4f-5332-bdab-cea553bfeb44")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 163.83 90)
+		(at 81.28 171.45 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7267,9 +6737,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8b2bf1e3-ddc0-5481-8c00-09eb3f7277a6")
+		(uuid "8dbb3d47-9786-527e-9860-33b0be4b367a")
 		(property "Reference" "R41"
-			(at 86.36 161.798 90)
+			(at 87.63 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7279,7 +6749,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 161.798 90)
+			(at 91.186 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7289,7 +6759,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 163.83 0)
+			(at 81.28 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7300,7 +6770,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 163.83 0)
+			(at 81.28 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7311,7 +6781,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 163.83 0)
+			(at 81.28 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7322,7 +6792,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 163.83 0)
+			(at 81.28 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7333,7 +6803,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 163.83 0)
+			(at 81.28 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7344,7 +6814,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 163.83 0)
+			(at 81.28 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7355,10 +6825,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "f1325a5e-e43e-59b5-9cf6-dfab4027a90d")
+			(uuid "c856effe-13bf-5d02-b877-58f0246f0bc5")
 		)
 		(pin "2"
-			(uuid "643212d0-6d68-5f79-af5e-1b25fbbe032b")
+			(uuid "078cec8c-adb6-5aa3-b111-f0515c5d8e3a")
 		)
 		(instances
 			(project "led-processor-board"
@@ -7371,68 +6841,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 163.83) (xy 82.55 163.83)
+			(xy 58.42 171.45) (xy 77.47 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "63bcc34c-bbff-58f3-9cc5-3c56786c25b3")
-	)
-	(label "OUT3_D2"
-		(at 82.55 163.83 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ca9e0352-0807-520a-84e1-1e5fd32fdf40")
+		(uuid "ab551606-3586-5b59-9217-8d7e7ff955d4")
 	)
 	(wire
 		(pts
-			(xy 92.71 163.83) (xy 95.25 163.83)
+			(xy 85.09 171.45) (xy 96.52 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9ab73795-50be-5ff7-b42e-6ff3535add8d")
+		(uuid "9abf31a8-2c85-52db-83df-eeb29630f4dc")
 	)
 	(hierarchical_label "GPIO17"
 		(shape bidirectional)
-		(at 95.25 163.83 0)
+		(at 96.52 171.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "a80cf166-9d9f-5c64-8e1b-13c061d8ab64")
-	)
-	(wire
-		(pts
-			(xy 58.42 173.99) (xy 63.5 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c1577115-dbb1-5d4d-8a1e-24a97d6b9a94")
-	)
-	(label "OUT3_D3"
-		(at 63.5 173.99 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1d722923-2696-5c0a-a47e-057c94fb2ab3")
+		(uuid "073279a6-680d-59aa-8ff3-83aacf4e1930")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 168.91 90)
+		(at 71.12 173.99 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7440,9 +6880,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "eaefd94a-2ad7-51b9-a759-470da1ebd1fe")
+		(uuid "db747ac6-6d2a-5064-80c9-a1e2d7fa7b39")
 		(property "Reference" "R42"
-			(at 86.36 166.878 90)
+			(at 61.214 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7452,7 +6892,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 166.878 90)
+			(at 64.77 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7462,7 +6902,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 168.91 0)
+			(at 71.12 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7473,7 +6913,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 168.91 0)
+			(at 71.12 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7484,7 +6924,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 168.91 0)
+			(at 71.12 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7495,7 +6935,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 168.91 0)
+			(at 71.12 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7506,7 +6946,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 168.91 0)
+			(at 71.12 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7517,7 +6957,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 168.91 0)
+			(at 71.12 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7528,10 +6968,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "516bf9cc-5882-5df5-a18c-7d0ab5511fc3")
+			(uuid "dc6e371a-2f99-5d51-a584-62452a536f39")
 		)
 		(pin "2"
-			(uuid "af4ba01c-528d-5df8-9a99-d6aec00b3f12")
+			(uuid "f0d731dd-8ab9-5cf1-935f-9c90a8e4b1e3")
 		)
 		(instances
 			(project "led-processor-board"
@@ -7544,68 +6984,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 168.91) (xy 82.55 168.91)
+			(xy 58.42 173.99) (xy 67.31 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b9fff54f-bab2-5c94-aca4-c15d6c637e76")
-	)
-	(label "OUT3_D3"
-		(at 82.55 168.91 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8c11a4d8-8096-5910-bdf2-769d6fc4da46")
+		(uuid "966e80d4-697f-54c4-b831-3c5126e336e6")
 	)
 	(wire
 		(pts
-			(xy 92.71 168.91) (xy 95.25 168.91)
+			(xy 74.93 173.99) (xy 96.52 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2bd48f71-c6a5-5d51-9741-18adac968eaf")
+		(uuid "18ef071c-6a30-5adf-aada-1d19329ee692")
 	)
 	(hierarchical_label "GPIO18"
 		(shape bidirectional)
-		(at 95.25 168.91 0)
+		(at 96.52 173.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "9ea6ca1c-5856-55a3-9158-4fe415c2b168")
-	)
-	(wire
-		(pts
-			(xy 58.42 176.53) (xy 63.5 176.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "59fe9e52-3f00-50e8-973d-fb2eaca619a7")
-	)
-	(label "OUT3_D4"
-		(at 63.5 176.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "33891d49-ab6c-52a3-93f5-2b61b34b0bc2")
+		(uuid "e5b8722d-370a-5a96-86ee-66f59c9acf38")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 173.99 90)
+		(at 81.28 176.53 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7613,9 +7023,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5cbcfa1a-2c28-57b0-9416-6ba5f8f1b00c")
+		(uuid "98472b95-9320-5fc5-a6a2-27a9d468009d")
 		(property "Reference" "R43"
-			(at 86.36 171.958 90)
+			(at 87.63 175.26 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7625,7 +7035,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 171.958 90)
+			(at 91.186 175.26 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7635,7 +7045,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 173.99 0)
+			(at 81.28 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7646,7 +7056,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 173.99 0)
+			(at 81.28 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7657,7 +7067,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 173.99 0)
+			(at 81.28 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7668,7 +7078,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 173.99 0)
+			(at 81.28 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7679,7 +7089,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 173.99 0)
+			(at 81.28 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7690,7 +7100,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 173.99 0)
+			(at 81.28 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7701,10 +7111,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "531a88fc-076b-5bcd-b377-ef4e7ae43e88")
+			(uuid "e1c35bd5-c16c-5fa2-862f-03cf8609e17a")
 		)
 		(pin "2"
-			(uuid "2838c822-2ae3-501f-a677-65be592db982")
+			(uuid "3d286efd-c0e8-536b-919b-0e4afb072277")
 		)
 		(instances
 			(project "led-processor-board"
@@ -7717,68 +7127,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 173.99) (xy 82.55 173.99)
+			(xy 58.42 176.53) (xy 77.47 176.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d569a20a-a9af-52fe-9f56-d0775f6df08c")
-	)
-	(label "OUT3_D4"
-		(at 82.55 173.99 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "95576ec2-7614-5786-9323-72f9bebac9ad")
+		(uuid "ad73712d-b1cb-5e25-9153-0fae21224a30")
 	)
 	(wire
 		(pts
-			(xy 92.71 173.99) (xy 95.25 173.99)
+			(xy 85.09 176.53) (xy 96.52 176.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "48155b17-36f6-55dc-81cd-bfb309774c3f")
+		(uuid "a9e8551f-a150-55c9-befd-69326da1bd60")
 	)
 	(hierarchical_label "GPIO19"
 		(shape bidirectional)
-		(at 95.25 173.99 0)
+		(at 96.52 176.53 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "529be7d1-05fd-56e3-9c60-6431eeb0419e")
-	)
-	(wire
-		(pts
-			(xy 58.42 179.07) (xy 63.5 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd5563c0-5b7c-5821-8bb1-8ed3d52e0193")
-	)
-	(label "OUT3_D5"
-		(at 63.5 179.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8530e4c6-38af-5d20-b3a5-c67956ebe5af")
+		(uuid "d3e5073a-3c59-5faf-8ba7-8173f312b5f4")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 179.07 90)
+		(at 71.12 179.07 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7786,9 +7166,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8890cd2a-a414-57cb-b491-8607878d0265")
+		(uuid "9a17021c-d850-57c5-bcd5-bfe69c713aa3")
 		(property "Reference" "R44"
-			(at 86.36 177.038 90)
+			(at 61.214 177.8 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7798,7 +7178,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 177.038 90)
+			(at 64.77 177.8 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7808,7 +7188,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 179.07 0)
+			(at 71.12 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7819,7 +7199,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 179.07 0)
+			(at 71.12 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7830,7 +7210,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 179.07 0)
+			(at 71.12 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7841,7 +7221,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 179.07 0)
+			(at 71.12 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7852,7 +7232,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 179.07 0)
+			(at 71.12 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7863,7 +7243,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 179.07 0)
+			(at 71.12 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7874,10 +7254,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "06cd2b8b-4d12-5458-b2c4-20482e4c309b")
+			(uuid "ae400172-5c3d-5bfc-be32-62731807b42e")
 		)
 		(pin "2"
-			(uuid "64c63e83-fafa-526d-9ffa-1ced58c3198a")
+			(uuid "8446f0ba-a2d3-5c81-8a63-65b6b18024ce")
 		)
 		(instances
 			(project "led-processor-board"
@@ -7890,68 +7270,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 179.07) (xy 82.55 179.07)
+			(xy 58.42 179.07) (xy 67.31 179.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "af782551-f945-58a7-b40d-a0107d7b3593")
-	)
-	(label "OUT3_D5"
-		(at 82.55 179.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "dcfce7d2-3610-512a-b386-de8a1fe83728")
+		(uuid "0b6e2c29-cb8c-5a91-ad8c-0e22eeb9779f")
 	)
 	(wire
 		(pts
-			(xy 92.71 179.07) (xy 95.25 179.07)
+			(xy 74.93 179.07) (xy 96.52 179.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9acf3fcf-c713-50e7-b674-00f75c71a9c3")
+		(uuid "0ea840ee-2e13-5300-9751-2f3ae13cf0e9")
 	)
 	(hierarchical_label "GPIO20"
 		(shape bidirectional)
-		(at 95.25 179.07 0)
+		(at 96.52 179.07 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "7f7f1a76-416c-5957-a488-e4f4409ae1f0")
-	)
-	(wire
-		(pts
-			(xy 58.42 181.61) (xy 63.5 181.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d49ab922-c9b6-512b-97c7-64d83e9c54e7")
-	)
-	(label "OUT3_D6"
-		(at 63.5 181.61 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2bb8d61e-f64a-59ef-ae9b-666a95e4163b")
+		(uuid "9359a94a-1997-5465-8e4f-98a88d97c5e1")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 184.15 90)
+		(at 81.28 181.61 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7959,9 +7309,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "66d1f46b-516f-5c05-a513-be155462790a")
+		(uuid "5bb6e54c-4ad7-508e-ba3b-bbc27dfd7232")
 		(property "Reference" "R45"
-			(at 86.36 182.118 90)
+			(at 87.63 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7971,7 +7321,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 182.118 90)
+			(at 91.186 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7981,7 +7331,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 184.15 0)
+			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7992,7 +7342,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 184.15 0)
+			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8003,7 +7353,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 184.15 0)
+			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8014,7 +7364,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 184.15 0)
+			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8025,7 +7375,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 184.15 0)
+			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8036,7 +7386,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 184.15 0)
+			(at 81.28 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8047,10 +7397,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "0c77b227-e803-5369-a4d3-171724372290")
+			(uuid "c175473b-43c5-5442-b5a0-1b3c3830d1d7")
 		)
 		(pin "2"
-			(uuid "c471e1e3-ead8-5771-b278-7ffb966c7c2c")
+			(uuid "cd97dbb2-15d0-52e1-8b84-03a00681b665")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8063,68 +7413,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 184.15) (xy 82.55 184.15)
+			(xy 58.42 181.61) (xy 77.47 181.61)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "50ee2863-b773-5f42-a8dc-9df9dc6d343d")
-	)
-	(label "OUT3_D6"
-		(at 82.55 184.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "72dc63a2-2817-514b-a6d7-2a054715df01")
+		(uuid "2689ce03-8a3b-5145-98e1-759e794bd30c")
 	)
 	(wire
 		(pts
-			(xy 92.71 184.15) (xy 95.25 184.15)
+			(xy 85.09 181.61) (xy 96.52 181.61)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "20255b7c-094d-5960-8f8f-8bf6d2bd4cee")
+		(uuid "196126d8-3244-5f55-9162-924ba9c4c907")
 	)
 	(hierarchical_label "GPIO21"
 		(shape bidirectional)
-		(at 95.25 184.15 0)
+		(at 96.52 181.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "1f28ad64-2734-5c4c-91b3-bdaf94ad51e0")
-	)
-	(wire
-		(pts
-			(xy 58.42 184.15) (xy 63.5 184.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ce69fcc-0690-5ad7-94ff-48293c05eb39")
-	)
-	(label "OUT3_D7"
-		(at 63.5 184.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5921c3b1-650a-5d26-a1c3-09d78ecbdeec")
+		(uuid "153a24fa-e5af-5ff1-808b-4e15daec6747")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 189.23 90)
+		(at 71.12 184.15 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8132,9 +7452,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a876ddfd-50fd-5cdc-862f-8e91087fcb7a")
+		(uuid "715edf6b-fe03-5915-bd5c-67b9953b587f")
 		(property "Reference" "R46"
-			(at 86.36 187.198 90)
+			(at 61.214 182.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8144,7 +7464,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 187.198 90)
+			(at 64.77 182.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8154,7 +7474,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 189.23 0)
+			(at 71.12 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8165,7 +7485,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 189.23 0)
+			(at 71.12 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8176,7 +7496,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 189.23 0)
+			(at 71.12 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8187,7 +7507,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 189.23 0)
+			(at 71.12 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8198,7 +7518,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 189.23 0)
+			(at 71.12 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8209,7 +7529,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 189.23 0)
+			(at 71.12 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8220,10 +7540,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "93d60c79-1651-5c42-a350-b5ad49189572")
+			(uuid "b08528c6-d9c5-57ae-851b-89c9df3e5def")
 		)
 		(pin "2"
-			(uuid "47deffde-61d1-5003-a87f-ca6dc8a2711e")
+			(uuid "e2abe016-a781-51e6-bd03-cc02df94e582")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8236,68 +7556,38 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 189.23) (xy 82.55 189.23)
+			(xy 58.42 184.15) (xy 67.31 184.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bde8abaf-d7d5-5f46-83a5-34e0ea06c59c")
-	)
-	(label "OUT3_D7"
-		(at 82.55 189.23 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9852859d-6ec3-5fd4-958e-a0791b28fea8")
+		(uuid "4b48bb2e-991b-546e-941f-86e26306aa5c")
 	)
 	(wire
 		(pts
-			(xy 92.71 189.23) (xy 95.25 189.23)
+			(xy 74.93 184.15) (xy 96.52 184.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fc2fb706-7b82-5d5d-84fc-d9a4b0cbc132")
+		(uuid "5e256e97-697e-5bf8-8b77-e9a0c309b4d4")
 	)
 	(hierarchical_label "GPIO22"
 		(shape bidirectional)
-		(at 95.25 189.23 0)
+		(at 96.52 184.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "607f3e46-2c93-5502-aa24-738f1cbdb90c")
-	)
-	(wire
-		(pts
-			(xy 58.42 186.69) (xy 63.5 186.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c8ce9cf-82e3-5b96-9f04-244b273c9768")
-	)
-	(label "OUT3_D8"
-		(at 63.5 186.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bba2ea2b-a0c1-591d-a121-71c87f3747ea")
+		(uuid "68694e02-3271-576a-8033-c1b4ae05247a")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 88.9 194.31 90)
+		(at 81.28 186.69 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8305,9 +7595,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b74d5c93-96b9-5d2a-850c-ddcf733c5c7c")
+		(uuid "126730c1-d821-5c21-bf83-08c71bdc7417")
 		(property "Reference" "R47"
-			(at 86.36 192.278 90)
+			(at 87.63 185.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8317,7 +7607,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 91.44 192.278 90)
+			(at 91.186 185.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8327,7 +7617,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 88.9 194.31 0)
+			(at 81.28 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8338,7 +7628,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 194.31 0)
+			(at 81.28 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8349,7 +7639,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 88.9 194.31 0)
+			(at 81.28 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8360,7 +7650,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 88.9 194.31 0)
+			(at 81.28 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8371,7 +7661,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 88.9 194.31 0)
+			(at 81.28 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8382,7 +7672,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 88.9 194.31 0)
+			(at 81.28 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8393,10 +7683,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "41e8d9cd-e492-5841-abc0-d1d44f81cf80")
+			(uuid "48111ccb-a395-5f90-bdf4-bbaa1e916e6f")
 		)
 		(pin "2"
-			(uuid "3ae15237-14f3-5032-84be-c72159bb9694")
+			(uuid "17cecd28-5276-5804-81a1-3ea5fcbc13ff")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8409,44 +7699,34 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 194.31) (xy 82.55 194.31)
+			(xy 58.42 186.69) (xy 77.47 186.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "986983e2-e2b8-57d2-b1a6-b7fe9a784bee")
-	)
-	(label "OUT3_D8"
-		(at 82.55 194.31 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "60ad54dd-b8b3-5c2e-85a1-64e1664e7c20")
+		(uuid "314ea9aa-040c-573b-a125-5d3d689eb458")
 	)
 	(wire
 		(pts
-			(xy 92.71 194.31) (xy 95.25 194.31)
+			(xy 85.09 186.69) (xy 96.52 186.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fe89e162-68e1-5260-9274-a180d846d6cd")
+		(uuid "2d7119ec-6ffb-56e0-bc4f-69608a2224c3")
 	)
 	(hierarchical_label "GPIO23"
 		(shape bidirectional)
-		(at 95.25 194.31 0)
+		(at 96.52 186.69 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "cf77575e-2af2-580a-90e9-dae326597227")
+		(uuid "ee6a52e6-8eff-59dc-8ca4-9c69547de351")
 	)
 	(text "OUT4: GPIO24-31"
 		(exclude_from_sim no)
@@ -8457,7 +7737,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "905802bc-8d54-5adf-819e-d5366f78ab6f")
+		(uuid "2a4a44ec-6727-548a-9124-9f281db2668a")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x08_Odd_Even")
@@ -8469,7 +7749,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "3f4dd064-199a-5473-9f39-c682480c4306")
+		(uuid "acb4c2a1-bc8c-53ce-bf66-9edf444f5f09")
 		(property "Reference" "J8"
 			(at 240.03 165.1 0)
 			(show_name no)
@@ -8548,52 +7828,52 @@
 			)
 		)
 		(pin "1"
-			(uuid "1bb6b5e3-b714-5e52-9f2e-3fb9f0215a8e")
+			(uuid "7b1f7cc5-819d-5d23-aad5-2d3a49db1ae1")
 		)
 		(pin "2"
-			(uuid "78944c08-9df2-52c7-9369-b30fed96e073")
+			(uuid "771ca8eb-517d-570a-8fc7-3fb2fdf5bd91")
 		)
 		(pin "3"
-			(uuid "e10e0567-765e-5c72-a67f-ee18933b4bc8")
+			(uuid "a7801ee2-7f5c-5507-a163-78f54c78469b")
 		)
 		(pin "4"
-			(uuid "c0c7656e-24ff-5872-9829-9973d1be781f")
+			(uuid "7bd3e737-ca16-5ff4-8c0a-34190b1f97bf")
 		)
 		(pin "5"
-			(uuid "e1fe9a35-4aa6-5e18-8163-0cfb937f4bce")
+			(uuid "705f5907-2f4a-5de7-9b43-20ef33202f88")
 		)
 		(pin "6"
-			(uuid "df96fb4d-1231-5659-aade-0e8687372081")
+			(uuid "d3940d8a-817e-5cc0-bcbf-ce1510c3f538")
 		)
 		(pin "7"
-			(uuid "e720841f-7fc8-59c6-81a4-cdaa9859aa68")
+			(uuid "7e36768c-62ff-577f-b895-3f14699dfd0b")
 		)
 		(pin "8"
-			(uuid "c97fb094-a1f3-5f6e-90f2-c885dd295566")
+			(uuid "217d9ee1-45d5-5c2e-a571-15f8255440e9")
 		)
 		(pin "9"
-			(uuid "564ae29f-c2db-5b33-b9b5-e9319e1d80c3")
+			(uuid "a559a06e-c379-5aed-9b8f-e2bce8bb0a31")
 		)
 		(pin "10"
-			(uuid "86d39fc4-b2cb-5d51-83ea-1a56e6dfe564")
+			(uuid "8b2bf1e3-ddc0-5481-8c00-09eb3f7277a6")
 		)
 		(pin "11"
-			(uuid "68503729-ab74-500d-b943-1a025c7ddb24")
+			(uuid "f1325a5e-e43e-59b5-9cf6-dfab4027a90d")
 		)
 		(pin "12"
-			(uuid "cd33f825-312b-58f5-aae7-41ad34f64bc9")
+			(uuid "643212d0-6d68-5f79-af5e-1b25fbbe032b")
 		)
 		(pin "13"
-			(uuid "de900d42-0b65-5723-bbc7-5c82fc21b058")
+			(uuid "63bcc34c-bbff-58f3-9cc5-3c56786c25b3")
 		)
 		(pin "14"
-			(uuid "8b285053-9902-5694-9ce4-888ce15a0d84")
+			(uuid "ca9e0352-0807-520a-84e1-1e5fd32fdf40")
 		)
 		(pin "15"
-			(uuid "a5af4c4c-0da9-5853-bfed-04c092dd3ff3")
+			(uuid "9ab73795-50be-5ff7-b42e-6ff3535add8d")
 		)
 		(pin "16"
-			(uuid "ad66ec78-28aa-50c5-aba0-1d9b7482cfdd")
+			(uuid "a80cf166-9d9f-5c64-8e1b-13c061d8ab64")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8612,7 +7892,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5ba77845-936e-5456-bf10-ecd17da742fa")
+		(uuid "c1577115-dbb1-5d4d-8a1e-24a97d6b9a94")
 	)
 	(wire
 		(pts
@@ -8622,7 +7902,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ef25f1e6-e51a-54fe-9dcd-c71e89cef4e5")
+		(uuid "1d722923-2696-5c0a-a47e-057c94fb2ab3")
 	)
 	(wire
 		(pts
@@ -8632,7 +7912,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3914c21d-5a77-5f44-a4f5-e8ef0713061a")
+		(uuid "eaefd94a-2ad7-51b9-a759-470da1ebd1fe")
 	)
 	(wire
 		(pts
@@ -8642,7 +7922,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f03eb7d7-74ce-5d7e-95bc-0d3e8ea084dc")
+		(uuid "516bf9cc-5882-5df5-a18c-7d0ab5511fc3")
 	)
 	(wire
 		(pts
@@ -8652,7 +7932,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8593a0c6-43c7-59a6-a2d3-f9a0d3935020")
+		(uuid "af4ba01c-528d-5df8-9a99-d6aec00b3f12")
 	)
 	(wire
 		(pts
@@ -8662,7 +7942,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "45ca2c33-cd73-5fec-b705-07835784193a")
+		(uuid "b9fff54f-bab2-5c94-aca4-c15d6c637e76")
 	)
 	(wire
 		(pts
@@ -8672,31 +7952,31 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "34a8f4e8-902c-5060-bbd2-8e6bab2bc3dd")
+		(uuid "8c11a4d8-8096-5910-bdf2-769d6fc4da46")
 	)
 	(junction
 		(at 233.68 171.45)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "54431605-272c-54c3-9a1d-40184089395d")
+		(uuid "2bd48f71-c6a5-5d51-9741-18adac968eaf")
 	)
 	(junction
 		(at 233.68 173.99)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "782f2c28-c636-554c-9f4b-b2912d722633")
+		(uuid "9ea6ca1c-5856-55a3-9158-4fe415c2b168")
 	)
 	(junction
 		(at 233.68 176.53)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "18ae2bc1-2bd5-528d-ae1e-3e7135bd369b")
+		(uuid "59fe9e52-3f00-50e8-973d-fb2eaca619a7")
 	)
 	(junction
 		(at 233.68 179.07)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "28e0ecba-2e2b-59fe-af85-7d2bf2b7732c")
+		(uuid "33891d49-ab6c-52a3-93f5-2b61b34b0bc2")
 	)
 	(wire
 		(pts
@@ -8706,13 +7986,13 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "91219af1-7add-59ca-b759-0426902d0cee")
+		(uuid "5cbcfa1a-2c28-57b0-9416-6ba5f8f1b00c")
 	)
 	(junction
 		(at 233.68 168.91)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "43fb624d-51cd-5a7d-96f4-3ed1f274c0d7")
+		(uuid "531a88fc-076b-5bcd-b377-ef4e7ae43e88")
 	)
 	(symbol
 		(lib_id "RPI - Power:GND")
@@ -8724,7 +8004,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "2760e27a-0545-5cc3-9b9d-302faf9e7971")
+		(uuid "2838c822-2ae3-501f-a677-65be592db982")
 		(property "Reference" "#PWR150"
 			(at 228.6 167.64 0)
 			(hide yes)
@@ -8780,7 +8060,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "efd31f65-56d7-5066-b0ca-e5d697576dc2")
+			(uuid "d569a20a-a9af-52fe-9f56-d0775f6df08c")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8799,7 +8079,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "7087360b-cb01-5f31-a90e-9b67848c77a0")
+		(uuid "95576ec2-7614-5786-9323-72f9bebac9ad")
 	)
 	(symbol
 		(lib_id "RPI - Power:PWR_NET")
@@ -8811,7 +8091,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "c07f7c58-38c2-550d-88bf-56d981c9e76d")
+		(uuid "48155b17-36f6-55dc-81cd-bfb309774c3f")
 		(property "Reference" "#PWR151"
 			(at 231.14 182.88 0)
 			(hide yes)
@@ -8867,7 +8147,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "346619a8-1b31-5cc4-9432-cf770aa0c85e")
+			(uuid "529be7d1-05fd-56e3-9c60-6431eeb0419e")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8886,7 +8166,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ae0a43ba-e49f-5505-95b1-a4be2288c9bc")
+		(uuid "fd5563c0-5b7c-5821-8bb1-8ed3d52e0193")
 	)
 	(symbol
 		(lib_id "RPI - Power:PWR_NET")
@@ -8898,7 +8178,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "e0ee1e78-6db4-5753-9012-5a3b8717d9f7")
+		(uuid "8530e4c6-38af-5d20-b3a5-c67956ebe5af")
 		(property "Reference" "#PWR152"
 			(at 226.06 185.42 0)
 			(hide yes)
@@ -8954,7 +8234,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "55a29740-7331-5000-ad52-8635da213b49")
+			(uuid "8890cd2a-a414-57cb-b491-8607878d0265")
 		)
 		(instances
 			(project "led-processor-board"
@@ -8975,7 +8255,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "98179e2c-83f2-57e1-b7d0-829c9ee62384")
+		(uuid "06cd2b8b-4d12-5458-b2c4-20482e4c309b")
 		(property "Reference" "C42"
 			(at 222.25 200.66 0)
 			(show_name no)
@@ -9065,10 +8345,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "a5174487-47e9-58f1-aec6-cd67879e1297")
+			(uuid "64c63e83-fafa-526d-9ffa-1ced58c3198a")
 		)
 		(pin "2"
-			(uuid "dba33e0b-913f-5fd8-a9eb-23e6bb4352a0")
+			(uuid "af782551-f945-58a7-b40d-a0107d7b3593")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9089,7 +8369,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "0dc0f2c0-ba79-59de-b9e0-87fa0c76aabb")
+		(uuid "dcfce7d2-3610-512a-b386-de8a1fe83728")
 		(property "Reference" "#PWR153"
 			(at 223.52 196.85 0)
 			(hide yes)
@@ -9145,7 +8425,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "801f01df-2588-5c00-9f73-af421856f030")
+			(uuid "9acf3fcf-c713-50e7-b674-00f75c71a9c3")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9166,7 +8446,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "5668b93d-0b71-575e-8056-96a49e417f74")
+		(uuid "7f7f1a76-416c-5957-a488-e4f4409ae1f0")
 		(property "Reference" "#PWR154"
 			(at 223.52 204.47 0)
 			(hide yes)
@@ -9222,7 +8502,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "3ffb3ed5-12b1-5b95-86f6-8aa172993b66")
+			(uuid "d49ab922-c9b6-512b-97c7-64d83e9c54e7")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9243,7 +8523,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "50227ffe-0d0d-55a2-9c7c-570708d21da4")
+		(uuid "2bb8d61e-f64a-59ef-ae9b-666a95e4163b")
 		(property "Reference" "C43"
 			(at 232.41 200.66 0)
 			(show_name no)
@@ -9333,10 +8613,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "28df615f-8008-5e26-b57c-11de236bd30e")
+			(uuid "66d1f46b-516f-5c05-a513-be155462790a")
 		)
 		(pin "2"
-			(uuid "3ef85641-b16b-5ad6-b985-346153052629")
+			(uuid "0c77b227-e803-5369-a4d3-171724372290")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9357,7 +8637,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "26a04bbd-1ab9-573d-8b09-a2b9e3eb72c4")
+		(uuid "c471e1e3-ead8-5771-b278-7ffb966c7c2c")
 		(property "Reference" "#PWR155"
 			(at 233.68 196.85 0)
 			(hide yes)
@@ -9413,7 +8693,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "ac80583b-5fb9-56dc-83f3-5ddc008f0475")
+			(uuid "50ee2863-b773-5f42-a8dc-9df9dc6d343d")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9434,7 +8714,7 @@
 		(on_board yes)
 		(in_pos_files no)
 		(dnp no)
-		(uuid "50f68436-923c-5eb3-9ab9-4da0dad310eb")
+		(uuid "72dc63a2-2817-514b-a6d7-2a054715df01")
 		(property "Reference" "#PWR156"
 			(at 233.68 204.47 0)
 			(hide yes)
@@ -9490,7 +8770,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "37f71fc5-6b42-5d91-bfe4-1941bc4e4835")
+			(uuid "20255b7c-094d-5960-8f8f-8bf6d2bd4cee")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9501,29 +8781,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 248.92 168.91) (xy 254 168.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ffb96829-9c62-527b-93ce-8675c81a04fe")
-	)
-	(label "OUT4_D1"
-		(at 254 168.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1e51e0b8-5082-5679-8e4a-19f698d1c53d")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 158.75 90)
+		(at 261.62 168.91 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9531,9 +8791,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "82426375-7a44-59a0-b615-1b3ffae46d97")
+		(uuid "1f28ad64-2734-5c4c-91b3-bdaf94ad51e0")
 		(property "Reference" "R48"
-			(at 276.86 156.718 90)
+			(at 251.714 167.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9543,7 +8803,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 156.718 90)
+			(at 255.27 167.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9553,7 +8813,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 158.75 0)
+			(at 261.62 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9564,7 +8824,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 158.75 0)
+			(at 261.62 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9575,7 +8835,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 158.75 0)
+			(at 261.62 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9586,7 +8846,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 158.75 0)
+			(at 261.62 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9597,7 +8857,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 158.75 0)
+			(at 261.62 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9608,7 +8868,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 158.75 0)
+			(at 261.62 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9619,10 +8879,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "d333a7e6-0ac2-59ab-b30e-f6d338baca41")
+			(uuid "9ce69fcc-0690-5ad7-94ff-48293c05eb39")
 		)
 		(pin "2"
-			(uuid "d7d9b7e0-4a54-5462-a352-45e9998451c1")
+			(uuid "5921c3b1-650a-5d26-a1c3-09d78ecbdeec")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9635,68 +8895,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 158.75) (xy 273.05 158.75)
+			(xy 248.92 168.91) (xy 257.81 168.91)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4b4879b3-3c23-51ce-a1d6-94d117cd8372")
-	)
-	(label "OUT4_D1"
-		(at 273.05 158.75 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6bd49958-5a04-5f5a-a8c5-52118a87edd6")
+		(uuid "a876ddfd-50fd-5cdc-862f-8e91087fcb7a")
 	)
 	(wire
 		(pts
-			(xy 283.21 158.75) (xy 285.75 158.75)
+			(xy 265.43 168.91) (xy 287.02 168.91)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e10992c2-daf5-5b8e-9fe6-45d1d3ca90cb")
+		(uuid "93d60c79-1651-5c42-a350-b5ad49189572")
 	)
 	(hierarchical_label "GPIO24"
 		(shape bidirectional)
-		(at 285.75 158.75 0)
+		(at 287.02 168.91 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "6cb146fc-1f23-5b53-bafd-7ffa40b0fb51")
-	)
-	(wire
-		(pts
-			(xy 248.92 171.45) (xy 254 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e2434b23-e984-5e9d-b648-221f7eef59e4")
-	)
-	(label "OUT4_D2"
-		(at 254 171.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3f8716a4-3736-5bcf-b0be-2cafa9bb7544")
+		(uuid "47deffde-61d1-5003-a87f-ca6dc8a2711e")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 163.83 90)
+		(at 271.78 171.45 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9704,9 +8934,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cf26045a-65e3-502f-bce5-d4226a0e1fe6")
+		(uuid "bde8abaf-d7d5-5f46-83a5-34e0ea06c59c")
 		(property "Reference" "R49"
-			(at 276.86 161.798 90)
+			(at 278.13 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9716,7 +8946,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 161.798 90)
+			(at 281.686 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9726,7 +8956,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 163.83 0)
+			(at 271.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9737,7 +8967,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 163.83 0)
+			(at 271.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9748,7 +8978,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 163.83 0)
+			(at 271.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9759,7 +8989,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 163.83 0)
+			(at 271.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9770,7 +9000,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 163.83 0)
+			(at 271.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9781,7 +9011,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 163.83 0)
+			(at 271.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9792,10 +9022,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "c4c57d69-a2b9-5cdd-ae9d-68aad859c431")
+			(uuid "9852859d-6ec3-5fd4-958e-a0791b28fea8")
 		)
 		(pin "2"
-			(uuid "fb87b9c3-320d-5d4e-b502-ffc956f9bd60")
+			(uuid "fc2fb706-7b82-5d5d-84fc-d9a4b0cbc132")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9808,68 +9038,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 163.83) (xy 273.05 163.83)
+			(xy 248.92 171.45) (xy 267.97 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a19a6604-ceb4-52f0-8573-be3606cb1893")
-	)
-	(label "OUT4_D2"
-		(at 273.05 163.83 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "44128b23-4ca1-50f0-a784-4b3231d16888")
+		(uuid "607f3e46-2c93-5502-aa24-738f1cbdb90c")
 	)
 	(wire
 		(pts
-			(xy 283.21 163.83) (xy 285.75 163.83)
+			(xy 275.59 171.45) (xy 287.02 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "96149d05-5a36-5f4f-b6f9-9d90b90b8fd1")
+		(uuid "4c8ce9cf-82e3-5b96-9f04-244b273c9768")
 	)
 	(hierarchical_label "GPIO25"
 		(shape bidirectional)
-		(at 285.75 163.83 0)
+		(at 287.02 171.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "372ac0ce-eb75-569b-a391-fd18b7f61d9b")
-	)
-	(wire
-		(pts
-			(xy 248.92 173.99) (xy 254 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca4f7a32-ea73-51a8-99a4-7e44b69f820f")
-	)
-	(label "OUT4_D3"
-		(at 254 173.99 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e51e4dfa-0a67-5a3b-b5de-a3c266787c2a")
+		(uuid "bba2ea2b-a0c1-591d-a121-71c87f3747ea")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 168.91 90)
+		(at 261.62 173.99 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9877,9 +9077,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "02a8cacb-33a9-59d5-9209-be32deecc7f6")
+		(uuid "b74d5c93-96b9-5d2a-850c-ddcf733c5c7c")
 		(property "Reference" "R50"
-			(at 276.86 166.878 90)
+			(at 251.714 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9889,7 +9089,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 166.878 90)
+			(at 255.27 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9899,7 +9099,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 168.91 0)
+			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9910,7 +9110,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 168.91 0)
+			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9921,7 +9121,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 168.91 0)
+			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9932,7 +9132,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 168.91 0)
+			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9943,7 +9143,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 168.91 0)
+			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9954,7 +9154,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 168.91 0)
+			(at 261.62 173.99 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9965,10 +9165,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "0863d9d3-fc9a-57db-a094-afb02eb28ab2")
+			(uuid "41e8d9cd-e492-5841-abc0-d1d44f81cf80")
 		)
 		(pin "2"
-			(uuid "e239a0c0-1acc-56df-b504-7b77c891ec42")
+			(uuid "3ae15237-14f3-5032-84be-c72159bb9694")
 		)
 		(instances
 			(project "led-processor-board"
@@ -9981,68 +9181,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 168.91) (xy 273.05 168.91)
+			(xy 248.92 173.99) (xy 257.81 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e65b9337-3fea-5b60-bf65-e96471ea7eda")
-	)
-	(label "OUT4_D3"
-		(at 273.05 168.91 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f384966a-31c6-52af-89f9-31446cb7b738")
+		(uuid "986983e2-e2b8-57d2-b1a6-b7fe9a784bee")
 	)
 	(wire
 		(pts
-			(xy 283.21 168.91) (xy 285.75 168.91)
+			(xy 265.43 173.99) (xy 287.02 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7487edeb-6ade-5acb-88e5-fd56c4754ae1")
+		(uuid "60ad54dd-b8b3-5c2e-85a1-64e1664e7c20")
 	)
 	(hierarchical_label "GPIO26"
 		(shape bidirectional)
-		(at 285.75 168.91 0)
+		(at 287.02 173.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "c96a7f22-e8de-51ce-a0b4-985c0b5b45b4")
-	)
-	(wire
-		(pts
-			(xy 248.92 176.53) (xy 254 176.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57d689d6-6984-50f5-be1e-92baff8fc0c5")
-	)
-	(label "OUT4_D4"
-		(at 254 176.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4b77742a-141b-5288-ae66-00bf54cb0e9b")
+		(uuid "fe89e162-68e1-5260-9274-a180d846d6cd")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 173.99 90)
+		(at 271.78 176.53 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10050,9 +9220,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "0199cc43-fa12-594a-88fc-5990969deeb3")
+		(uuid "cf77575e-2af2-580a-90e9-dae326597227")
 		(property "Reference" "R51"
-			(at 276.86 171.958 90)
+			(at 278.13 175.26 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10062,7 +9232,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 171.958 90)
+			(at 281.686 175.26 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10072,7 +9242,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 173.99 0)
+			(at 271.78 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10083,7 +9253,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 173.99 0)
+			(at 271.78 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10094,7 +9264,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 173.99 0)
+			(at 271.78 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10105,7 +9275,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 173.99 0)
+			(at 271.78 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10116,7 +9286,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 173.99 0)
+			(at 271.78 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10127,7 +9297,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 173.99 0)
+			(at 271.78 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10138,10 +9308,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "977ec066-86bc-5c53-8199-548419831769")
+			(uuid "905802bc-8d54-5adf-819e-d5366f78ab6f")
 		)
 		(pin "2"
-			(uuid "41fc75f7-1dd5-581c-bf34-7c2d6da7f22e")
+			(uuid "3f4dd064-199a-5473-9f39-c682480c4306")
 		)
 		(instances
 			(project "led-processor-board"
@@ -10154,68 +9324,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 173.99) (xy 273.05 173.99)
+			(xy 248.92 176.53) (xy 267.97 176.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6168e4f6-55a6-505c-bc5c-5ab109f15130")
-	)
-	(label "OUT4_D4"
-		(at 273.05 173.99 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6a2e1efe-a0b2-5fca-a8a3-7710b5ecbc37")
+		(uuid "1bb6b5e3-b714-5e52-9f2e-3fb9f0215a8e")
 	)
 	(wire
 		(pts
-			(xy 283.21 173.99) (xy 285.75 173.99)
+			(xy 275.59 176.53) (xy 287.02 176.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dc06471d-7f0f-5721-81ab-9c9729f25a9e")
+		(uuid "78944c08-9df2-52c7-9369-b30fed96e073")
 	)
 	(hierarchical_label "GPIO27"
 		(shape bidirectional)
-		(at 285.75 173.99 0)
+		(at 287.02 176.53 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "7b61e6a3-8340-54c4-bf5b-08f1ec77d7b6")
-	)
-	(wire
-		(pts
-			(xy 248.92 179.07) (xy 254 179.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2632b71b-79a5-5107-96a0-ad2800a9cd37")
-	)
-	(label "OUT4_D5"
-		(at 254 179.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "83dc640a-f4ba-5164-9d1a-4c5cc8082918")
+		(uuid "e10e0567-765e-5c72-a67f-ee18933b4bc8")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 179.07 90)
+		(at 261.62 179.07 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10223,9 +9363,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c0484701-48ca-5990-8324-8bcc92f1f914")
+		(uuid "c0c7656e-24ff-5872-9829-9973d1be781f")
 		(property "Reference" "R52"
-			(at 276.86 177.038 90)
+			(at 251.714 177.8 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10235,7 +9375,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 177.038 90)
+			(at 255.27 177.8 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10245,7 +9385,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 179.07 0)
+			(at 261.62 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10256,7 +9396,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 179.07 0)
+			(at 261.62 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10267,7 +9407,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 179.07 0)
+			(at 261.62 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10278,7 +9418,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 179.07 0)
+			(at 261.62 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10289,7 +9429,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 179.07 0)
+			(at 261.62 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10300,7 +9440,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 179.07 0)
+			(at 261.62 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10311,10 +9451,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "937d8da4-715c-56e5-971f-c404c7ecf8fe")
+			(uuid "e1fe9a35-4aa6-5e18-8163-0cfb937f4bce")
 		)
 		(pin "2"
-			(uuid "358f59e7-17d7-5383-99cd-5a95a2db66a3")
+			(uuid "df96fb4d-1231-5659-aade-0e8687372081")
 		)
 		(instances
 			(project "led-processor-board"
@@ -10327,68 +9467,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 179.07) (xy 273.05 179.07)
+			(xy 248.92 179.07) (xy 257.81 179.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "946a0d9a-56f8-5b3b-a250-ed2697c3e905")
-	)
-	(label "OUT4_D5"
-		(at 273.05 179.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6567626e-17c3-5b0e-9b64-75f0d5ae8087")
+		(uuid "e720841f-7fc8-59c6-81a4-cdaa9859aa68")
 	)
 	(wire
 		(pts
-			(xy 283.21 179.07) (xy 285.75 179.07)
+			(xy 265.43 179.07) (xy 287.02 179.07)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e7a01665-1332-5331-a656-5de0343a5e62")
+		(uuid "c97fb094-a1f3-5f6e-90f2-c885dd295566")
 	)
 	(hierarchical_label "GPIO28"
 		(shape bidirectional)
-		(at 285.75 179.07 0)
+		(at 287.02 179.07 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "72d17e72-12a0-5239-85ce-7bd89fde308a")
-	)
-	(wire
-		(pts
-			(xy 248.92 181.61) (xy 254 181.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9dd3d6d-33c3-547c-9929-7c4045f87eed")
-	)
-	(label "OUT4_D6"
-		(at 254 181.61 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "66a66f28-a152-5a48-9fda-02dd5b0055ff")
+		(uuid "564ae29f-c2db-5b33-b9b5-e9319e1d80c3")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 184.15 90)
+		(at 271.78 181.61 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10396,9 +9506,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c9dcd867-a538-5500-b177-0a4aebc6accd")
+		(uuid "86d39fc4-b2cb-5d51-83ea-1a56e6dfe564")
 		(property "Reference" "R53"
-			(at 276.86 182.118 90)
+			(at 278.13 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10408,7 +9518,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 182.118 90)
+			(at 281.686 180.34 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10418,7 +9528,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 184.15 0)
+			(at 271.78 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10429,7 +9539,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 184.15 0)
+			(at 271.78 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10440,7 +9550,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 184.15 0)
+			(at 271.78 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10451,7 +9561,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 184.15 0)
+			(at 271.78 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10462,7 +9572,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 184.15 0)
+			(at 271.78 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10473,7 +9583,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 184.15 0)
+			(at 271.78 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10484,10 +9594,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "97d91ee2-70b0-5bf5-bcfb-d3ac31b3713c")
+			(uuid "68503729-ab74-500d-b943-1a025c7ddb24")
 		)
 		(pin "2"
-			(uuid "4f4a701b-617d-5d8c-9b5c-c6bcb0b397ad")
+			(uuid "cd33f825-312b-58f5-aae7-41ad34f64bc9")
 		)
 		(instances
 			(project "led-processor-board"
@@ -10500,68 +9610,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 184.15) (xy 273.05 184.15)
+			(xy 248.92 181.61) (xy 267.97 181.61)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "855a9d97-4d6f-5a8e-8a6b-57ce60d0a386")
-	)
-	(label "OUT4_D6"
-		(at 273.05 184.15 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ddf1aa6a-f0b2-5b7d-abf8-9c651e9b5e3d")
+		(uuid "de900d42-0b65-5723-bbc7-5c82fc21b058")
 	)
 	(wire
 		(pts
-			(xy 283.21 184.15) (xy 285.75 184.15)
+			(xy 275.59 181.61) (xy 287.02 181.61)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dd498181-faa3-5e0e-a2f3-504b24672b92")
+		(uuid "8b285053-9902-5694-9ce4-888ce15a0d84")
 	)
 	(hierarchical_label "GPIO29"
 		(shape bidirectional)
-		(at 285.75 184.15 0)
+		(at 287.02 181.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "11028c0a-21b5-52bf-aaf3-45f6868f6e34")
-	)
-	(wire
-		(pts
-			(xy 248.92 184.15) (xy 254 184.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "413db2ad-5f06-524a-9042-94f307fe08f9")
-	)
-	(label "OUT4_D7"
-		(at 254 184.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e20d2d19-2d1f-564f-b029-8dccd9603d97")
+		(uuid "a5af4c4c-0da9-5853-bfed-04c092dd3ff3")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 189.23 90)
+		(at 261.62 184.15 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10569,9 +9649,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "90c792d9-1c63-5fac-8865-9186c75b9014")
+		(uuid "ad66ec78-28aa-50c5-aba0-1d9b7482cfdd")
 		(property "Reference" "R54"
-			(at 276.86 187.198 90)
+			(at 251.714 182.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10581,7 +9661,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 187.198 90)
+			(at 255.27 182.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10591,7 +9671,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 189.23 0)
+			(at 261.62 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10602,7 +9682,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 189.23 0)
+			(at 261.62 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10613,7 +9693,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 189.23 0)
+			(at 261.62 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10624,7 +9704,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 189.23 0)
+			(at 261.62 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10635,7 +9715,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 189.23 0)
+			(at 261.62 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10646,7 +9726,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 189.23 0)
+			(at 261.62 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10657,10 +9737,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "1e27a78e-9832-5f26-96d0-460070b5f7f5")
+			(uuid "5ba77845-936e-5456-bf10-ecd17da742fa")
 		)
 		(pin "2"
-			(uuid "2a51e705-641f-5fd6-bf5f-31a0561e5016")
+			(uuid "ef25f1e6-e51a-54fe-9dcd-c71e89cef4e5")
 		)
 		(instances
 			(project "led-processor-board"
@@ -10673,68 +9753,38 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 189.23) (xy 273.05 189.23)
+			(xy 248.92 184.15) (xy 257.81 184.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9f05c67c-ea19-585f-ab39-ddf921d5d470")
-	)
-	(label "OUT4_D7"
-		(at 273.05 189.23 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "95bfe131-cf03-5bd3-92bb-fb13291c2fa7")
+		(uuid "3914c21d-5a77-5f44-a4f5-e8ef0713061a")
 	)
 	(wire
 		(pts
-			(xy 283.21 189.23) (xy 285.75 189.23)
+			(xy 265.43 184.15) (xy 287.02 184.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5056f960-5a1d-5c01-b15a-fe9b4bf728a3")
+		(uuid "f03eb7d7-74ce-5d7e-95bc-0d3e8ea084dc")
 	)
 	(hierarchical_label "GPIO30"
 		(shape bidirectional)
-		(at 285.75 189.23 0)
+		(at 287.02 184.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "53c805b8-4238-525e-9f44-2e17b971600a")
-	)
-	(wire
-		(pts
-			(xy 248.92 186.69) (xy 254 186.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6129fae8-bd45-5bd8-adb9-8fd626f592f7")
-	)
-	(label "OUT4_D8"
-		(at 254 186.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6f3c421d-0fc0-522d-8724-74da16a816e1")
+		(uuid "8593a0c6-43c7-59a6-a2d3-f9a0d3935020")
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 279.4 194.31 90)
+		(at 271.78 186.69 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10742,9 +9792,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "95e49cc0-e8fa-5d7f-9cac-da5ade67e7a2")
+		(uuid "45ca2c33-cd73-5fec-b705-07835784193a")
 		(property "Reference" "R55"
-			(at 276.86 192.278 90)
+			(at 278.13 185.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10754,7 +9804,7 @@
 			)
 		)
 		(property "Value" "33"
-			(at 281.94 192.278 90)
+			(at 281.686 185.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10764,7 +9814,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 279.4 194.31 0)
+			(at 271.78 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10775,7 +9825,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 279.4 194.31 0)
+			(at 271.78 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10786,7 +9836,7 @@
 			)
 		)
 		(property "Description" "Resistor, 33, 5%, 0402"
-			(at 279.4 194.31 0)
+			(at 271.78 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10797,7 +9847,7 @@
 			)
 		)
 		(property "manufacturer" "UNI-ROYAL"
-			(at 279.4 194.31 0)
+			(at 271.78 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10808,7 +9858,7 @@
 			)
 		)
 		(property "manufacturer_pn" "0402WGF330JTCE"
-			(at 279.4 194.31 0)
+			(at 271.78 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10819,7 +9869,7 @@
 			)
 		)
 		(property "LCSC" "C25105"
-			(at 279.4 194.31 0)
+			(at 271.78 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10830,10 +9880,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "fe6589c1-799c-5e28-9051-f2b5e694c792")
+			(uuid "34a8f4e8-902c-5060-bbd2-8e6bab2bc3dd")
 		)
 		(pin "2"
-			(uuid "918e41a3-6298-5df2-8a0b-adcfd2db4536")
+			(uuid "54431605-272c-54c3-9a1d-40184089395d")
 		)
 		(instances
 			(project "led-processor-board"
@@ -10846,44 +9896,34 @@
 	)
 	(wire
 		(pts
-			(xy 275.59 194.31) (xy 273.05 194.31)
+			(xy 248.92 186.69) (xy 267.97 186.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1d506cca-72e0-582b-8edf-e961728b6749")
-	)
-	(label "OUT4_D8"
-		(at 273.05 194.31 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a82a7973-3485-5100-9840-00dbe2dcf4fb")
+		(uuid "782f2c28-c636-554c-9f4b-b2912d722633")
 	)
 	(wire
 		(pts
-			(xy 283.21 194.31) (xy 285.75 194.31)
+			(xy 275.59 186.69) (xy 287.02 186.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "21276c3b-078a-54a8-93e8-e6f91fc1c9b2")
+		(uuid "18ae2bc1-2bd5-528d-ae1e-3e7135bd369b")
 	)
 	(hierarchical_label "GPIO31"
 		(shape bidirectional)
-		(at 285.75 194.31 0)
+		(at 287.02 186.69 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "c65d5baf-89a8-5026-9767-2ba160980bf7")
+		(uuid "28e0ecba-2e2b-59fe-af85-7d2bf2b7732c")
 	)
 	(embedded_fonts no)
 )

@@ -532,16 +532,19 @@ for k in range(4):
         cc = C(sh, 'C%d' % cn, val, (cx, by + 45.72), ref_at=(cx + 1.27, by + 44.45), val_at=(cx + 1.27, by + 46.99))
         cn += 1
         pwr(sh, net, cc[1]); gnd(sh, cc[2])
+    # data: each even pin straight through its 33R to the hierarchical label. The resistors
+    # alternate between two columns so their text has room at the 2.54 mm pin pitch.
     for n in range(1, 9):
         p = J[2 * n]
-        net = 'OUT%d_D%d' % (k + 1, n)
-        sh.wire(p, (bx + 43.18, p[1])); sh.label(net, (bx + 43.18, p[1]), 0)
-        yr = by + 2.54 + 5.08 * (n - 1)
-        rr = R(sh, 'R%d' % rn, '33', (bx + 68.58, yr), rot=90, ref_at=(bx + 66.04, yr - 2.032),
-               val_at=(bx + 71.12, yr - 2.032))
+        px, py = p
+        if n % 2:
+            cx, rx, vx = px + 12.7, px + 2.794, px + 6.35
+        else:
+            cx, rx, vx = px + 22.86, px + 29.21, px + 32.766
+        rr = R(sh, 'R%d' % rn, '33', (cx, py), rot=90, ref_at=(rx, py - 1.27), val_at=(vx, py - 1.27))
         rn += 1
-        sh.wire(rr[1], (bx + 62.23, yr)); sh.label(net, (bx + 62.23, yr), 180)
-        sh.wire(rr[2], (bx + 74.93, yr)); sh.hlabel('GPIO%d' % (g0 + n - 1), (bx + 74.93, yr), 0)
+        sh.wire(p, rr[1])
+        sh.wire(rr[2], (px + 38.1, py)); sh.hlabel('GPIO%d' % (g0 + n - 1), (px + 38.1, py), 0)
 
 # ======================================================================================
 # write files
