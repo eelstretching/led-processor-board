@@ -153,7 +153,8 @@ for full in ['Device:R', 'Device:C', 'Device:D_Schottky', 'Device:LED', 'RPI - P
 for lib, name in [('Connector_Generic', 'Conn_02x08_Odd_Even'), ('Connector_Generic', 'Conn_01x10'),
                   ('Connector_Generic', 'Conn_01x03'), ('Connector', 'Screw_Terminal_01x02'),
                   ('Timer_RTC', 'DS3231M'), ('Device', 'Battery_Cell'),
-                  ('Regulator_Switching', 'TPS54202DDC'), ('Device', 'L')]:
+                  ('Regulator_Switching', 'TPS54202DDC'), ('Device', 'L'),
+                  ('Connector', 'USB_C_Receptacle_USB2.0_16P')]:
     SYM[lib + ':' + name] = libs.get_symbol(lib, name)
 
 pwr_n = [100]
@@ -195,6 +196,7 @@ P = {
     '1k': part('0402WGF1001TCE', 'C11702', 'UNI-ROYAL', 'Resistor, 1k, 1%, 0402', R0402),
     '100k': part('0402WGF1003TCE', 'C25741', 'UNI-ROYAL', 'Resistor, 100k, 1%, 0402', R0402),
     '13.3k': part('0402WGF1332TCE', 'C122547', 'UNI-ROYAL', 'Resistor, 13.3k, 1%, 0402', R0402),
+    '5.1k': part('0402WGF5101TCE', 'C25905', 'UNI-ROYAL', 'Resistor, 5.1k, 1%, 0402 (USB-C CC pull-down)', R0402),
     '510k': part('0402WGF5103TCE', 'C11616', 'UNI-ROYAL', 'Resistor, 510k, 1%, 0402', R0402),
     '100n': part('CL05B104KO5NNNC', 'C1525', 'Samsung', 'Capacitor, 100n, 16V, X7R, 0402', C0402),
     '1u': part('CL05A105KA5NQNC', 'C52923', 'Samsung', 'Capacitor, 1u, 25V, X5R, 0402', C0402),
@@ -244,6 +246,30 @@ for e in ref[1:]:
 assert sum(1 for e in removed if e[0] == 'symbol') == 13, len(removed)
 ref[1:] = keep
 
+# 1b. remove Pi's micro-B USB (J1) and its wiring; keep VBUS -> D2
+def is_keep(e):
+    if e[0] == 'symbol':
+        return sx.prop(e, 'Reference')[2] == '#PWR2'          # the VBUS power symbol above D2
+    if e[0] == 'wire':
+        ps = positions(e)
+        return sorted(ps) in (sorted([(39.37, 26.67), (39.37, 27.94)]), sorted([(39.37, 27.94), (41.91, 27.94)]))
+    return False
+
+
+keep = []
+usb_removed = []
+for e in ref[1:]:
+    if isinstance(e, list) and e[0] in ('wire', 'label', 'symbol', 'junction', 'no_connect'):
+        ps = positions(e)
+        if ps and all(5 <= x <= 42 and 14 <= y <= 50 for x, y in ps) and not is_keep(e):
+            usb_removed.append(e)
+            continue
+    keep.append(e)
+assert [sx.prop(e, 'Reference')[2] for e in usb_removed if e[0] == 'symbol'] == ['J1', '#PWR1', '#PWR032'] or \
+    sorted(sx.prop(e, 'Reference')[2] for e in usb_removed if e[0] == 'symbol') == sorted(['J1', '#PWR1', '#PWR032']), \
+    [sx.prop(e, 'Reference')[2] for e in usb_removed if e[0] == 'symbol']
+ref[1:] = keep
+
 # 2. title block, project name in instances, VSYS note
 tb = sx.find(ref, 'title_block')
 tb[:] = S('title_block', S('title', 'LED processor board (RP2350B + RM2)'), S('date', '2026-10-19'),
@@ -263,8 +289,9 @@ def walk(e):
 walk(ref)
 for e in sx.findall(ref, 'text'):
     if e[1].startswith('VSYS is also J3 pin 2'):
-        e[1] = ('VSYS comes from the 12 V input: buck to +5V, then D4 (Power sheet). D2 keeps that\n'
-                '5 V off the USB port; USB alone still powers the board through D2 (no +5V on the ribbons then).')
+        e[1] = ('VSYS comes from the 12 V input: buck to +5V, then\n'
+                'D4 (Power sheet). D2 keeps that 5 V off the USB port;\n'
+                'USB alone runs it through D2 (no +5V on ribbons).')
 
 # 4. new root content: RTC, spare GPIO header, SWD header
 sh = root
@@ -328,6 +355,32 @@ sh.text('J2: spare GPIO35-42. UART1 TX/RX = GPIO36/37,\n'
         'GPIO40-42 = ADC0-2. J3: SWD in a Pico\'s debug pin order.\n'
         'GPIO0-31 go to the four output shrouds (Outputs sheet).\n'
         'GPIO43-47 are the RM2 and the PSRAM.', (335.28, 213.36))
+
+# 4b. USB-C receptacle in place of Pi's micro-B
+J1 = sh.symbol('Connector:USB_C_Receptacle_USB2.0_16P', SYM['Connector:USB_C_Receptacle_USB2.0_16P'], 'J1',
+               'USB-C', (110.49, 38.1),
+               fields=part('TYPE-C-31-M-12', 'C165948', 'Korean Hroparts Elec',
+                           'USB-C receptacle, USB 2.0, 16 pin, SMD (replaces the micro-B)',
+                           'Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12'),
+               ref_at=(100.33, 17.78), val_at=(104.14, 17.78))
+vb = J1['A4']
+sh.wire(vb, (128.27, vb[1]), (130.81, vb[1])); pwr(sh, 'VBUS', (130.81, vb[1]))
+flag(sh, (128.27, vb[1])); sh.junction((128.27, vb[1]))
+for a, b, net in [('A7', 'B7', 'USB_D-'), ('A6', 'B6', 'USB_D+')]:
+    pa, pb = J1[a], J1[b]
+    top, bot = (pa, pb) if pa[1] < pb[1] else (pb, pa)
+    sh.wire(top, (128.27, top[1]), (128.27, bot[1]), bot)
+    sh.wire((128.27, top[1]), (130.81, top[1])); sh.junction((128.27, top[1]))
+    sh.label(net, (130.81, top[1]), 0)
+for pin, refd, x in [('A5', 'R56', 161.29), ('B5', 'R57', 153.67)]:
+    p = J1[pin]
+    sh.wire(p, (x, p[1]))
+    rr = R(sh, refd, '5.1k', (x, p[1] + 3.81), ref_at=(x + 1.905, p[1] + 2.54), val_at=(x + 1.905, p[1] + 5.08))
+    gnd(sh, rr[2])
+sh.nc(J1['A8']); sh.nc(J1['B8'])
+sh.wire(J1['SH'], (106.68, J1['A1'][1]), J1['A1']); gnd(sh, J1['A1'])
+flag(sh, (106.68, J1['A1'][1])); sh.junction((106.68, J1['A1'][1]))
+sh.text('CC1/CC2 5.1k pull-downs: a USB-C host sees a\nUSB 2.0 device and turns on 5 V.', (138.43, 50.8))
 
 # 5. sheet symbols for Power and Outputs
 SUB = {}

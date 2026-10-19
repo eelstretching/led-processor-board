@@ -5,11 +5,12 @@ four 16-pin ribbon shrouds. Each shroud drives one
 [led-output-board](https://github.com/eelstretching/led-output-board), which does the level
 shifting, fusing and strand connectors, so this board carries no LED power.
 
-The core (RP2350B, flash, PSRAM, RM2, USB, crystal, BOOTSEL/RUN buttons, 3.3 V regulator) is the
+The core (RP2350B, flash, PSRAM, RM2, crystal, BOOTSEL/RUN buttons, 3.3 V regulator) is the
 [rp2350b-rm2-reference](https://github.com/eelstretching/rp2350b-rm2-reference) schematic
-unchanged. That board's single-row J2/J3 headers are gone; the rest is new.
+unchanged, except that its micro-B USB is now USB-C. That board's single-row J2/J3 headers are
+gone; the rest is new.
 
-Status: **schematic only.** ERC is clean apart from the three items inherited from Pi's design
+Status: **schematic only.** ERC is clean apart from the four items inherited from Pi's design
 (see "Verification"). No layout yet.
 
 ![Root sheet](docs/sheet-root.png)
@@ -67,6 +68,14 @@ to damp ringing on the ribbon. Each shroud has 100n on +3V3 and on +5V.
 - D5 (green) shows +5V is up.
 - USB still works for programming. On USB alone the board runs (VSYS through D2), but the ribbons
   get no +5V, so the output boards' shifters are off. D4 keeps USB from back-feeding the buck.
+
+## USB
+
+J1 is a USB-C receptacle (Korean Hroparts TYPE-C-31-M-12, LCSC C165948, KiCad's stock
+`USB_C_Receptacle_HRO_TYPE-C-31-M-12` footprint) in place of Pi's micro-B. USB 2.0 only: D+ and D-
+from both sides of the plug are joined, CC1 and CC2 each have a 5.1k pull-down (R56, R57) so a
+USB-C charger or host turns on 5 V, SBU1/SBU2 are unconnected and the shell goes to GND. The
+D+/D- nets (USB_D+/USB_D-, through Pi's 27R R7/R8) and VBUS into D2 are as before.
 
 ## RTC
 
