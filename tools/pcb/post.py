@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """After autorouting: trim dangling trace tails, stitch the GND pours, refill.
 
-usage: post.py in.kicad_pcb out.kicad_pcb
+usage: post.py in.kicad_pcb out.kicad_pcb [--trim-only]
 """
 import sys, math
 import pcbnew
 
 IN, OUT = sys.argv[1:3]
+TRIM_ONLY = '--trim-only' in sys.argv
 mm = pcbnew.FromMM
 MM = pcbnew.ToMM
 b = pcbnew.LoadBoard(IN)
@@ -95,7 +96,7 @@ def free(x, y):
 
 added = 0
 STEP = 5.0
-for xa, xb in ((51.5, 82.5), (117.5, 148.5)):
+for xa, xb in (() if TRIM_ONLY else ((51.5, 82.5), (117.5, 148.5))):
     y = 72.0
     while y <= 153.0:
         x = xa

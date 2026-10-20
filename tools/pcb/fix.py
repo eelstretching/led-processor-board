@@ -36,6 +36,12 @@ trk('+3V3', [(77.76, 153.0), (77.76, 152.3), (77.6, 151.6)], 0.3)
 via('+3V3', 77.6, 151.6)
 trk('+3V3', [(77.6, 151.6), (78.24, 150.96), (78.24, 147.2)], 0.3, pcbnew.B_Cu)
 
+# U4's supply pin is left on a cut-off scrap of pour: hop under GPIO47 to the C22/R13 feed
+trk('+3V3', [(83.579, 75.916), (84.35, 76.1)], 0.4)
+via('+3V3', 84.35, 76.1); via('+3V3', 84.35, 72.6)
+trk('+3V3', [(84.35, 76.1), (84.35, 72.6)], 0.3, pcbnew.B_Cu)
+trk('+3V3', [(84.35, 72.6), (84.35, 71.843)], 0.4)
+
 b.BuildConnectivity()
 pcbnew.ZONE_FILLER(b).Fill(b.Zones())
 pcbnew.SaveBoard(OUT, b, True)

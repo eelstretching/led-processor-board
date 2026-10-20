@@ -111,10 +111,12 @@ laying out.
 [top](docs/pcb-3d-top.png), [bottom](docs/pcb-3d-bottom.png); bottom copper:
 [docs/pcb-bottom-copper.png](docs/pcb-bottom-copper.png).
 
-- **The core is Pi's layout unchanged**: the RP2350B, flash, crystal, regulator, buttons and RM2 keep
-  their placement and routing from the reference board, including **U4 (PSRAM), C22, R11 and R13 on
-  the bottom side**, as on the reference. Pi's +3V3 top pour and full GND bottom plane stay; the
-  board widens with a top GND pour on either side, stitched to the bottom plane.
+- **The core is Pi's layout**: the RP2350B, flash, crystal, regulator, buttons and RM2 keep their
+  placement and routing from the reference board. The one change: **U4 (PSRAM), C22, R11 and R13
+  moved from under the flash to the top side**, just left of it, so every part is on the top and
+  JLCPCB can assemble one side. The PSRAM's QSPI branches are about 12-15 mm long; Pi's were vias
+  straight down to it. Pi's +3V3 top pour and full GND bottom plane stay; the board widens with a top
+  GND pour on either side, stitched to the bottom plane.
 - **Shrouds**: OUT1/OUT2 (J5, J6) down the left edge, OUT3/OUT4 (J7, J8) along the bottom, either
   side of the RM2 antenna. The 33R resistors sit in a row next to each shroud's data pins.
 - **Power** in the top right: J4 (12 V) on the right edge, D3, the TPS54202 buck (U7, L2, output
@@ -139,7 +141,10 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
    under the +5V run to J7 and C40's link; `rip.py` plus a second `route.sh` rerouted the J2/RTC
    fan-out (GPIO32-42), which the first pass left one net short on; `silk.py` places the reference
    designators.
-4. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
+4. Moving the PSRAM to the top: `psram.py` (flip and place U4/C22/R11/R13, rip their bottom-side
+   routing), `post.py --trim-only`, `psram2.py` (Pi's QSPI escapes from under U3, the GPIO47 drop),
+   `route.sh`, then the U4 supply hop at the end of `fix.py`, `post.py` and `silk.py`.
+5. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
 ## Files
