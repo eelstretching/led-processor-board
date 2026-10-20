@@ -96,13 +96,25 @@ so it can be replaced (universal-strip-controller used a tabbed cell).
 
 ## BOM / JLCPCB
 
-`bom-jlcpcb.csv` has LCSC numbers for every SMD part. No LCSC number:
+`bom-jlcpcb.csv` is the full BOM with LCSC numbers. `fab/` is the JLCPCB upload set, made by
+`python3 tools/jlc.py` (rerun it after any board change):
 
-- **U5 RM2**: buy Raspberry Pi SC1169 and hand-solder it, as on the reference board.
-- **SW1/SW2** (Wurth 434133025816): JLC global sourcing or hand-solder, as on the reference board.
-- **BT1** Keystone 3001 holder (Digi-Key 36-3001-ND): hand-solder.
+- `led-processor-board-gerbers.zip`: gerbers and drill files.
+- `jlcpcb-bom.csv` and `jlcpcb-cpl.csv`: BOM and placement for the 112 SMD parts JLC assembles
+  (everything on the top side with an LCSC number). Check the rotations in JLC's placement preview
+  before ordering; their footprints don't always share KiCad's zero angle (the QFN, SOICs, SOT-23s,
+  USB-C and crystal are the usual suspects).
+
+Left off both files for hand-soldering:
+
+- **U5 RM2**: buy Raspberry Pi SC1169, as on the reference board.
+- **BT1** Keystone 3001 holder (Digi-Key 36-3001-ND).
 - **J2, J3, J9** pin headers and **J5-J8** box headers (the shrouds already bought for the output
-  boards): through-hole, hand-solder.
+  boards).
+- **J4** terminal block (C695629): JLC could fit it as through-hole assembly, but it's left to you.
+
+SW1/SW2 are XKB TS-1088R-02526 (C455281, 4 x 3 mm) in place of Pi's Wurth 434133025816, which LCSC
+doesn't stock; same spots, same nets. R1 and R9 are DNP, as on the reference board.
 
 J4 (DORABO DB301V-3.5-2P, C695629) is in the same family as the output boards' strand terminals and
 uses KiCad's stock 3.5 mm Phoenix PT footprint; check the hole size against the DB301V drawing when
@@ -117,7 +129,8 @@ laying out.
 [docs/pcb-bottom-copper.png](docs/pcb-bottom-copper.png).
 
 - **The core is Pi's layout**: the RP2350B, flash, crystal, regulator, buttons and RM2 keep their
-  placement and routing from the reference board. The one change: **U4 (PSRAM), C22, R11 and R13
+  placement and routing from the reference board (the buttons are a stock LCSC part in Pi's spots).
+  The one move: **U4 (PSRAM), C22, R11 and R13
   moved from under the flash to the top side**, just left of it, so every part is on the top and
   JLCPCB can assemble one side. The PSRAM's QSPI branches are about 12-15 mm long; Pi's were vias
   straight down to it. Pi's +3V3 top pour and full GND bottom plane stay; the board widens with a top
@@ -162,7 +175,9 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
    lines, rip their power), `shrouds2.py` (hand-routes their 3V3/5V), `post.py`, `silk.py`, then
    `hdrs.py` (adds J9 and moves J3 under the board name), `route.sh` (WL_GPIO1/2), `post.py`,
    `silk.py`, and `swd.py` (hand-routes SWCLK/SWD, which Freerouting couldn't get out of the core).
-7. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
+7. LCSC buttons: `buttons.py` (TS-1088R footprints in SW1/SW2's spots, stubs re-joined) and
+   `tools/sch_buttons.py` (swaps the schematic symbols to `Switch:SW_Push`).
+8. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
 ## Files
@@ -174,6 +189,7 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
 | `Outputs.kicad_sch` | J5-J8 shrouds, 33R series resistors, decoupling |
 | `rp2350b_rm2.kicad_sym`, `rp2350b_rm2.pretty/` | RM2 symbol and footprint (from the reference) |
 | `bom-jlcpcb.csv` | BOM with LCSC numbers |
+| `fab/` | JLCPCB gerbers zip, assembly BOM and CPL (`tools/jlc.py`) |
 | `docs/schematic.pdf`, `docs/sheet-*.png` | all three sheets |
 | `led-processor-board.kicad_pcb` | the layout |
 | `docs/pcb-*.png` | layout previews |
@@ -192,7 +208,7 @@ and the 12 V to VSYS chain.
 `kicad-cli pcb drc --severity-all --schematic-parity` reports no clearance, short, hole or unconnected
 items, and the board matches the schematic (apart from footprints not carrying the symbols'
 `manufacturer` fields). What's
-left: 44 warnings that Pi's `RPI_COMPILED` footprint library isn't in the library table (as on the
+left: 42 warnings that Pi's `RPI_COMPILED` footprint library isn't in the library table (as on the
 reference board), and 4 silkscreen-past-the-edge warnings from J1 and J4, whose bodies overhang the
 board edge (the USB-C opening and the terminal block). C7 and C27 have their reference designators hidden
 for lack of room.

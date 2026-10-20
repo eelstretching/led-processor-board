@@ -12,6 +12,170 @@
 		(comment 2 "Original design: Mike Stimson, Raspberry Pi (MIT)")
 	)
 	(lib_symbols
+		(symbol "Switch:SW_Push"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "SW"
+				(at 1.27 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SW_Push"
+				(at 0 -1.524 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Push button switch, generic, two pins"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "SW_Push_0_1"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
 			(pin_names
 				(offset 1.016)
@@ -6560,387 +6724,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "RPI_DB:Electromechanical | Switches | Tactile/RP-01H0MT-6E9H8F"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "SW"
-				(at -6.35 3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "434133025816"
-				(at -6.096 -4.064 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "RPI_COMPILED:wurthelek_434133025816"
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Electromechanical\\Switches\\Tactile\\WURTHELEK_434133025816\\datasheets"
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Tactile Pushbutton, SPST, N.O., 4.2x3.2x2.5mm"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "part_uid" "RP-01H0MT-6E9H8F"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "status" "DNU"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "manufacturer" "Wurth Elektronik"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "manufacturer_pn" "434133025816"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "packaging" "330mm dia. tape & reel"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "packaging_qty" "2900"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "lcsc_pn" "C5504987"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "size" "4.2x3.2x2.5mm"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "z_height_max" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "z_height_nom" "2.5mm"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "package" "4.2x3.2x2.5mm"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "RPI_COMPILED:wurthelek_434133025816"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Electromechanical | Switches | Tactile/RP-01H0MT-6E9H8F_0_1"
-				(polyline
-					(pts
-						(xy -3.81 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 -2.54) (xy -3.81 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 2.54) (xy 1.27 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.27) (xy -2.54 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 0) (xy 2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 -2.54) (xy 3.81 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -6.35 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "Electromechanical | Switches | Tactile/RP-01H0MT-6E9H8F_1_1"
-				(pin passive line
-					(at -6.35 -2.54 0)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 6.35 0 180)
-					(length 2.54)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 6.35 -2.54 180)
-					(length 2.54)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "RPI_DB:Frequency_Timing | Crystals/RP-01G8X7-GS352B"
 			(pin_names
 				(offset 1.016)
@@ -13380,22 +13163,10 @@
 		(uuid "6582e1f2-f342-4c0c-af9a-b8984faa38d0")
 	)
 	(junction
-		(at 265.43 246.38)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6c94333d-df21-4588-b6dd-941793b3a8fb")
-	)
-	(junction
 		(at 304.8 25.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6e04c5d1-d7ae-468d-91c2-9d0aa71e7090")
-	)
-	(junction
-		(at 20.32 180.34)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "702f491d-3858-47c8-8da2-0c195cb882a1")
 	)
 	(junction
 		(at 36.83 152.4)
@@ -13470,12 +13241,6 @@
 		(uuid "9ddd98e1-d65a-46e4-ae94-ee0bc776e12d")
 	)
 	(junction
-		(at 250.19 246.38)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9f53efa9-a20b-4786-a18d-e98b345f02db")
-	)
-	(junction
 		(at 236.22 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -13540,12 +13305,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d2eff7bb-4940-4a1c-8f26-cc1186ecca62")
-	)
-	(junction
-		(at 20.32 195.58)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d543d62c-22f8-466f-ace9-890b2be1cb8d")
 	)
 	(junction
 		(at 207.01 101.6)
@@ -13647,16 +13406,6 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 248.92) (xy 250.19 248.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "017ac06a-3b9d-4db9-98f1-c34de388b8de")
-	)
-	(wire
-		(pts
 			(xy 265.43 129.54) (xy 245.11 129.54)
 		)
 		(stroke
@@ -13677,7 +13426,7 @@
 	)
 	(wire
 		(pts
-			(xy 265.43 246.38) (xy 264.16 246.38)
+			(xy 265.43 246.38) (xy 262.89 246.38)
 		)
 		(stroke
 			(width 0)
@@ -13694,16 +13443,6 @@
 			(type default)
 		)
 		(uuid "02a7e41a-361a-4e16-83a9-4453bd598d26")
-	)
-	(wire
-		(pts
-			(xy 22.86 180.34) (xy 20.32 180.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "04591c8b-fb03-4802-980f-87012fa750ef")
 	)
 	(wire
 		(pts
@@ -14177,7 +13916,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 246.38) (xy 250.19 246.38)
+			(xy 252.73 246.38) (xy 250.19 246.38)
 		)
 		(stroke
 			(width 0)
@@ -14937,16 +14676,6 @@
 	)
 	(wire
 		(pts
-			(xy 265.43 248.92) (xy 265.43 246.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6ea0262f-4e66-4be1-b4ce-3279639927f3")
-	)
-	(wire
-		(pts
 			(xy 38.1 93.98) (xy 35.56 93.98)
 		)
 		(stroke
@@ -15247,16 +14976,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 194.31) (xy 22.86 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9303c9e9-834a-4c44-b49a-6b15f8870ca3")
-	)
-	(wire
-		(pts
 			(xy 50.8 137.16) (xy 50.8 140.97)
 		)
 		(stroke
@@ -15407,16 +15126,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 195.58) (xy 20.32 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a44275f7-1af1-420a-a4ac-fde48513c938")
-	)
-	(wire
-		(pts
 			(xy 143.51 245.11) (xy 158.75 245.11)
 		)
 		(stroke
@@ -15537,16 +15246,6 @@
 	)
 	(wire
 		(pts
-			(xy 250.19 248.92) (xy 250.19 246.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae40c7b6-1f1a-471a-826f-22b376eee846")
-	)
-	(wire
-		(pts
 			(xy 208.28 215.9) (xy 208.28 193.04)
 		)
 		(stroke
@@ -15587,7 +15286,7 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 180.34) (xy 20.32 181.61)
+			(xy 20.32 180.34) (xy 20.32 182.88)
 		)
 		(stroke
 			(width 0)
@@ -16067,16 +15766,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 181.61) (xy 22.86 180.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e090f8d6-22e8-4206-8c88-e5537d73c7f2")
-	)
-	(wire
-		(pts
 			(xy 245.11 170.18) (xy 260.35 170.18)
 		)
 		(stroke
@@ -16107,7 +15796,7 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 194.31) (xy 20.32 195.58)
+			(xy 20.32 193.04) (xy 20.32 195.58)
 		)
 		(stroke
 			(width 0)
@@ -16404,16 +16093,6 @@
 			(type default)
 		)
 		(uuid "feebf972-1b84-4a20-8327-05226a3d58c0")
-	)
-	(wire
-		(pts
-			(xy 264.16 248.92) (xy 265.43 248.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff0e3914-6a2d-47b3-b835-cddc7715189d")
 	)
 	(wire
 		(pts
@@ -25367,7 +25046,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RPI_DB:Electromechanical | Switches | Tactile/RP-01H0MT-6E9H8F")
+		(lib_id "Switch:SW_Push")
 		(at 257.81 246.38 0)
 		(mirror y)
 		(unit 1)
@@ -25389,7 +25068,7 @@
 				)
 			)
 		)
-		(property "Value" "434133025816"
+		(property "Value" "TS-1088R-02526"
 			(at 257.81 241.3 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25399,18 +25078,7 @@
 				)
 			)
 		)
-		(property "Footprint" "RPI_COMPILED:wurthelek_434133025816"
-			(at 257.81 241.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Electromechanical\\Switches\\Tactile\\WURTHELEK_434133025816\\datasheets"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_TS-1088-xR025"
 			(at 257.81 241.3 0)
 			(hide yes)
 			(show_name no)
@@ -25421,7 +25089,18 @@
 				)
 			)
 		)
-		(property "Description" "Tactile Pushbutton, SPST, N.O., 4.2x3.2x2.5mm"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/XKB_Connection-TS_1088R02526/C455281"
+			(at 257.81 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Tactile Pushbutton, SPST, N.O., 4x3x2.5mm"
 			(at 257.81 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -25432,7 +25111,7 @@
 				)
 			)
 		)
-		(property "part_uid" "RP-01H0MT-6E9H8F"
+		(property "manufacturer" "XKB Connection"
 			(at 257.81 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -25443,7 +25122,7 @@
 				)
 			)
 		)
-		(property "manufacturer" "Wurth Elektronik"
+		(property "manufacturer_pn" "TS-1088R-02526"
 			(at 257.81 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -25454,40 +25133,7 @@
 				)
 			)
 		)
-		(property "manufacturer_pn" "434133025816"
-			(at 257.81 246.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "packaging" "330mm dia. tape & reel"
-			(at 257.81 246.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "packaging_qty" "2900"
-			(at 257.81 246.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "size" "4.2x3.2x2.5mm"
+		(property "size" "4x3x2.5mm"
 			(at 257.81 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -25520,8 +25166,19 @@
 				)
 			)
 		)
-		(property "package" "4.2x3.2x2.5mm"
+		(property "package" "4x3x2.5mm"
 			(at 257.81 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C455281"
+			(at 257.81 241.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25536,12 +25193,6 @@
 		)
 		(pin "2"
 			(uuid "60bc8042-9019-4595-8e44-d914b37edcf2")
-		)
-		(pin "4"
-			(uuid "f3c74a53-2ebc-428e-a09e-237f9ff37b9f")
-		)
-		(pin "3"
-			(uuid "36a42c89-4be3-4537-9e2e-818f4c85683b")
 		)
 		(instances
 			(project "led-processor-board"
@@ -30429,7 +30080,7 @@
 		)
 	)
 	(symbol
-		(lib_id "RPI_DB:Electromechanical | Switches | Tactile/RP-01H0MT-6E9H8F")
+		(lib_id "Switch:SW_Push")
 		(at 20.32 187.96 90)
 		(unit 1)
 		(body_style 1)
@@ -30451,7 +30102,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "434133025816"
+		(property "Value" "TS-1088R-02526"
 			(at 23.495 189.2299 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30462,7 +30113,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "RPI_COMPILED:wurthelek_434133025816"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_TS-1088-xR025"
 			(at 15.24 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -30473,7 +30124,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Electromechanical\\Switches\\Tactile\\WURTHELEK_434133025816\\datasheets"
+		(property "Datasheet" "https://jlcpcb.com/partdetail/XKB_Connection-TS_1088R02526/C455281"
 			(at 15.24 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -30484,7 +30135,7 @@
 				)
 			)
 		)
-		(property "Description" "Tactile Pushbutton, SPST, N.O., 4.2x3.2x2.5mm"
+		(property "Description" "Tactile Pushbutton, SPST, N.O., 4x3x2.5mm"
 			(at 20.32 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -30495,7 +30146,7 @@
 				)
 			)
 		)
-		(property "part_uid" "RP-01H0MT-6E9H8F"
+		(property "manufacturer" "XKB Connection"
 			(at 20.32 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -30506,7 +30157,7 @@
 				)
 			)
 		)
-		(property "manufacturer" "Wurth Elektronik"
+		(property "manufacturer_pn" "TS-1088R-02526"
 			(at 20.32 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -30517,40 +30168,7 @@
 				)
 			)
 		)
-		(property "manufacturer_pn" "434133025816"
-			(at 20.32 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "packaging" "330mm dia. tape & reel"
-			(at 20.32 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "packaging_qty" "2900"
-			(at 20.32 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "size" "4.2x3.2x2.5mm"
+		(property "size" "4x3x2.5mm"
 			(at 20.32 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -30583,8 +30201,19 @@
 				)
 			)
 		)
-		(property "package" "4.2x3.2x2.5mm"
+		(property "package" "4x3x2.5mm"
 			(at 20.32 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C455281"
+			(at 15.24 187.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30599,12 +30228,6 @@
 		)
 		(pin "2"
 			(uuid "01f2aed9-e58b-46b3-89ea-6523f211fa81")
-		)
-		(pin "3"
-			(uuid "a74dd636-31e4-4f6c-affb-d5b4e3e9d654")
-		)
-		(pin "4"
-			(uuid "05974c6a-1b65-4cb9-8604-e9e1df1cfa10")
 		)
 		(instances
 			(project "led-processor-board"
