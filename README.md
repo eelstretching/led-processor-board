@@ -88,7 +88,7 @@ so it can be replaced (universal-strip-controller used a tabbed cell).
 
 - **J2, spare GPIO** (1x10, 2.54 mm): 3V3, GPIO35-42, GND.
 - **J3, SWD** (1x3, 2.54 mm): SWCLK, GND, SWD, the same order as a Pico's debug header.
-- **J9, RM2 spare GPIO** (1x3, 2.54 mm, beside the RM2): WL_GPIO1, WL_GPIO2, GND. These are the
+- **J9, RM2 spare GPIO** (1x3, 2.54 mm, under the board name, left of J3): WL_GPIO1, WL_GPIO2, GND. These are the
   radio chip's own pins, not RP2350 pins: set or read them with `cyw43_arch_gpio_put()` /
   `cyw43_arch_gpio_get()`, which go over the radio's SPI link, so they're slow, plain digital in/out
   (no PWM, PIO or ADC). Fine for an LED, a button or a relay in a pinch. On a Pico 2 W these two are
@@ -127,14 +127,13 @@ laying out.
   stop just above it, their bodies overhang it); J8 is 1.6 mm left of the resistor row to clear the
   corner hole, so its data lines jog. The 33R resistors sit in a row next to each shroud's data
   pins. On J7/J8 the 3V3 and 5V runs use the channel between the two pin rows, one net per layer.
-- **J9** (the RM2's spare WL_GPIO1/2) sits between J7 and the RM2, with C23/C24 just above it.
 - **Power** in the top right: J4 (12 V) on the right edge, D3, the TPS54202 buck (U7, L2, output
   caps) and D5. The 12 V runs are 0.8 mm, +5V 0.5 mm.
 - **USB-C** at the top edge where Pi's micro-B was, with **J2 (spare GPIO35-42, plus 3V3 and GND)**
   along the top edge to its right, so wires leave from the board edge. Its lines leave the core on
   the top layer, drop through a row of vias left of the buck and fan out on the bottom; the ADC pins
   (GPIO40-42) are the lanes furthest from the buck's switch node. The RTC (U6, BT1) is on the right
-  and J3 (SWD) is under the core.
+  and J9 (RM2 spare GPIO) and J3 (SWD) sit side by side under the board name.
 - The antenna keepout runs the full width along the bottom edge past the RM2.
 
 ### Regenerating it
@@ -161,7 +160,8 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
    to the RTC, which also feeds the lower pour and the RM2, below the via row), `post.py`, `silk.py`.
 6. Bottom shrouds to the edge and J9: `shrouds.py` (move J7/J8 and their caps, re-run the data
    lines, rip their power), `shrouds2.py` (hand-routes their 3V3/5V), `post.py`, `silk.py`, then
-   `wlhdr.py` (adds J9, moves C23/C24, routes WL_GPIO1/2) and `silk.py`.
+   `hdrs.py` (adds J9 and moves J3 under the board name), `route.sh` (WL_GPIO1/2), `post.py`,
+   `silk.py`, and `swd.py` (hand-routes SWCLK/SWD, which Freerouting couldn't get out of the core).
 7. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
