@@ -121,8 +121,11 @@ laying out.
   side of the RM2 antenna. The 33R resistors sit in a row next to each shroud's data pins.
 - **Power** in the top right: J4 (12 V) on the right edge, D3, the TPS54202 buck (U7, L2, output
   caps) and D5. The 12 V runs are 0.8 mm, +5V 0.5 mm.
-- **USB-C** at the top edge where Pi's micro-B was. The RTC (U6, BT1) is on the right; J2 (spare
-  GPIO) is beside the core and J3 (SWD) is right under it.
+- **USB-C** at the top edge where Pi's micro-B was, with **J2 (spare GPIO35-42, plus 3V3 and GND)**
+  along the top edge to its right, so wires leave from the board edge. Its lines leave the core on
+  the top layer, drop through a row of vias left of the buck and fan out on the bottom; the ADC pins
+  (GPIO40-42) are the lanes furthest from the buck's switch node. The RTC (U6, BT1) is on the right
+  and J3 (SWD) is under the core.
 - The antenna keepout runs the full width along the bottom edge past the RM2.
 
 ### Regenerating it
@@ -144,7 +147,10 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
 4. Moving the PSRAM to the top: `psram.py` (flip and place U4/C22/R11/R13, rip their bottom-side
    routing), `post.py --trim-only`, `psram2.py` (Pi's QSPI escapes from under U3, the GPIO47 drop),
    `route.sh`, then the U4 supply hop at the end of `fix.py`, `post.py` and `silk.py`.
-5. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
+5. Moving J2 to the top edge: `j2top.py` (place it and its pin labels, rip its old fan-out),
+   `post.py --trim-only`, `j2route.py` (hand-routes the bus and moves the +3V3 hop from the core pour
+   to the RTC, which also feeds the lower pour and the RM2, below the via row), `post.py`, `silk.py`.
+6. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
 ## Files

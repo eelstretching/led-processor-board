@@ -71,6 +71,10 @@ boxes = []
 for f in b.GetFootprints():
     bb = f.GetBoundingBox(False)
     boxes.append((MM(bb.GetLeft()), MM(bb.GetTop()), MM(bb.GetRight()), MM(bb.GetBottom())))
+for d in b.GetDrawings():     # keep vias out of silk labels (the fab clips silk over holes)
+    if d.GetClass() == 'PCB_TEXT' and d.GetLayer() == pcbnew.F_SilkS:
+        bb = d.GetBoundingBox()
+        boxes.append((MM(bb.GetLeft()), MM(bb.GetTop()), MM(bb.GetRight()), MM(bb.GetBottom())))
 for z in b.Zones():
     if z.GetIsRuleArea():
         bb = z.GetBoundingBox()
