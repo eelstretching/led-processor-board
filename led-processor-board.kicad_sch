@@ -13161,7 +13161,7 @@
 	)
 	(text "RM2 gSPI: GPIO43 = WL_ON + BT_ON, GPIO44 = CS, GPIO45 = DATA (DI direct,\nDO through R14, IRQ through R15), GPIO46 = CLK. Same circuit as the Pico 2 W,\nmoved off GPIO23/24/25/29; set CYW43_DEFAULT_PIN_* in the board header.\nHand-solder U5 (not stocked at LCSC). Keep copper out from under the antenna end."
 		(exclude_from_sim no)
-		(at 26.67 114.3 0)
+		(at 26.67 119.38 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13618,20 +13618,12 @@
 		(uuid "05c0e480-8cbd-4098-9cfd-5cf9d6e785ac")
 	)
 	(no_connect
-		(at 74.93 86.36)
-		(uuid "253c7a62-8704-46d6-963c-4808d711add3")
-	)
-	(no_connect
 		(at 74.93 93.98)
 		(uuid "83b38710-6cb0-4f65-b8cc-6431caf40ee7")
 	)
 	(no_connect
 		(at 74.93 91.44)
 		(uuid "ee02066e-79e8-4cf4-b1bb-253bc7d538a5")
-	)
-	(no_connect
-		(at 74.93 83.82)
-		(uuid "f0a0ccb7-3da7-48ee-81b4-5136c39ac61a")
 	)
 	(wire
 		(pts
@@ -38510,6 +38502,279 @@
 			(justify left bottom)
 		)
 		(uuid "e887915e-aade-5998-ae2a-69d117a0e714")
+	)
+	(wire
+		(pts
+			(xy 74.93 83.82) (xy 77.47 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "508c9bf9-03bc-4fd3-a8a7-6e18d5057f79")
+	)
+	(wire
+		(pts
+			(xy 77.47 83.82) (xy 77.47 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca079a22-16f9-43a3-8922-bfc41c39ad92")
+	)
+	(wire
+		(pts
+			(xy 77.47 101.6) (xy 92.71 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d996e843-98dd-4d5e-8e15-d5a6a2fce45d")
+	)
+	(wire
+		(pts
+			(xy 74.93 86.36) (xy 76.2 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5f38ff6-984c-4eab-977d-2ca4e5cbff28")
+	)
+	(wire
+		(pts
+			(xy 76.2 86.36) (xy 76.2 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e546f05-87db-47b9-bc36-0dd6089b506c")
+	)
+	(wire
+		(pts
+			(xy 76.2 104.14) (xy 92.71 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ee6ecee-87fb-4e6c-9143-c75bbf6ec8e4")
+	)
+	(wire
+		(pts
+			(xy 92.71 106.68) (xy 90.17 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4e9f4de-95c9-410a-9909-ecfaed42643a")
+	)
+	(label "WL_GPIO1"
+		(at 82.55 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3a46f4dc-972c-4848-b86b-9ccff0ea8cee")
+	)
+	(label "WL_GPIO2"
+		(at 82.55 104.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "107b3062-61c4-4dc7-bbe1-f2e638dc0059")
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 97.79 104.14 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "da6c4e4c-3e09-48ab-bdbc-08436853f8dc")
+		(property "Reference" "J9"
+			(at 93.98 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "WL_GPIO"
+			(at 97.79 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 97.79 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Spare RM2 GPIOs: WL_GPIO1, WL_GPIO2, GND (CYW43 pins, driven over gSPI). Through-hole: hand-solder"
+			(at 97.79 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "manufacturer" ""
+			(at 97.79 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "manufacturer_pn" "1x3 2.54 mm pin header"
+			(at 97.79 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b22eabbb-851f-44fe-8d8e-04afd1ca918c")
+		)
+		(pin "2"
+			(uuid "1c0d659e-15a3-47bc-9844-101c57de9ecb")
+		)
+		(pin "3"
+			(uuid "20c55d32-d41f-4cf9-896c-1f31a5f0ac24")
+		)
+		(instances
+			(project "led-processor-board"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "J9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "RPI - Power:GND")
+		(at 90.17 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "6c28b26e-2a0c-4e86-8ad3-d57e1b5ccc71")
+		(property "Reference" "#PWR116"
+			(at 92.71 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 90.17 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.17 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "45f202b4-c727-49c7-b853-541981165b92")
+		)
+		(instances
+			(project "led-processor-board"
+				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
+					(reference "#PWR116")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"

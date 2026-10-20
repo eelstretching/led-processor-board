@@ -88,6 +88,11 @@ so it can be replaced (universal-strip-controller used a tabbed cell).
 
 - **J2, spare GPIO** (1x10, 2.54 mm): 3V3, GPIO35-42, GND.
 - **J3, SWD** (1x3, 2.54 mm): SWCLK, GND, SWD, the same order as a Pico's debug header.
+- **J9, RM2 spare GPIO** (1x3, 2.54 mm, beside the RM2): WL_GPIO1, WL_GPIO2, GND. These are the
+  radio chip's own pins, not RP2350 pins: set or read them with `cyw43_arch_gpio_put()` /
+  `cyw43_arch_gpio_get()`, which go over the radio's SPI link, so they're slow, plain digital in/out
+  (no PWM, PIO or ADC). Fine for an LED, a button or a relay in a pinch. On a Pico 2 W these two are
+  SMPS mode and VBUS sense; here nothing else uses them.
 
 ## BOM / JLCPCB
 
@@ -96,7 +101,7 @@ so it can be replaced (universal-strip-controller used a tabbed cell).
 - **U5 RM2**: buy Raspberry Pi SC1169 and hand-solder it, as on the reference board.
 - **SW1/SW2** (Wurth 434133025816): JLC global sourcing or hand-solder, as on the reference board.
 - **BT1** Keystone 3001 holder (Digi-Key 36-3001-ND): hand-solder.
-- **J2, J3** pin headers and **J5-J8** box headers (the shrouds already bought for the output
+- **J2, J3, J9** pin headers and **J5-J8** box headers (the shrouds already bought for the output
   boards): through-hole, hand-solder.
 
 J4 (DORABO DB301V-3.5-2P, C695629) is in the same family as the output boards' strand terminals and
@@ -118,7 +123,11 @@ laying out.
   straight down to it. Pi's +3V3 top pour and full GND bottom plane stay; the board widens with a top
   GND pour on either side, stitched to the bottom plane.
 - **Shrouds**: OUT1/OUT2 (J5, J6) down the left edge, OUT3/OUT4 (J7, J8) along the bottom, either
-  side of the RM2 antenna. The 33R resistors sit in a row next to each shroud's data pins.
+  side of the RM2 antenna. The bottom two sit as low as the antenna strip allows (their bottom pins
+  stop just above it, their bodies overhang it); J8 is 1.6 mm left of the resistor row to clear the
+  corner hole, so its data lines jog. The 33R resistors sit in a row next to each shroud's data
+  pins. On J7/J8 the 3V3 and 5V runs use the channel between the two pin rows, one net per layer.
+- **J9** (the RM2's spare WL_GPIO1/2) sits between J7 and the RM2, with C23/C24 just above it.
 - **Power** in the top right: J4 (12 V) on the right edge, D3, the TPS54202 buck (U7, L2, output
   caps) and D5. The 12 V runs are 0.8 mm, +5V 0.5 mm.
 - **USB-C** at the top edge where Pi's micro-B was, with **J2 (spare GPIO35-42, plus 3V3 and GND)**
@@ -150,14 +159,17 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
 5. Moving J2 to the top edge: `j2top.py` (place it and its pin labels, rip its old fan-out),
    `post.py --trim-only`, `j2route.py` (hand-routes the bus and moves the +3V3 hop from the core pour
    to the RTC, which also feeds the lower pour and the RM2, below the via row), `post.py`, `silk.py`.
-6. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
+6. Bottom shrouds to the edge and J9: `shrouds.py` (move J7/J8 and their caps, re-run the data
+   lines, rip their power), `shrouds2.py` (hand-routes their 3V3/5V), `post.py`, `silk.py`, then
+   `wlhdr.py` (adds J9, moves C23/C24, routes WL_GPIO1/2) and `silk.py`.
+7. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
 ## Files
 
 | Path | What |
 |---|---|
-| `led-processor-board.kicad_sch` | root sheet: the reference core, RTC, J2/J3, sheet symbols |
+| `led-processor-board.kicad_sch` | root sheet: the reference core, RTC, J2/J3/J9, sheet symbols |
 | `Power.kicad_sch` | 12 V in, buck, +5V, VSYS |
 | `Outputs.kicad_sch` | J5-J8 shrouds, 33R series resistors, decoupling |
 | `rp2350b_rm2.kicad_sym`, `rp2350b_rm2.pretty/` | RM2 symbol and footprint (from the reference) |
@@ -177,7 +189,9 @@ libraries (`RPI_DB`, `RPI - Power`, `RPI_COMPILED`) aren't in the library table,
 reference board. A netlist check confirms each shroud's GND, +3V3, +5V and data pins, the RTC nets
 and the 12 V to VSYS chain.
 
-`kicad-cli pcb drc --severity-all` reports no clearance, short, hole or unconnected items. What's
+`kicad-cli pcb drc --severity-all --schematic-parity` reports no clearance, short, hole or unconnected
+items, and the board matches the schematic (apart from footprints not carrying the symbols'
+`manufacturer` fields). What's
 left: 44 warnings that Pi's `RPI_COMPILED` footprint library isn't in the library table (as on the
 reference board), and 4 silkscreen-past-the-edge warnings from J1 and J4, whose bodies overhang the
 board edge (the USB-C opening and the terminal block). C7 and C27 have their reference designators hidden

@@ -50,7 +50,7 @@ for d in b.GetDrawings():
             d.SetHorizJustify(pcbnew.GR_TEXT_H_ALIGN_CENTER)
 b.FindFootprintByReference('J4').Reference().SetPosition(pcbnew.VECTOR2I(mm(146.5), mm(83.6)))
 # refs the search below would push too far from their parts: on the body (L2) or beside it (J8)
-FIXED = {'J8': (114.9, 147.2, 90), 'L2': (128.0, 96.5, 0)}
+FIXED = {'J8': (113.0, 151.0, 90), 'L2': (128.0, 96.5, 0)}
 for r, (x, y, rot) in FIXED.items():
     t = b.FindFootprintByReference(r).Reference()
     t.SetTextSize(pcbnew.VECTOR2I(mm(0.8), mm(0.8))); t.SetTextThickness(mm(0.12))

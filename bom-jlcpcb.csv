@@ -23,6 +23,7 @@ OUT1,J5,IDC-Header_2x08_P2.54mm_Vertical,,Box header 2x08 2.54 mm,1,Through-hole
 OUT2,J6,IDC-Header_2x08_P2.54mm_Vertical,,Box header 2x08 2.54 mm,1,Through-hole: hand-solder (same shroud as the output boards)
 OUT3,J7,IDC-Header_2x08_P2.54mm_Vertical,,Box header 2x08 2.54 mm,1,Through-hole: hand-solder (same shroud as the output boards)
 OUT4,J8,IDC-Header_2x08_P2.54mm_Vertical,,Box header 2x08 2.54 mm,1,Through-hole: hand-solder (same shroud as the output boards)
+WL_GPIO,J9,PinHeader_1x03_P2.54mm_Vertical,,1x3 2.54 mm pin header,1,Through-hole: hand-solder
 3.3u,L1,abracon_aota-b201610s3r3-101-t,C42411119,AOTA-B201610S3R3-101-T,1,
 15u,L2,L_Sunlord_SWPA8040S,C16853,SWPA8040S150MT,1,
 1k,"R2,R4,R6",generic_resc1005x35,C11702,0402WGF1001TCE,3,
