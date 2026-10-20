@@ -96,7 +96,8 @@ so it can be replaced (universal-strip-controller used a tabbed cell).
 
 ## BOM / JLCPCB
 
-`bom-jlcpcb.csv` is the full BOM with LCSC numbers. `fab/` is the JLCPCB upload set, made by
+`production/` holds the BOMs and the JLCPCB upload set. `bom-full.csv` is the full BOM with LCSC
+numbers (edit this one); the rest is made from it and the board by
 `python3 tools/jlc.py` (rerun it after any board change):
 
 - `led-processor-board-gerbers.zip`: gerbers and drill files.
@@ -188,8 +189,8 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
 | `Power.kicad_sch` | 12 V in, buck, +5V, VSYS |
 | `Outputs.kicad_sch` | J5-J8 shrouds, 33R series resistors, decoupling |
 | `rp2350b_rm2.kicad_sym`, `rp2350b_rm2.pretty/` | RM2 symbol and footprint (from the reference) |
-| `bom-jlcpcb.csv` | BOM with LCSC numbers |
-| `fab/` | JLCPCB gerbers zip, assembly BOM and CPL (`tools/jlc.py`) |
+| `production/bom-full.csv` | full BOM with LCSC numbers |
+| `production/` (rest) | JLCPCB gerbers zip, assembly BOM and CPL (`tools/jlc.py`) |
 | `docs/schematic.pdf`, `docs/sheet-*.png` | all three sheets |
 | `led-processor-board.kicad_pcb` | the layout |
 | `docs/pcb-*.png` | layout previews |
