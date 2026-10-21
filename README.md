@@ -180,7 +180,8 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
    `silk.py`, and `swd.py` (hand-routes SWCLK/SWD, which Freerouting couldn't get out of the core).
 7. LCSC buttons: `buttons.py` (TS-1088R footprints in SW1/SW2's spots, stubs re-joined) and
    `tools/sch_buttons.py` (swaps the schematic symbols to `Switch:SW_Push`).
-8. `tools/rm_r9.py` drops R9 and its GPIO0 branch from the schematic and board.
+8. `tools/rm_r9.py` drops R9 and its GPIO0 branch from the schematic and board; `tidy_gpio.py`
+   straightens GPIO0 and chamfers GPIO1 on their way to OUT1.
 9. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
