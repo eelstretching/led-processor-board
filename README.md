@@ -106,6 +106,19 @@ numbers (edit this one); the rest is made from it and the board by
   before ordering; their footprints don't always share KiCad's zero angle (the QFN, SOICs, SOT-23s,
   USB-C and crystal are the usual suspects).
 
+`tools/jlc.py` needs KiCad's own Python (for `pcbnew`) and `kicad-cli` on the PATH. On a Mac with
+KiCad in `/Applications/KiCad`, save the board in KiCad, then from the repo root:
+
+```sh
+K=/Applications/KiCad/KiCad.app/Contents
+PATH=$K/MacOS:$PATH $K/Frameworks/Python.framework/Versions/Current/bin/python3 tools/jlc.py
+git status production/   # see what changed, then commit and push
+```
+
+On Linux, with KiCad installed from its PPA, plain `python3 tools/jlc.py` works. The BOM and CPL
+only change when parts move or the BOM changes; the gerbers zip changes with any copper or silk
+edit.
+
 Left off both files for hand-soldering:
 
 - **U5 RM2**: buy Raspberry Pi SC1169, as on the reference board.
