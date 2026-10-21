@@ -33285,7 +33285,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a2c79074-d2c5-4f91-bf6b-99c30bb5c427")
-		(property "Reference" "#FLG01"
+		(property "Reference" "#FLG6"
 			(at 55.88 26.035 0)
 			(hide yes)
 			(show_name no)
@@ -33346,7 +33346,7 @@
 		(instances
 			(project "led-processor-board"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "#FLG01")
+					(reference "#FLG6")
 					(unit 1)
 				)
 			)
@@ -37997,7 +37997,7 @@
 		(in_pos_files no)
 		(dnp no)
 		(uuid "6c28b26e-2a0c-4e86-8ad3-d57e1b5ccc71")
-		(property "Reference" "#PWR116"
+		(property "Reference" "#PWR157"
 			(at 92.71 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -38057,7 +38057,7 @@
 		(instances
 			(project "led-processor-board"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "#PWR116")
+					(reference "#PWR157")
 					(unit 1)
 				)
 			)
