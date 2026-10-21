@@ -115,7 +115,9 @@ Left off both files for hand-soldering:
 - **J4** terminal block (C695629): JLC could fit it as through-hole assembly, but it's left to you.
 
 SW1/SW2 are XKB TS-1088R-02526 (C455281, 4 x 3 mm) in place of Pi's Wurth 434133025816, which LCSC
-doesn't stock; same spots, same nets. R1 and R9 are DNP, as on the reference board.
+doesn't stock; same spots, same nets. R1 is DNP, as on the reference board. Pi's R9 (an unfitted 0R option from GPIO0 to the flash chip
+select) is removed, with its GPIO0 branch, so OUT1's first data line has no stub. The PSRAM chip
+select is GPIO47 (QMI CS1n, RP2350 datasheet section 9.4, which allows GPIO 0, 8, 19 or 47).
 
 J4 (DORABO DB301V-3.5-2P, C695629) is in the same family as the output boards' strand terminals and
 uses KiCad's stock 3.5 mm Phoenix PT footprint; check the hole size against the DB301V drawing when
@@ -178,7 +180,8 @@ here on it is a normal KiCad board, so edit it in KiCad; the scripts are a recor
    `silk.py`, and `swd.py` (hand-routes SWCLK/SWD, which Freerouting couldn't get out of the core).
 7. LCSC buttons: `buttons.py` (TS-1088R footprints in SW1/SW2's spots, stubs re-joined) and
    `tools/sch_buttons.py` (swaps the schematic symbols to `Switch:SW_Push`).
-8. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
+8. `tools/rm_r9.py` drops R9 and its GPIO0 branch from the schematic and board.
+9. `render.sh` / `rendernz.sh` make the PNGs (`kicad-cli pcb export svg` cropped with cairosvg;
    `rendernz` hides zone fills).
 
 ## Files
@@ -209,7 +212,7 @@ and the 12 V to VSYS chain.
 `kicad-cli pcb drc --severity-all --schematic-parity` reports no clearance, short, hole or unconnected
 items, and the board matches the schematic (apart from footprints not carrying the symbols'
 `manufacturer` fields). What's
-left: 42 warnings that Pi's `RPI_COMPILED` footprint library isn't in the library table (as on the
+left: 41 warnings that Pi's `RPI_COMPILED` footprint library isn't in the library table (as on the
 reference board), and 4 silkscreen-past-the-edge warnings from J1 and J4, whose bodies overhang the
 board edge (the USB-C opening and the terminal block). C7 and C27 have their reference designators hidden
 for lack of room.

@@ -13169,12 +13169,6 @@
 		(uuid "6e04c5d1-d7ae-468d-91c2-9d0aa71e7090")
 	)
 	(junction
-		(at 36.83 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "723a46ba-706c-4972-9a25-f4384c05d139")
-	)
-	(junction
 		(at 281.94 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -15456,16 +15450,6 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 143.51) (xy 36.83 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0f43597-1ebc-440a-978a-9b532d04c9f5")
-	)
-	(wire
-		(pts
 			(xy 58.42 104.14) (xy 60.96 104.14)
 		)
 		(stroke
@@ -15876,16 +15860,6 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 143.51) (xy 36.83 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e8732e0c-8c05-4f09-b6ec-5c74c9447350")
-	)
-	(wire
-		(pts
 			(xy 185.42 40.64) (xy 196.85 40.64)
 		)
 		(stroke
@@ -15903,16 +15877,6 @@
 			(type default)
 		)
 		(uuid "ebea4ffe-73bc-41b3-a0fd-663edb114d98")
-	)
-	(wire
-		(pts
-			(xy 16.51 143.51) (xy 27.94 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ec5dca65-60c8-4e62-84bf-efec03cddc02")
 	)
 	(wire
 		(pts
@@ -16643,16 +16607,6 @@
 			(justify left bottom)
 		)
 		(uuid "8a92002c-dc57-4c71-a229-057a83c50f9e")
-	)
-	(label "GPIO0"
-		(at 16.51 143.51 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "8f235f7a-7811-4205-a1e0-689ed95e03fa")
 	)
 	(label "XOUT"
 		(at 205.74 208.28 90)
@@ -30678,296 +30632,6 @@
 			(project "led-processor-board"
 				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
 					(reference "#PWR049")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "RPI_DB:Resistors | Chip | M1005/RP-019A1P-4Y4V63")
-		(at 30.48 143.51 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "c3bba709-ca2f-44d9-85d3-c0a520436e98")
-		(property "Reference" "R9"
-			(at 26.416 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0"
-			(at 28.448 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "RPI_COMPILED:generic_resc1005x35"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Resistors\\Chip\\M1005\\YAGEO_RC0402JR-070RL\\datasheets"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, Chip, 0R, M1005, 63mW, +50mR"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "power" "63mW"
-			(at 32.512 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "tolerance" "+50mR"
-			(at 30.48 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "package" "M1005"
-			(at 34.544 142.24 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "part_uid" "RP-019A1P-4Y4V63"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "manufacturer" "UNI-ROYAL"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "manufacturer_pn" "0402WGF0000TCE"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "packaging" "7 inch dia. paper taping reel"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "packaging_qty" "10000"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "temp_coefficient" ""
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "voltage" "50V"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "size" "1x0.5x0.35mm"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "resistance" "0"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "z_height_max" "0.4mm"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "operating_temp_min" "-55C"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "operating_temp_max" "+150C"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "material" "Thick Film"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "current" "1A Working, 2A Max"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "z_height_nom" "0.35mm"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C17168"
-			(at 30.48 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7abe9412-05f7-402c-822f-24d0efba9928")
-		)
-		(pin "2"
-			(uuid "f961cd47-7c99-40f5-a870-d7bac34966be")
-		)
-		(instances
-			(project "led-processor-board"
-				(path "/94683f5c-9cd9-448e-be96-9792537b5cb8"
-					(reference "R9")
 					(unit 1)
 				)
 			)
