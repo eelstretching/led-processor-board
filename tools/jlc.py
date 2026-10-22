@@ -8,6 +8,9 @@ import pcbnew
 BOARD = 'led-processor-board.kicad_pcb'
 OUT = 'production'
 NOT_JLC = {'U5', 'L1'}  # RM2: bought from Raspberry Pi; L1: out of stock at LCSC (2026-10); both hand-soldered
+# JLC's 3D models for these sit 90 deg counter-clockwise of KiCad's footprints
+# (checked in JLC's placement preview, 2026-10-21): add this to KiCad's angle.
+ROT_FIX = {'U2': -90, 'U3': -90, 'U4': -90, 'U6': -90}
 LAYERS = 'F.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts'
 
 def cli(*a):
@@ -46,7 +49,8 @@ with tempfile.TemporaryDirectory() as t:
         w.writerow(['Designator', 'Mid X', 'Mid Y', 'Layer', 'Rotation'])
         for d in sorted(placed, key=key):
             r = got[d]
-            w.writerow([d, r['PosX'] + 'mm', r['PosY'] + 'mm', 'Top', r['Rot']])
+            rot = (float(r['Rot']) + ROT_FIX.get(d, 0)) % 360
+            w.writerow([d, r['PosX'] + 'mm', r['PosY'] + 'mm', 'Top', '%f' % rot])
 
     g = os.path.join(t, 'gerbers')
     cli('gerbers', '--layers', LAYERS, '--check-zones', '-o', g + '/', BOARD)
