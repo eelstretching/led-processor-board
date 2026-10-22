@@ -11225,7 +11225,7 @@
 				)
 			)
 		)
-		(property "manufacturer" "Everlight"
+		(property "manufacturer" "Hubei KENTO Elec"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11238,7 +11238,7 @@
 				)
 			)
 		)
-		(property "manufacturer_pn" "19-217/GHC-YR1S2/3T"
+		(property "manufacturer_pn" "KT-0603YG"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11251,7 +11251,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C2289"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29692,7 +29692,7 @@
 				)
 			)
 		)
-		(property "manufacturer" "Everlight"
+		(property "manufacturer" "Hubei KENTO Elec"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -29704,7 +29704,7 @@
 				)
 			)
 		)
-		(property "manufacturer_pn" "19-217/GHC-YR1S2/3T"
+		(property "manufacturer_pn" "KT-0603YG"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
@@ -29716,7 +29716,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C2289"
 			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)

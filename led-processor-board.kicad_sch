@@ -27282,7 +27282,7 @@
 				)
 			)
 		)
-		(property "manufacturer" "Everlight"
+		(property "manufacturer" "Hubei KENTO Elec"
 			(at 80.01 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -27293,7 +27293,7 @@
 				)
 			)
 		)
-		(property "manufacturer_pn" "19-217/GHC-YR1S2/3T"
+		(property "manufacturer_pn" "KT-0603YG"
 			(at 80.01 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -27304,7 +27304,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C2289"
 			(at 80.01 92.71 0)
 			(hide yes)
 			(show_name no)
