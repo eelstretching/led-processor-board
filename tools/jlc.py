@@ -7,7 +7,7 @@ import pcbnew
 
 BOARD = 'led-processor-board.kicad_pcb'
 OUT = 'production'
-NOT_JLC = {'U5'}  # RM2: castellated SMD, but bought from Raspberry Pi and hand-soldered
+NOT_JLC = {'U5', 'L1'}  # RM2: bought from Raspberry Pi; L1: out of stock at LCSC (2026-10); both hand-soldered
 LAYERS = 'F.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts'
 
 def cli(*a):
@@ -20,16 +20,19 @@ smd = {f.GetReference() for f in b.GetFootprints()
 
 placed, hand = [], []
 rows = list(csv.DictReader(open(os.path.join(OUT, 'bom-full.csv'))))
+lines = {}  # LCSC -> row; JLC wants one line per part, so rows that differ only in footprint name merge
+for r in rows:
+    refs = r['Designator'].split(',')
+    if r['LCSC'] and not set(refs) & NOT_JLC and set(refs) <= smd:
+        lines.setdefault(r['LCSC'], [r['Comment'], [], r['Footprint'], r['LCSC']])[1].extend(refs)
+        placed += refs
+    else:
+        hand += refs
 with open(os.path.join(OUT, 'jlcpcb-bom.csv'), 'w', newline='') as fh:
     w = csv.writer(fh)
     w.writerow(['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
-    for r in rows:
-        refs = r['Designator'].split(',')
-        if r['LCSC'] and not set(refs) & NOT_JLC and set(refs) <= smd:
-            w.writerow([r['Comment'], r['Designator'], r['Footprint'], r['LCSC']])
-            placed += refs
-        else:
-            hand += refs
+    for c, refs, fp, lcsc in lines.values():
+        w.writerow([c, ','.join(refs), fp, lcsc])
 
 with tempfile.TemporaryDirectory() as t:
     pos = os.path.join(t, 'pos.csv')
