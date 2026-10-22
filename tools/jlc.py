@@ -7,7 +7,7 @@ import pcbnew
 
 BOARD = 'led-processor-board.kicad_pcb'
 OUT = 'production'
-NOT_JLC = {'U5'}  # RM2: castellated SMD, but bought from Raspberry Pi and hand-soldered
+NOT_JLC = {'U5', 'L1'}  # RM2: bought from Raspberry Pi; L1: out of stock at LCSC (2026-10); both hand-soldered
 LAYERS = 'F.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts'
 
 def cli(*a):

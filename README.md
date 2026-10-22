@@ -101,7 +101,7 @@ numbers (edit this one); the rest is made from it and the board by
 `python3 tools/jlc.py` (rerun it after any board change):
 
 - `led-processor-board-gerbers.zip`: gerbers and drill files.
-- `jlcpcb-bom.csv` and `jlcpcb-cpl.csv`: BOM and placement for the 112 SMD parts JLC assembles
+- `jlcpcb-bom.csv` and `jlcpcb-cpl.csv`: BOM and placement for the 111 SMD parts JLC assembles
   (everything on the top side with an LCSC number). Check the rotations in JLC's placement preview
   before ordering; their footprints don't always share KiCad's zero angle (the QFN, SOICs, SOT-23s,
   USB-C and crystal are the usual suspects).
@@ -122,6 +122,7 @@ edit.
 Left off both files for hand-soldering:
 
 - **U5 RM2**: buy Raspberry Pi SC1169, as on the reference board.
+- **L1** Abracon AOTA-B201610S3R3-101-T, 3.3 uH (Digi-Key or Mouser): the part Pi specifies for the RP2350 core regulator, out of stock at LCSC when ordering (2026-10). It is polarized: match its dot to the footprint mark.
 - **BT1** Keystone 3001 holder (Digi-Key 36-3001-ND).
 - **J2, J3, J9** pin headers and **J5-J8** box headers (the shrouds already bought for the output
   boards).
