@@ -102,9 +102,10 @@ numbers (edit this one); the rest is made from it and the board by
 
 - `led-processor-board-gerbers.zip`: gerbers and drill files.
 - `jlcpcb-bom.csv` and `jlcpcb-cpl.csv`: BOM and placement for the 111 SMD parts JLC assembles
-  (everything on the top side with an LCSC number). Check the rotations in JLC's placement preview
-  before ordering; their footprints don't always share KiCad's zero angle (the QFN, SOICs, SOT-23s,
-  USB-C and crystal are the usual suspects).
+  (everything on the top side with an LCSC number). JLC's 3D models don't always share KiCad's zero
+  angle: `ROT_FIX` in `tools/jlc.py` turns U2, U3, U4 and U6 a quarter turn to match (checked in
+  JLC's placement preview for the first order). Still check the preview: legs on pads, pink pin-1
+  dot at the board's pin-1 mark.
 
 `tools/jlc.py` needs KiCad's own Python (for `pcbnew`) and `kicad-cli` on the PATH. On a Mac with
 KiCad in `/Applications/KiCad`, save the board in KiCad, then from the repo root:
