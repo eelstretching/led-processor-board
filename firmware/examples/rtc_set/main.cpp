@@ -1,5 +1,6 @@
-// Sets the DS3231 from the laptop over USB serial, then prints its time once a second so you can
-// see it ticking (and, after a power cycle on the coin cell, that it kept time).
+// Sets the DS3231 from the laptop over USB serial, then prints its time once a second (UTC, with
+// US Eastern alongside) so you can see it ticking (and, after a power cycle on the coin cell, that
+// it kept time).
 //
 // The RTC keeps UTC. Send it one line, either of:
 //
@@ -34,9 +35,33 @@ static datetime_t seedDatetimeFromBuild() {
     return dt;
 }
 
+// Local time for the printout only; the RTC itself stays on UTC. POSIX rules for US Eastern:
+// EDT from 2 am on the second Sunday in March to 2 am on the first Sunday in November.
+#ifndef LOCAL_TZ
+#define LOCAL_TZ "EST5EDT,M3.2.0,M11.1.0"
+#endif
+
+// Unix time of a UTC datetime_t (newlib has no timegm). Days-from-civil, after Howard Hinnant.
+static time_t datetimeToEpoch(const datetime_t &dt) {
+    int y = dt.year - (dt.month <= 2 ? 1 : 0);
+    int era = y / 400;
+    int yoe = y - era * 400;
+    int mp = (dt.month + 9) % 12;
+    int doy = (153 * mp + 2) / 5 + dt.day - 1;
+    int doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
+    long long days = static_cast<long long>(era) * 146097 + doe - 719468;
+    return static_cast<time_t>(days * 86400 + dt.hour * 3600 + dt.min * 60 + dt.sec);
+}
+
 static void printDatetime(const char *prefix, const datetime_t &dt) {
     printf("%s%04d-%02d-%02d %02d:%02d:%02d UTC", prefix, dt.year, dt.month, dt.day, dt.hour,
            dt.min, dt.sec);
+    time_t t = datetimeToEpoch(dt);
+    struct tm local;
+    localtime_r(&t, &local);
+    char text[32];
+    strftime(text, sizeof(text), "%Y-%m-%d %H:%M:%S %Z", &local);
+    printf(" (%s)", text);
 }
 
 // Lists every address that ACKs, so a missing RTC can be told apart from a dead bus.
@@ -91,6 +116,8 @@ static bool parseTime(const char *line, datetime_t &out) {
 
 int main() {
     stdio_init_all();
+    setenv("TZ", LOCAL_TZ, 1);
+    tzset();
     rtcBusInit();
     Ds3231 rtc(RTC_I2C);
 
