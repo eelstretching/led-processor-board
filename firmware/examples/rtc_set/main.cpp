@@ -13,6 +13,7 @@
 // scans the bus once and prints what it did find, which is the useful thing to know on a
 // perfboard.
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <ctime>
 
@@ -70,8 +71,6 @@ static bool parseTime(const char *line, datetime_t &out) {
         line++;
     }
     int y, mo, d, h, mi, s;
-    long long epoch;
-    char extra;
     if (std::sscanf(line, "%d-%d-%d %d:%d:%d", &y, &mo, &d, &h, &mi, &s) == 6) {
         if (y < 2000 || y > 2199 || mo < 1 || mo > 12 || d < 1 || d > 31 || h < 0 || h > 23 ||
             mi < 0 || mi > 59 || s < 0 || s > 59) {
@@ -86,7 +85,12 @@ static bool parseTime(const char *line, datetime_t &out) {
         out.sec = static_cast<int8_t>(s);
         return true;
     }
-    if (std::sscanf(line, "%lld %c", &epoch, &extra) == 1 && epoch >= 946684800LL) {
+    char *end;
+    long long epoch = std::strtoll(line, &end, 10);
+    while (*end == ' ') {
+        end++;
+    }
+    if (end != line && *end == '\0' && epoch >= 946684800LL) {
         time_t t = static_cast<time_t>(epoch);
         struct tm utc;
         gmtime_r(&t, &utc);
@@ -107,7 +111,8 @@ int main() {
     absolute_time_t nextPrint = get_absolute_time();
 
     while (true) {
-        // Collect a line from USB (or UART) serial without blocking the once-a-second print.
+        // Collect a line from USB serial without blocking the once-a-second print. Anything that
+        // isn't printable is dropped, so stray bytes can't hide in front of the time.
         int c = getchar_timeout_us(10 * 1000);
         if (c == '\r' || c == '\n') {
             line[lineLen] = '\0';
@@ -124,7 +129,7 @@ int main() {
                 }
             }
             lineLen = 0;
-        } else if (c >= 0 && lineLen < sizeof(line) - 1) {
+        } else if (c >= ' ' && c <= '~' && lineLen < sizeof(line) - 1) {
             line[lineLen++] = static_cast<char>(c);
         }
 
