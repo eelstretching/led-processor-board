@@ -27,8 +27,13 @@ def find_port():
 
 def main():
     port = sys.argv[1] if len(sys.argv) > 1 else find_port()
-    fd = os.open(port, os.O_RDWR | os.O_NOCTTY)
+    # On a Mac, /dev/tty.* blocks in open() until carrier detect, which a Pico never raises; the
+    # /dev/cu.* twin doesn't. Use cu, and open non-blocking anyway so a tty path can't hang us.
+    if port.startswith("/dev/tty.") and os.path.exists("/dev/cu." + port[len("/dev/tty."):]):
+        port = "/dev/cu." + port[len("/dev/tty."):]
+    fd = os.open(port, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
     try:
+        os.set_blocking(fd, True)
         tty.setraw(fd)
         termios.tcflush(fd, termios.TCIOFLUSH)
 
