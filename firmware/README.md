@@ -43,8 +43,17 @@ if (rtc.init()) {
   second. Send it Unix seconds or `YYYY-MM-DD HH:MM:SS` (UTC), or let `tools/set_rtc.py` do it.
   If the chip lost power it seeds itself from the build time; if it doesn't answer it scans the
   bus and lists what does (0x68 is the DS3231, 0x57 the EEPROM most modules also carry).
-- `examples/wifi_rtc_sync`: join WiFi, get the time over NTP, write it to the RTC. Needs
-  `-DWIFI_SSID=... -DWIFI_PASSWORD=...`.
+- `examples/wifi_rtc_sync`: join WiFi, get the time over NTP, write it to the RTC. Put the
+  credentials in `firmware/wifi_secrets.cmake` (gitignored), which works from VS Code too:
+
+  ```cmake
+  set(WIFI_SSID "myssid")
+  set(WIFI_PASSWORD "mypassword")
+  ```
+
+  `WIFI_SSID`/`WIFI_PASSWORD` environment variables or `-D` on the cmake line also work. Re-run
+  the CMake configure after changing them; the values end up in `build/CMakeCache.txt` (also
+  gitignored) and in the .uf2, so don't share a .uf2 built with them.
 
 ## Setting the clock from a Mac
 

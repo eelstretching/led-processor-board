@@ -9,10 +9,11 @@
 // tools/set_rtc.py does this for you from a Mac, to the second.
 //
 // If the chip says it lost power (new module, no or dead coin cell), this seeds it from the
-// firmware's build time so it at least ticks from roughly now. If the chip doesn't answer, it
+// firmware's build time (as UTC) so it at least ticks from roughly now. If the chip doesn't answer, it
 // scans the bus once and prints what it did find, which is the useful thing to know on a
 // perfboard.
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <ctime>
 
@@ -22,25 +23,14 @@
 #include "ds3231.hpp"
 #include "rtc_pins.h"
 
-// __DATE__/__TIME__ are the build machine's local time; the published .uf2s are built in UTC.
+// BUILD_EPOCH is the Unix time of the CMake configure (always UTC, whatever the build machine's
+// time zone; __DATE__/__TIME__ would be its local time).
 static datetime_t seedDatetimeFromBuild() {
-    static const char *monthNames = "JanFebMarAprMayJunJulAugSepOctNovDec";
-    char monthStr[4] = {0};
-    int day, year, hour, minute, sec;
-    std::sscanf(__DATE__, "%3s %d %d", monthStr, &day, &year);
-    std::sscanf(__TIME__, "%d:%d:%d", &hour, &minute, &sec);
-
-    const char *match = std::strstr(monthNames, monthStr);
-    int month = match ? static_cast<int>((match - monthNames) / 3) + 1 : 1;
-
+    time_t t = static_cast<time_t>(BUILD_EPOCH);
+    struct tm utc;
+    gmtime_r(&t, &utc);
     datetime_t dt{};
-    dt.year = static_cast<int16_t>(year);
-    dt.month = static_cast<int8_t>(month);
-    dt.day = static_cast<int8_t>(day);
-    dt.hour = static_cast<int8_t>(hour);
-    dt.min = static_cast<int8_t>(minute);
-    dt.sec = static_cast<int8_t>(sec);
-    dt.dotw = 0; // Ds3231::getDatetime() recomputes this from the date on read
+    tm_to_datetime(&utc, &dt);
     return dt;
 }
 
@@ -70,8 +60,6 @@ static bool parseTime(const char *line, datetime_t &out) {
         line++;
     }
     int y, mo, d, h, mi, s;
-    long long epoch;
-    char extra;
     if (std::sscanf(line, "%d-%d-%d %d:%d:%d", &y, &mo, &d, &h, &mi, &s) == 6) {
         if (y < 2000 || y > 2199 || mo < 1 || mo > 12 || d < 1 || d > 31 || h < 0 || h > 23 ||
             mi < 0 || mi > 59 || s < 0 || s > 59) {
@@ -86,7 +74,12 @@ static bool parseTime(const char *line, datetime_t &out) {
         out.sec = static_cast<int8_t>(s);
         return true;
     }
-    if (std::sscanf(line, "%lld %c", &epoch, &extra) == 1 && epoch >= 946684800LL) {
+    char *end;
+    long long epoch = std::strtoll(line, &end, 10);
+    while (*end == ' ') {
+        end++;
+    }
+    if (end != line && *end == '\0' && epoch >= 946684800LL) {
         time_t t = static_cast<time_t>(epoch);
         struct tm utc;
         gmtime_r(&t, &utc);
@@ -107,7 +100,8 @@ int main() {
     absolute_time_t nextPrint = get_absolute_time();
 
     while (true) {
-        // Collect a line from USB (or UART) serial without blocking the once-a-second print.
+        // Collect a line from USB serial without blocking the once-a-second print. Anything that
+        // isn't printable is dropped, so stray bytes can't hide in front of the time.
         int c = getchar_timeout_us(10 * 1000);
         if (c == '\r' || c == '\n') {
             line[lineLen] = '\0';
@@ -124,7 +118,7 @@ int main() {
                 }
             }
             lineLen = 0;
-        } else if (c >= 0 && lineLen < sizeof(line) - 1) {
+        } else if (c >= ' ' && c <= '~' && lineLen < sizeof(line) - 1) {
             line[lineLen++] = static_cast<char>(c);
         }
 
@@ -149,8 +143,7 @@ int main() {
                    RTC_SCL_PIN);
             if (rtc.lostPower()) {
                 printf("It lost power since it was last set, so seeding it from this firmware's "
-                       "build time (%s %s). Send it the real time to fix that.\n",
-                       __DATE__, __TIME__);
+                       "build time. Send it the real time to fix that.\n");
                 if (!rtc.setDatetime(seedDatetimeFromBuild())) {
                     printf("Couldn't seed the RTC\n");
                 }
