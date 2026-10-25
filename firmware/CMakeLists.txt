@@ -1,10 +1,24 @@
+# == DO NOT EDIT THE FOLLOWING LINES for the Raspberry Pi Pico VS Code Extension to work ==
+if(WIN32)
+    set(USERHOME $ENV{USERPROFILE})
+else()
+    set(USERHOME $ENV{HOME})
+endif()
+set(sdkVersion 2.3.1)
+set(toolchainVersion 15_2_Rel1)
+set(picotoolVersion 2.3.1)
+set(picoVscode ${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+if (EXISTS ${picoVscode})
+    include(${picoVscode})
+endif()
+# ====================================================================================
 cmake_minimum_required(VERSION 3.13)
 
 # Builds for the LED processor board by default. For the perfboard compute board (a Pico 2 W with
 # a DS3231 module on GP26/GP27), configure with -DPICO_BOARD=pico2_w. include/rtc_pins.h in the
 # DS3231 driver picks the RTC's bus and pins from the board.
 set(PICO_BOARD_HEADER_DIRS ${CMAKE_CURRENT_LIST_DIR}/boards)
-set(PICO_BOARD led_processor_board CACHE STRING "Board type")
+set(PICO_BOARD pico2_w CACHE STRING "Board type")
 
 # Optional per-pin overrides for the RTC, e.g. -DRTC_SDA_PIN=26 -DRTC_SCL_PIN=27 -DRTC_I2C_INDEX=1.
 set(RTC_I2C_INDEX "" CACHE STRING "RTC I2C peripheral (0 or 1); empty = board default")
