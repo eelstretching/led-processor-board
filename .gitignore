@@ -7,3 +7,4 @@ fp-info-cache
 _autosave-*
 ~*.lck
 __pycache__/
+firmware/wifi_secrets.cmake

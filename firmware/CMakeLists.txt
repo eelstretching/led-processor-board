@@ -12,10 +12,21 @@ set(RTC_SDA_PIN "" CACHE STRING "RTC SDA GPIO; empty = board default")
 set(RTC_SCL_PIN "" CACHE STRING "RTC SCL GPIO; empty = board default")
 set(RTC_INT_PIN "" CACHE STRING "RTC INT/SQW GPIO; empty = board default")
 
-# WiFi credentials for the wifi_rtc_sync example, e.g.:
-#   cmake .. -DWIFI_SSID=... -DWIFI_PASSWORD=...
-set(WIFI_SSID "" CACHE STRING "WiFi SSID for wifi_rtc_sync")
-set(WIFI_PASSWORD "" CACHE STRING "WiFi password for wifi_rtc_sync")
+# WiFi credentials for the wifi_rtc_sync example, kept out of git. Any one of:
+#   - firmware/wifi_secrets.cmake (gitignored), containing
+#       set(WIFI_SSID "myssid")
+#       set(WIFI_PASSWORD "mypassword")
+#   - WIFI_SSID / WIFI_PASSWORD environment variables
+#   - cmake -DWIFI_SSID=... -DWIFI_PASSWORD=...
+include(${CMAKE_CURRENT_LIST_DIR}/wifi_secrets.cmake OPTIONAL)
+if(NOT DEFINED WIFI_SSID)
+    set(WIFI_SSID "$ENV{WIFI_SSID}")
+endif()
+if(NOT DEFINED WIFI_PASSWORD)
+    set(WIFI_PASSWORD "$ENV{WIFI_PASSWORD}")
+endif()
+set(WIFI_SSID "${WIFI_SSID}" CACHE STRING "WiFi SSID for wifi_rtc_sync")
+set(WIFI_PASSWORD "${WIFI_PASSWORD}" CACHE STRING "WiFi password for wifi_rtc_sync")
 
 include(pico_sdk_import.cmake)
 
