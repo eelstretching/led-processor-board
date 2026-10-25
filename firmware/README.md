@@ -54,6 +54,11 @@ if (rtc.init()) {
   `WIFI_SSID`/`WIFI_PASSWORD` environment variables or `-D` on the cmake line also work. Re-run
   the CMake configure after changing them; the values end up in `build/CMakeCache.txt` (also
   gitignored) and in the .uf2, so don't share a .uf2 built with them.
+- `examples/strand_test`: a pixel tester for cutting reels into strands. Lights the first 200
+  pixels on GP2 steady green at brightness 16/256 (RGB byte order, as for the seed pixels) and
+  resends the frame every 20 ms, so a strand can be plugged in hot. GP2 is ribbon data 1 from a
+  Pico 2 W and J5 (OUT1) data 3 on the processor board. `-DSTRAND_PIN=`, `-DSTRAND_LEN=` and
+  `-DSTRAND_BRIGHTNESS=` change it.
 
 ## Setting the clock from a Mac
 
