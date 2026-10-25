@@ -59,3 +59,4 @@ add_subdirectory(drivers/ds3231)
 
 add_subdirectory(examples/rtc_set)
 add_subdirectory(examples/wifi_rtc_sync)
+add_subdirectory(examples/strand_test)
