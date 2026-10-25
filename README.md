@@ -35,8 +35,9 @@ All three sheets: [docs/schematic.pdf](docs/schematic.pdf) ([Power](docs/sheet-p
 
 All 32 outputs sit in GPIO 0-31, so one PIO block (GPIO base 0) reaches every output. The radio's
 PIO uses the 16-47 window, so it has to be a different PIO block from the LED renderer's. The
-reference board's `firmware/boards/rp2350b_rm2.h` fits this board as is: the radio, flash and
-PSRAM pins are the same.
+board header is `firmware/boards/led_processor_board.h` (the reference board's `rp2350b_rm2.h`
+plus the RTC pins); see [firmware/README.md](firmware/README.md) for the DS3231 driver and the
+`rtc_set` firmware.
 
 ## Output shrouds (J5-J8)
 
