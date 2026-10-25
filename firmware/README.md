@@ -1,0 +1,69 @@
+# Firmware
+
+Pico SDK firmware for the processor board, starting with the DS3231 RTC. The same code also builds
+for the perfboard compute board (a Pico 2 W with an off-the-shelf DS3231 module), so the RTC can be
+brought up before the real boards arrive.
+
+## Where the RTC is
+
+`drivers/ds3231/include/rtc_pins.h` picks the bus and pins from `PICO_BOARD`:
+
+| Board | `PICO_BOARD` | I2C | SDA | SCL | INT |
+|---|---|---|---|---|---|
+| LED processor board (U6) | `led_processor_board` (default) | I2C0 | GPIO32 | GPIO33 | GPIO34 |
+| Perfboard Pico 2 W + DS3231 module | `pico2_w` | I2C1 | GP26 (pin 31) | GP27 (pin 32) | not wired |
+
+Any of them can be overridden at configure time, e.g. `-DRTC_I2C_INDEX=0 -DRTC_SDA_PIN=4
+-DRTC_SCL_PIN=5`. A pin that isn't on the chosen I2C peripheral fails the build (the RP2350's I2C
+pins are fixed by GPIO number mod 4).
+
+The RTC keeps **UTC**; shows convert to local time themselves (as MegaTree's `NewYear` does).
+
+## Drivers
+
+- `drivers/ds3231`: the `Ds3231` class (get/set the time, "lost power" check, temperature), moved
+  over from universal-strip-controller's firmware, plus `rtc_pins.h` with `rtcBusInit()`:
+
+```cpp
+#include "ds3231.hpp"
+#include "rtc_pins.h"
+
+rtcBusInit();
+Ds3231 rtc(RTC_I2C);
+if (rtc.init()) {
+    if (auto now = rtc.getDatetime()) {
+        // use *now (UTC)
+    }
+}
+```
+
+## Examples
+
+- `examples/rtc_set`: set the RTC from the laptop over USB serial, then print its time once a
+  second. Send it Unix seconds or `YYYY-MM-DD HH:MM:SS` (UTC), or let `tools/set_rtc.py` do it.
+  If the chip lost power it seeds itself from the build time; if it doesn't answer it scans the
+  bus and lists what does (0x68 is the DS3231, 0x57 the EEPROM most modules also carry).
+- `examples/wifi_rtc_sync`: join WiFi, get the time over NTP, write it to the RTC. Needs
+  `-DWIFI_SSID=... -DWIFI_PASSWORD=...`.
+
+## Setting the clock from a Mac
+
+1. Hold BOOTSEL, plug the board in, drag `rtc_set.uf2` onto the `RP2350` drive.
+2. From this repo: `python3 firmware/tools/set_rtc.py`
+
+It waits for the top of a second, sends the time, and shows a few lines from the board. To just
+watch it tick: `screen /dev/cu.usbmodem* 115200` (quit with Ctrl-A then K).
+
+## Building
+
+Needs pico-sdk 2.3.0 and the Arm toolchain.
+
+```sh
+cd firmware
+PICO_SDK_PATH=/path/to/pico-sdk cmake -S . -B build -G Ninja -DPICO_BOARD=pico2_w   # perfboard
+PICO_SDK_PATH=/path/to/pico-sdk cmake -S . -B build-board -G Ninja                  # processor board
+ninja -C build        # -> build/examples/rtc_set/rtc_set.uf2
+```
+
+`boards/led_processor_board.h` is the reference board's `rp2350b_rm2.h` (same radio, flash and
+PSRAM pins) with this board's RTC pins and UART1 on GPIO36/37 (J2) as the default UART.
