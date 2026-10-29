@@ -60,6 +60,14 @@ if (rtc.init()) {
   Pico 2 W and J5 (OUT1) data 3 on the processor board. `-DSTRAND_PIN=`, `-DSTRAND_LEN=` and
   `-DSTRAND_BRIGHTNESS=` change it.
 
+- `examples/bringup`: first power-on test for the processor board, with or without the RM2. GP35
+  (J2) toggles at 1 Hz, since D5 is just the +5V power LED and D1 is on the radio's WL_GPIO0; with
+  an RM2 fitted, D1 blinks along with it. Over USB serial it prints a status line every second (die
+  temperature, DS3231 time and temperature, radio state) and every 10 s a full report: chip version
+  and package, measured clocks, flash JEDEC ID and size, and an I2C scan if the DS3231 doesn't
+  answer. It never touches GPIO 0-31, so output boards can stay plugged in. Build it for
+  `led_processor_board`; `-DBRINGUP_HEARTBEAT_PIN=` moves the 1 Hz pin.
+
 ## Setting the clock from a Mac
 
 1. Hold BOOTSEL, plug the board in, drag `rtc_set.uf2` onto the `RP2350` drive.
