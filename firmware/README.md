@@ -58,7 +58,10 @@ if (rtc.init()) {
   pixels on GP2 steady green at brightness 16/256 (RGB byte order, as for the seed pixels) and
   resends the frame every 20 ms, so a strand can be plugged in hot. GP2 is ribbon data 1 from a
   Pico 2 W and J5 (OUT1) data 3 on the processor board. `-DSTRAND_PIN=`, `-DSTRAND_LEN=` and
-  `-DSTRAND_BRIGHTNESS=` change it.
+  `-DSTRAND_BRIGHTNESS=` change it. GP3 (ribbon data 2 from a Pico 2 W, J5 data 4 on the processor
+  board) counts pixels: it lights 190 green, then adds the last 10 in red one per second, holds
+  for 5 s and repeats. Ten red pixels means a full 200; fewer means the strand is short.
+  `-DSTRAND_COUNT_PIN=` and `-DSTRAND_COUNT_BASE=` change it.
 
 ## Setting the clock from a Mac
 
