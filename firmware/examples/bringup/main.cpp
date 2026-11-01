@@ -67,6 +67,12 @@ static void radioMain() {
         if (radioTries >= RADIO_MAX_TRIES) {
             break;
         }
+        // A failed bring-up leaves the gSPI bus's PIO state machine and program claimed, and
+        // cyw43_deinit() skips its cleanup when the chip never came up, so each retry would claim
+        // another one until the PIOs run out. Release the bus by hand before trying again.
+        cyw43_thread_enter();
+        cyw43_ll_deinit(&cyw43_state.cyw43_ll);
+        cyw43_thread_exit();
         sleep_ms(RADIO_RETRY_MS);
     }
     if (err != 0) {
