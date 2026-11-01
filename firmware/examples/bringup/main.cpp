@@ -32,7 +32,13 @@
 enum class Radio { STARTING, UP, FAILED };
 static volatile Radio radio = Radio::STARTING;
 static volatile int radioError = 0;
-static volatile bool radioLed = false;
+static volatile int radioTries = 0;
+static volatile uint32_t radioUpMs = 0;
+
+// How hard to try before calling the radio missing. On the first v1.0 board the RM2 didn't answer
+// when asked right after boot but did 8 s later, so keep asking for a while.
+#define RADIO_RETRY_MS 500
+#define RADIO_MAX_TRIES 60
 
 // Read before core 1 starts: flash commands stop XIP, so nothing else may run from flash then.
 static uint32_t flashJedecId = 0;
@@ -47,24 +53,43 @@ static void readFlashId() {
 // Radio on core 1, so a missing or dead RM2 can't stall the rest of the test.
 static void radioMain() {
     // cyw43_arch_init() only starts the driver; the chip itself is powered up and its firmware loaded
-    // on first use. So drive D1 once with cyw43_gpio_set(), which returns that bring-up's result
-    // (cyw43_arch_gpio_put() throws it away).
+    // on first use. So drive D1 with cyw43_gpio_set(), which returns that bring-up's result
+    // (cyw43_arch_gpio_put() throws it away), and retry until it answers or we give up.
     int err = cyw43_arch_init();
-    if (err == 0) {
+    while (err == 0) {
+        radioTries = radioTries + 1;
         err = cyw43_gpio_set(&cyw43_state, CYW43_WL_GPIO_LED_PIN, false);
+        if (err == 0) {
+            break;
+        }
+        printf("  radio: try %d at %.1f s failed (cyw43 error %d)\n", radioTries,
+               to_ms_since_boot(get_absolute_time()) / 1000.0f, err);
+        if (radioTries >= RADIO_MAX_TRIES) {
+            break;
+        }
+        // A failed bring-up leaves the gSPI bus's PIO state machine and program claimed, and
+        // cyw43_deinit() skips its cleanup when the chip never came up, so each retry would claim
+        // another one until the PIOs run out. Release the bus by hand before trying again.
+        cyw43_thread_enter();
+        cyw43_ll_deinit(&cyw43_state.cyw43_ll);
+        cyw43_thread_exit();
+        sleep_ms(RADIO_RETRY_MS);
     }
     if (err != 0) {
         radioError = err;
         radio = Radio::FAILED;
         return;
     }
+    radioUpMs = to_ms_since_boot(get_absolute_time());
     radio = Radio::UP;
+    printf("  radio: up on try %d, %.1f s after boot\n", radioTries, radioUpMs / 1000.0f);
+    bool led = false;
     while (true) {
         // Follow core 0's heartbeat so D1 and GP35 blink together.
         bool on = gpio_get_out_level(HEARTBEAT_PIN);
-        if (on != radioLed) {
+        if (on != led) {
             cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, on);
-            radioLed = on;
+            led = on;
         }
         sleep_ms(10);
     }
@@ -90,14 +115,20 @@ static void scanRtcBus() {
 }
 
 static const char *radioText() {
+    static char text[64];
     switch (radio) {
     case Radio::STARTING:
-        return "starting";
+        snprintf(text, sizeof(text), "starting (try %d)", radioTries);
+        break;
     case Radio::UP:
-        return radioLed ? "up, D1 on" : "up, D1 off";
+        snprintf(text, sizeof(text), "up (try %d, %.1f s), D1 blinking", radioTries,
+                 radioUpMs / 1000.0f);
+        break;
     default:
-        return "no RM2";
+        snprintf(text, sizeof(text), "no RM2 after %d tries", radioTries);
+        break;
     }
+    return text;
 }
 
 static void printReport(const Ds3231 &rtc) {
