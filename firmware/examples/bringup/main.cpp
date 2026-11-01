@@ -46,7 +46,13 @@ static void readFlashId() {
 
 // Radio on core 1, so a missing or dead RM2 can't stall the rest of the test.
 static void radioMain() {
+    // cyw43_arch_init() only starts the driver; the chip itself is powered up and its firmware loaded
+    // on first use. So drive D1 once with cyw43_gpio_set(), which returns that bring-up's result
+    // (cyw43_arch_gpio_put() throws it away).
     int err = cyw43_arch_init();
+    if (err == 0) {
+        err = cyw43_gpio_set(&cyw43_state, CYW43_WL_GPIO_LED_PIN, false);
+    }
     if (err != 0) {
         radioError = err;
         radio = Radio::FAILED;
@@ -101,7 +107,7 @@ static void printReport(const Ds3231 &rtc) {
     bool isB = (sysinfo_hw->package_sel & 1) == 0;
 
     printf("\n==== LED processor board bring-up ====\n");
-    printf("Chip:   RP2350%s, version A%u, board ID %s\n", isB ? "B" : "A (expected B!)",
+    printf("Chip:   RP2350%s, chip version %u, board ID %s\n", isB ? "B" : "A (expected B!)",
            rp2350_chip_version(), id);
     printf("Clocks: clk_sys %.1f MHz measured (%.1f configured), clk_usb %.1f MHz, XOSC %.1f MHz\n",
            frequency_count_khz(CLOCKS_FC0_SRC_VALUE_CLK_SYS) / 1000.0f, clock_get_hz(clk_sys) / 1e6f,
@@ -117,7 +123,7 @@ static void printReport(const Ds3231 &rtc) {
     printf("Blink:  GP%d on J2 at 1 Hz; D1 too once the RM2 is fitted (radio: %s", HEARTBEAT_PIN,
            radioText());
     if (radio == Radio::FAILED) {
-        printf(", cyw43_arch_init error %d", radioError);
+        printf(", cyw43 error %d", radioError);
     }
     printf(")\n");
     if (rtc.init()) {
