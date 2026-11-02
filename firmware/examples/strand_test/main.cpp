@@ -8,9 +8,9 @@
 // away. Shorter strands just ignore the extra pixels.
 //
 // A second pin (GP3 by default) is for counting a strand's pixels: it lights the first 190 green,
-// then adds the last 10 one per second in red, holds all 200 for a few seconds, and starts over.
-// Count the new pixels: ten (nine red, then the white tick at 200) means the strand has 200.
-// Every 10th pixel (10, 20, ... 200) is a white tick mark instead, so the count can be checked
+// then adds the last 10 one per second in blue, holds all 200 for a few seconds, and starts over.
+// Count the new pixels: ten (nine blue, then the red tick at 200) means the strand has 200.
+// Every 10th pixel (10, 20, ... 200) is a red tick mark instead (as in all_strands), so the count can be checked
 // anywhere along the strand, and on a short one the last tick shows about where it ends.
 // GP3 is ribbon data 2 from a Pico 2 W; on the processor board it's J5 (OUT1) data 4.
 //
@@ -70,8 +70,8 @@ int main() {
     //
     // Red, green, blue in the top 24 bits of the word, for the 24-bit autopull.
     uint32_t pixel = (uint32_t) green << 16;
-    uint32_t counted = (uint32_t) green << 24;
-    uint32_t tick = counted | pixel | (uint32_t) green << 8;
+    uint32_t counted = (uint32_t) green << 8;
+    uint32_t tick = (uint32_t) green << 24;
 
     absolute_time_t start = get_absolute_time();
     while (true) {
