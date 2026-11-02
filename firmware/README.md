@@ -60,7 +60,8 @@ if (rtc.init()) {
   Pico 2 W and J5 (OUT1) data 3 on the processor board. `-DSTRAND_PIN=`, `-DSTRAND_LEN=` and
   `-DSTRAND_BRIGHTNESS=` change it. GP3 (ribbon data 2 from a Pico 2 W, J5 data 4 on the processor
   board) counts pixels: it lights 190 green, then adds the last 10 in red one per second, holds
-  for 5 s and repeats. Ten red pixels means a full 200; fewer means the strand is short.
+  for 5 s and repeats. Every 10th pixel (10, 20, ... 200) is a white tick mark. Ten new pixels
+  (nine red and the white tick at 200) means a full 200; fewer means the strand is short.
   `-DSTRAND_COUNT_PIN=` and `-DSTRAND_COUNT_BASE=` change it.
 
 - `examples/bringup`: first power-on test for the processor board, with or without the RM2. GP35
