@@ -1,0 +1,34 @@
+;
+; The same WS2811 bit on up to 32 consecutive pins at once, at 800 kHz. Each bit takes three
+; 32-bit words from the FIFO: the "high" word for 3 cycles, the data word for 4, and the "low"
+; word for 3, 10 PIO cycles in all, the same 3/4/3 timing as strand_test's ws2811 program. When the
+; FIFO runs dry the state machine stalls on the next out with the pins low, which is the latch gap.
+;
+.program ws2811_parallel
+
+.wrap_target
+    out pins, 32 [2]
+    out pins, 32 [3]
+    out pins, 32 [2]
+.wrap
+
+% c-sdk {
+#include "hardware/clocks.h"
+
+static inline void ws2811_parallel_program_init(PIO pio, uint sm, uint offset, uint base, uint count,
+                                                float freq) {
+    for (uint i = 0; i < count; i++) {
+        pio_gpio_init(pio, base + i);
+    }
+    pio_sm_set_consecutive_pindirs(pio, sm, base, count, true);
+
+    pio_sm_config c = ws2811_parallel_program_get_default_config(offset);
+    sm_config_set_out_pins(&c, base, count);
+    sm_config_set_out_shift(&c, true, true, 32);
+    sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);
+    sm_config_set_clkdiv(&c, clock_get_hz(clk_sys) / (freq * 10));
+
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}
