@@ -64,4 +64,5 @@ add_subdirectory(examples/strand_test)
 # don't exist or mean something else on a Pico 2 W.
 if(PICO_BOARD STREQUAL "led_processor_board")
     add_subdirectory(examples/bringup)
+    add_subdirectory(examples/all_strands)
 endif()
