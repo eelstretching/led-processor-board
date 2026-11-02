@@ -72,9 +72,10 @@ if (rtc.init()) {
   `led_processor_board`; `-DBRINGUP_HEARTBEAT_PIN=` moves the 1 Hz pin.
 
 - `examples/all_strands`: every output at once on the processor board. GPIO 0-31 (all four output
-  shrouds, J5-J8) each show 190 green then 10 red at brightness 16/256, driven together by one PIO
-  state machine and resent every 20 ms, so strands can be plugged in hot and unused outputs do no
-  harm. `-DALL_STRANDS_GREEN=`, `-DALL_STRANDS_RED=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
+  shrouds, J5-J8) each show 200 green pixels with every 10th one red as a tick mark (10, 20, ... 200)
+  at brightness 16/256, driven together by one PIO state machine and resent every 20 ms, so strands
+  can be plugged in hot and unused outputs do no harm. A full strand ends on a red tick.
+  `-DALL_STRANDS_LEN=`, `-DALL_STRANDS_TICK=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
   Build it for `led_processor_board`.
 
 ## Setting the clock from a Mac

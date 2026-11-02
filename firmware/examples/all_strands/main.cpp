@@ -1,7 +1,8 @@
 //
-// All 32 outputs (GPIO 0-31, J5-J8 on the processor board) show the same thing: the first 190
-// pixels green, the next 10 red, so a whole prop can be lit to see how it looks and to spot a
-// strand that's short, dead or wired to the wrong output. Strands shorter than 200 just stop early.
+// All 32 outputs (GPIO 0-31, J5-J8 on the processor board) show the same thing: 200 pixels green
+// with every 10th one (10, 20, ... 200) red as a tick mark, so a whole prop can be lit to see how it
+// looks and to spot a strand that's short, dead or wired to the wrong output. The last red tick on a
+// strand says roughly where it ends; a full strand ends on a red pixel.
 //
 // Every strand gets the same data, so one PIO state machine drives all 32 pins together: each bit
 // is three words (all high, the bit on every pin, all low), fed by DMA from a prebuilt frame and
@@ -13,11 +14,13 @@
 #include "pico/stdlib.h"
 #include "ws2811_parallel.pio.h"
 
-#ifndef GREEN_LEN
-#define GREEN_LEN 190
+#ifndef STRAND_LEN
+#define STRAND_LEN 200
 #endif
-#ifndef RED_LEN
-#define RED_LEN 10
+//
+// Every TICK_EVERY-th pixel is red; 0 turns the ticks off.
+#ifndef TICK_EVERY
+#define TICK_EVERY 10
 #endif
 //
 // Out of 256, applied to full green and full red.
@@ -27,7 +30,7 @@
 
 #define FIRST_PIN 0
 #define PIN_COUNT 32
-#define PIXELS (GREEN_LEN + RED_LEN)
+#define PIXELS STRAND_LEN
 #define WORDS (PIXELS * 24 * 3)
 #define FRAME_MS 20
 
@@ -37,7 +40,8 @@ static void build_frame() {
     uint8_t level = 255 * BRIGHTNESS / 256;
     size_t w = 0;
     for (int i = 0; i < PIXELS; i++) {
-        uint32_t rgb = i < GREEN_LEN ? (uint32_t) level << 8 : (uint32_t) level << 16;
+        bool tick = TICK_EVERY > 0 && (i + 1) % TICK_EVERY == 0;
+        uint32_t rgb = tick ? (uint32_t) level << 16 : (uint32_t) level << 8;
         for (int bit = 23; bit >= 0; bit--) {
             frame[w++] = 0xffffffffu;
             frame[w++] = (rgb >> bit) & 1 ? 0xffffffffu : 0;
