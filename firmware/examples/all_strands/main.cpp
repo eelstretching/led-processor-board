@@ -11,6 +11,8 @@
 // Doesn't use PicoLEDs: one fixed picture is all it needs.
 #include "hardware/dma.h"
 #include "hardware/pio.h"
+#include <stdio.h>
+
 #include "pico/stdlib.h"
 #include "ws2811_parallel.pio.h"
 
@@ -51,6 +53,7 @@ static void build_frame() {
 }
 
 int main() {
+    stdio_init_all();
     build_frame();
 
     PIO pio = pio0;
@@ -66,10 +69,15 @@ int main() {
     channel_config_set_dreq(&c, pio_get_dreq(pio, sm, true));
     dma_channel_configure(dma, &c, &pio->txf[sm], frame, WORDS, false);
 
+    uint32_t frames = 0;
     while (true) {
         dma_channel_set_read_addr(dma, frame, true);
         dma_channel_wait_for_finish_blocking(dma);
         // The frame takes about 6 ms to go out; the pins then sit low, which is the latch gap.
         sleep_ms(FRAME_MS);
+        if (++frames % 250 == 0) {
+            printf("all_strands: GP0-GP31, %d px, tick every %d, brightness %d, %lu frames\n",
+                   STRAND_LEN, TICK_EVERY, BRIGHTNESS, (unsigned long) frames);
+        }
     }
 }

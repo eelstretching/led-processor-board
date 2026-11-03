@@ -79,6 +79,10 @@ if (rtc.init()) {
   `-DALL_STRANDS_LEN=`, `-DALL_STRANDS_TICK=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
   Build it for `led_processor_board`.
 
+Every example turns on USB serial, so a running board always shows up as a tty (strand_test and
+all_strands print a status line every 5 s) and `picotool load -f -x file.uf2` can reboot it into
+BOOTSEL and flash it without touching the buttons. Keep it that way for new examples.
+
 ## Setting the clock from a Mac
 
 1. Hold BOOTSEL, plug the board in, drag `rtc_set.uf2` onto the `RP2350` drive.
