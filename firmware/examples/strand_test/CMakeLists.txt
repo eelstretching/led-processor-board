@@ -25,4 +25,9 @@ target_link_libraries(strand_test
         hardware_pio
 )
 
+# USB serial on, so the board shows up as a tty and `picotool load -f -x` can reboot it into
+# BOOTSEL without the buttons.
+pico_enable_stdio_usb(strand_test 1)
+pico_enable_stdio_uart(strand_test 0)
+
 pico_add_extra_outputs(strand_test)

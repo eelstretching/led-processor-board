@@ -16,6 +16,8 @@
 //
 // Doesn't use PicoLEDs: two strands and two colors, plain PIO state machines are all it needs.
 #include "hardware/pio.h"
+#include <stdio.h>
+
 #include "pico/stdlib.h"
 #include "ws2811.pio.h"
 
@@ -59,6 +61,7 @@ static int countLit(uint32_t ms) {
 }
 
 int main() {
+    stdio_init_all();
     PIO pio = pio0;
     uint sm = pio_claim_unused_sm(pio, true);
     uint offset = pio_add_program(pio, &ws2811_program);
@@ -74,6 +77,7 @@ int main() {
     uint32_t tick = (uint32_t) green << 24;
 
     absolute_time_t start = get_absolute_time();
+    uint32_t frames = 0;
     while (true) {
         int lit = countLit(to_ms_since_boot(get_absolute_time()) - to_ms_since_boot(start));
         //
@@ -85,5 +89,9 @@ int main() {
         }
         // Holding the line low for the rest of the frame is the latch (reset) gap.
         sleep_ms(FRAME_MS);
+        if (++frames % 250 == 0) {
+            printf("strand_test: GP%d green, GP%d counting (%d lit of %d)\n", STRAND_PIN, COUNT_PIN,
+                   lit, STRAND_LEN);
+        }
     }
 }
