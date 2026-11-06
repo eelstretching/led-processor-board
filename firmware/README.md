@@ -79,6 +79,12 @@ if (rtc.init()) {
   `-DALL_STRANDS_LEN=`, `-DALL_STRANDS_TICK=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
   Build it for `led_processor_board`.
 
+- `examples/pin_test`: level-shifter check for output boards. GPIO 0-31 (J5-J8) all go high for
+  1 s, then low for 1 s, forever; put a meter on the output board's terminals and each should swing
+  0 V / 5 V. D1 (RM2 LED) and J2's GP35 are lit while the pins are high, and USB serial prints
+  `>>> GP0-31 HIGH` / `low` on each change. Plain GPIO, no pixel data.
+  `-DPIN_TEST_HALF_PERIOD_MS=` changes the period. Build it for `led_processor_board`.
+
 Every example turns on USB serial, so a running board always shows up as a tty (strand_test and
 all_strands print a status line every 5 s) and `picotool load -f -x file.uf2` can reboot it into
 BOOTSEL and flash it without touching the buttons. Keep it that way for new examples.
