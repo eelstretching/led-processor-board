@@ -85,6 +85,29 @@ if (rtc.init()) {
   `>>> GP0-31 HIGH` / `low` on each change. Plain GPIO, no pixel data.
   `-DPIN_TEST_HALF_PERIOD_MS=` changes the period. Build it for `led_processor_board`.
 
+- `examples/psram_test`: stress test for U4, the 8 MB PSRAM (APS6404L, QMI CS1 on GPIO47). Passes
+  run forever, alternating 150 MHz and 200 MHz (`-DPSRAM_TEST_FAST_KHZ=250000` to push harder; it
+  raises the core to 1.20 V above 200 MHz). Each pass: walking ones/zeros on the data bits, an
+  address/wrap check, byte and halfword lanes, all 8 MB filled and checked three ways (uncached,
+  written through the cache, read through the cache), all 8 MB by DMA, and both cores hammering
+  half the chip each while running from flash. Then speeds in MB/s and
+  `>>> PASS 12 @ 200 MHz: OK`. Bad words are listed with the bits that differ (one bit always wrong
+  points at an SD0-SD3 joint). At boot it also checks that `__in_psram` data arrives and that an
+  `__uninitialized_psram` buffer lands in the PSRAM. The SDK reads U4's ID at boot
+  (`PICO_AUTO_DETECT_PSRAM_SIZE`, set by `drivers/psram_stress`), so a dead U4 shows up as
+  `>>> NO PSRAM` instead of a crash. Needs pico-sdk 2.3.1 (`hardware_psram`).
+
+- `examples/uber_test`: everything at once, for a soak. Core 1 brings up the RM2, joins WiFi
+  (reconnecting if it drops) and gets NTP time every 15 minutes; core 0 writes it to the DS3231
+  (printing how far off it was) and shows the time in US Eastern on a status line every second.
+  GPIO 0-31 play a slow wave (OUT1 gold, OUT2 red, OUT3 green, OUT4 warm white) at brightness
+  16/256 from 100 frames stored in the PSRAM: each frame is DMA'd into one of two SRAM buffers while
+  the other goes out, and checked against a checksum, so the PSRAM is tested the way the show would
+  use it. The 2 MB the frames don't use get a rolling stress test. Full report every 30 s. WiFi
+  credentials come from `wifi_secrets.cmake` if set; otherwise the board asks over USB serial and
+  keeps them in the last 4 KB of flash, so a shared .uf2 carries none. Press `w` to change them.
+  `-DUBER_BRIGHTNESS=` and `-DUBER_LEDS=0` (leave GPIO 0-31 alone).
+
 Every example turns on USB serial, so a running board always shows up as a tty (strand_test and
 all_strands print a status line every 5 s) and `picotool load -f -x file.uf2` can reboot it into
 BOOTSEL and flash it without touching the buttons. Keep it that way for new examples.
