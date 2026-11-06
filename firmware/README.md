@@ -79,6 +79,12 @@ if (rtc.init()) {
   `-DALL_STRANDS_LEN=`, `-DALL_STRANDS_TICK=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
   Build it for `led_processor_board`.
 
+- `examples/ota_test` + `drivers/ota` + `tools/ota_push.py`: over-the-air updates. The flash gets
+  A/B firmware slots (`ota/partitions.json`), a new image is pushed over WiFi into the slot that
+  isn't running, and the bootrom's try-before-you-buy rolls back anything that doesn't come up on
+  WiFi within 16.7 s. Layout, one-time USB setup and the push/rollback/stress test are in
+  `ota/README.md`. Build it for `led_processor_board`, with `wifi_secrets.cmake` filled in.
+
 - `examples/pin_test`: level-shifter check for output boards. GPIO 0-31 (J5-J8) all go high for
   1 s, then low for 1 s, forever; put a meter on the output board's terminals and each should swing
   0 V / 5 V. D1 (RM2 LED) and J2's GP35 are lit while the pins are high, and USB serial prints
