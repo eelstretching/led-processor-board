@@ -18,7 +18,7 @@ cmake_minimum_required(VERSION 3.13)
 # a DS3231 module on GP26/GP27), configure with -DPICO_BOARD=pico2_w. include/rtc_pins.h in the
 # DS3231 driver picks the RTC's bus and pins from the board.
 set(PICO_BOARD_HEADER_DIRS ${CMAKE_CURRENT_LIST_DIR}/boards)
-set(PICO_BOARD pico2_w CACHE STRING "Board type")
+set(PICO_BOARD led_processor_board CACHE STRING "Board type")
 
 # Optional per-pin overrides for the RTC, e.g. -DRTC_SDA_PIN=26 -DRTC_SCL_PIN=27 -DRTC_I2C_INDEX=1.
 set(RTC_I2C_INDEX "" CACHE STRING "RTC I2C peripheral (0 or 1); empty = board default")
