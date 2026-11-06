@@ -5,10 +5,11 @@
 //   radio's WL_GPIO0.
 // - Core 1 brings up the radio. With an RM2 fitted, D1 blinks in step with GP35; without one the
 //   init fails (or never finishes) and the report says so, while core 0 carries on regardless.
-// - Once a second over USB serial: uptime, die temperature, the DS3231's time and temperature,
-//   and the radio's state. Every 10 s (so it's there whenever you connect) the full report: chip
+// - Once a second over USB serial: uptime, die temperature, the DS3231's time (UTC, with US
+//   Eastern alongside) and temperature, and the radio's state. Every 10 s (so it's there whenever you connect) the full report: chip
 //   version and package, system clock (measured, not just configured), flash ID and size, and a
-//   scan of the RTC's I2C bus if the DS3231 doesn't answer.
+//   scan of the RTC's I2C bus if the DS3231 doesn't answer, and why the chip last reset (so a
+//   press of RUN shows up as "RUN pin").
 //
 // No GPIO 0-31 are touched, so it's safe with output boards and strands plugged in.
 #include <cstdio>
@@ -16,13 +17,16 @@
 #include "hardware/adc.h"
 #include "hardware/clocks.h"
 #include "hardware/flash.h"
+#include "hardware/structs/powman.h"
 #include "hardware/structs/sysinfo.h"
+#include "hardware/watchdog.h"
 #include "pico/cyw43_arch.h"
 #include "pico/multicore.h"
 #include "pico/stdlib.h"
 #include "pico/unique_id.h"
 
 #include "ds3231.hpp"
+#include "rtc_local_time.h"
 #include "rtc_pins.h"
 
 #ifndef HEARTBEAT_PIN
@@ -48,6 +52,53 @@ static void readFlashId() {
     uint8_t rx[4] = {};
     flash_do_cmd(tx, rx, sizeof(tx));
     flashJedecId = (rx[1] << 16) | (rx[2] << 8) | rx[3];
+}
+
+// Why the chip last reset, read at the top of main(). POWMAN's CHIP_RESET flags cover the
+// chip-level resets (power-on, brown-out, RUN pin, debugger, ...). A watchdog reboot, which is what
+// picotool reboot and the bootrom use, resets less and sets the watchdog's REASON instead.
+static uint32_t chipReset = 0;
+static bool watchdogReboot = false;
+
+static void readResetReason() {
+    chipReset = powman_hw->chip_reset;
+    watchdogReboot = watchdog_caused_reboot();
+}
+
+static void printResetReason() {
+    struct Flag {
+        uint32_t bits;
+        const char *name;
+    };
+    static const Flag flags[] = {
+        {POWMAN_CHIP_RESET_HAD_POR_BITS, "power-on"},
+        {POWMAN_CHIP_RESET_HAD_BOR_BITS, "brown-out"},
+        {POWMAN_CHIP_RESET_HAD_RUN_LOW_BITS, "RUN pin"},
+        {POWMAN_CHIP_RESET_HAD_DP_RESET_REQ_BITS, "debugger"},
+        {POWMAN_CHIP_RESET_HAD_RESCUE_BITS, "rescue"},
+        {POWMAN_CHIP_RESET_HAD_WATCHDOG_RESET_POWMAN_ASYNC_BITS, "watchdog (powman async)"},
+        {POWMAN_CHIP_RESET_HAD_WATCHDOG_RESET_POWMAN_BITS, "watchdog (powman)"},
+        {POWMAN_CHIP_RESET_HAD_WATCHDOG_RESET_SWCORE_BITS, "watchdog (swcore)"},
+        {POWMAN_CHIP_RESET_HAD_SWCORE_PD_BITS, "swcore power-down"},
+        {POWMAN_CHIP_RESET_HAD_GLITCH_DETECT_BITS, "glitch detector"},
+        {POWMAN_CHIP_RESET_HAD_HZD_SYS_RESET_REQ_BITS, "system reset request"},
+        {POWMAN_CHIP_RESET_HAD_WATCHDOG_RESET_PSM_BITS, "watchdog (PSM)"},
+    };
+    printf("Reset:  ");
+    int named = 0;
+    for (const Flag &flag : flags) {
+        if (chipReset & flag.bits) {
+            printf("%s%s", named++ ? " + " : "", flag.name);
+        }
+    }
+    if (watchdogReboot) {
+        printf("%swatchdog reboot (picotool reboot, bootrom, or a watchdog timeout)",
+               named++ ? " + " : "");
+    }
+    if (!named) {
+        printf("no reset flag set");
+    }
+    printf(" (CHIP_RESET 0x%08lx)\n", static_cast<unsigned long>(chipReset));
 }
 
 // Radio on core 1, so a missing or dead RM2 can't stall the rest of the test.
@@ -150,6 +201,7 @@ static void printReport(const Ds3231 &rtc) {
         printf(" (%lu MB)", static_cast<unsigned long>((1ul << capacityCode) >> 20));
     }
     printf("\n");
+    printResetReason();
     printf("Rails:  no rail is wired to an ADC pin; if you can read this, 3V3 and 1V1 are up\n");
     printf("Blink:  GP%d on J2 at 1 Hz; D1 too once the RM2 is fitted (radio: %s", HEARTBEAT_PIN,
            radioText());
@@ -177,8 +229,10 @@ static void printStatus(const Ds3231 &rtc, uint32_t seconds) {
         now = rtc.getDatetime();
     }
     if (now) {
-        printf("RTC %04d-%02d-%02d %02d:%02d:%02d UTC", now->year, now->month, now->day, now->hour,
-               now->min, now->sec);
+        char local[32];
+        formatRtcLocal(*now, local, sizeof(local));
+        printf("RTC %04d-%02d-%02d %02d:%02d:%02d UTC (%s)", now->year, now->month, now->day,
+               now->hour, now->min, now->sec, local);
         if (auto temp = rtc.getTemperatureC()) {
             printf(" %.2f C", *temp);
         }
@@ -189,6 +243,7 @@ static void printStatus(const Ds3231 &rtc, uint32_t seconds) {
 }
 
 int main() {
+    readResetReason();
     readFlashId();
     stdio_init_all();
 
@@ -198,6 +253,7 @@ int main() {
     adc_init();
     adc_set_temp_sensor_enabled(true);
 
+    rtcLocalTimeInit();
     rtcBusInit();
     Ds3231 rtc(RTC_I2C);
 
