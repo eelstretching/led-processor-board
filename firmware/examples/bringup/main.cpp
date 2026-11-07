@@ -107,7 +107,9 @@ static void radioMain() {
     // on first use. So drive D1 with cyw43_gpio_set(), which returns that bring-up's result
     // (cyw43_arch_gpio_put() throws it away), and retry until it answers or we give up.
     int err = cyw43_arch_init();
-    while (err == 0) {
+    // Keep trying after a failed try (err != 0 then); only a failed cyw43_arch_init(), before any
+    // try, skips the loop. The loop exits by break on success or after RADIO_MAX_TRIES.
+    while (err == 0 || radioTries > 0) {
         radioTries = radioTries + 1;
         err = cyw43_gpio_set(&cyw43_state, CYW43_WL_GPIO_LED_PIN, false);
         if (err == 0) {

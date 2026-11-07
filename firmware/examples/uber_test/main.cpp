@@ -260,7 +260,9 @@ static bool ntpOnce(time_t &epoch) {
 
 static bool radioUp() {
     int err = cyw43_arch_init();
-    while (err == 0) {
+    // Keep trying after a failed try (err != 0 then); only a failed cyw43_arch_init(), before any
+    // try, skips the loop. The loop exits by break on success or after RADIO_MAX_TRIES.
+    while (err == 0 || net.radioTries > 0) {
         net.radioTries = net.radioTries + 1;
         err = cyw43_gpio_set(&cyw43_state, CYW43_WL_GPIO_LED_PIN, false);
         if (err == 0 || net.radioTries >= RADIO_MAX_TRIES) break;
