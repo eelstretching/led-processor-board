@@ -14,6 +14,7 @@ target_link_libraries(bringup
         hardware_adc
         hardware_clocks
         hardware_flash
+        hardware_watchdog
         pico_cyw43_arch_none
         ds3231
 )
