@@ -6,16 +6,18 @@
 //    read with the internal pull-up and then the pull-down. A line that follows both is floating,
 //    as it should be with the module off. One stuck low or high is shorted (or bridged to a
 //    neighbouring GND or 3V3 pad on the RM2).
-// 2. Probe. Each line in turn is held high for 20 s while the others are low, with a big label
-//    on USB serial saying which RM2 castellation to put the red lead on. It should read 3.3 V
-//    on the castellation itself (not just the board pad next to it). Any key gives another 20 s.
+// 2. Probe. Each line in turn, in RM2 pad order (3, 5, 9, 12+13), is held high while the others
+//    are low, with a big label on USB serial saying which RM2 castellation to put the red lead on,
+//    until you press a key. It should read 3.3 V on the castellation itself (not just the board
+//    pad next to it).
 //
 // Loops forever.
 #include <cstdio>
 
 #include "pico/stdlib.h"
 
-#define HOLD_S 20
+// Reprint the big label this often while a pin is held, so it stays on screen.
+#define REPRINT_S 5
 #define GAP_MS 3000
 
 struct Rm2Line {
@@ -24,12 +26,13 @@ struct Rm2Line {
     const char* pads;    // for the big probe label
 };
 
+// In RM2 pad order, so you can work round the module: 3, 5, 9, then 12 + 13.
 static const Rm2Line LINES[] = {
-    {43, "WL_ON+BT_ON  -> RM2 pins 12+13", "12 + 13"},
-    {44, "CS           -> RM2 pin 9", "9"},
+    {46, "CLK          -> RM2 pin 3", "3  (CLK)"},
     {45, "DATA         -> RM2 pin 5 (DI), and pin 6 via R14 470R, pin 10 via R15 10k",
-     "5  (6, 10 via resistors)"},
-    {46, "CLK          -> RM2 pin 3", "3"},
+     "5  (DATA; 6, 10 via resistors)"},
+    {44, "CS           -> RM2 pin 9", "9  (CS)"},
+    {43, "WL_ON+BT_ON  -> RM2 pins 12+13", "12 + 13  (WL_ON)"},
 };
 static const int NUM_LINES = sizeof(LINES) / sizeof(LINES[0]);
 static const unsigned WL_ON = 43;
@@ -89,20 +92,24 @@ static bool keyPressed() {
 }
 
 static void probe() {
-    printf("\nEach line is held high for %d s in turn; press any key to stay on a pin another %d s:\n",
-           HOLD_S, HOLD_S);
+    printf("\nEach line is held high until you press a key, then the next one:\n");
     for (const Rm2Line& l : LINES) {
         printf("  GP%u HIGH (held): %s\n", l.gpio, l.wiring);
     }
     for (const Rm2Line& l : LINES) {
         allLow();
         gpio_put(l.gpio, 1);
-        for (int left = HOLD_S; left > 0; left--) {
-            printf(">>> RM2 PIN %-26s  (GP%u high, %2d s left)\n", l.pads, l.gpio, left);
+        keyPressed();  // drop anything typed before this pin started
+        uint32_t held = 0;
+        while (true) {
+            if (held % REPRINT_S == 0) {
+                printf(">>> RM2 PIN %-30s  (GP%u high, %lu s) -- any key for next pin\n", l.pads, l.gpio,
+                       (unsigned long) held);
+            }
             sleep_ms(1000);
+            held++;
             if (keyPressed()) {
-                printf("    (key pressed: another %d s on this pin)\n", HOLD_S);
-                left = HOLD_S + 1;
+                break;
             }
         }
         allLow();
