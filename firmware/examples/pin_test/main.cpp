@@ -33,7 +33,9 @@ static volatile bool pinsHigh = false;
 static void radioMain() {
     int err = cyw43_arch_init();
     int tries = 0;
-    while (err == 0) {
+    // Keep trying after a failed try (err != 0 then); only a failed cyw43_arch_init(), before any
+    // try, skips the loop. The loop exits by break on success or after RADIO_MAX_TRIES.
+    while (err == 0 || tries > 0) {
         tries++;
         err = cyw43_gpio_set(&cyw43_state, CYW43_WL_GPIO_LED_PIN, false);
         if (err == 0 || tries >= RADIO_MAX_TRIES) {
