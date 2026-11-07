@@ -91,6 +91,13 @@ if (rtc.init()) {
   `>>> GP0-31 HIGH` / `low` on each change. Plain GPIO, no pixel data.
   `-DPIN_TEST_HALF_PERIOD_MS=` changes the period. Build it for `led_processor_board`.
 
+- `examples/radio_stress`: RM2 bring-up stress test. One cold radio bring-up per boot, then a
+  watchdog reboot; the tally survives in the watchdog scratch registers. Prints
+  `>>> BOOT  7/20  full speed (div 2)  ok (512 ms, error 0)` per boot and a `>>> DONE` summary at the
+  end (press `r` to go again). A hung bring-up is caught by the watchdog and counted as a FAIL.
+  `-DRADIO_STRESS_BOOTS=` sets boots per speed (20); `-DRADIO_STRESS_SLOW=ON` adds half and
+  quarter gSPI speed. Build it for `led_processor_board`.
+
 - `examples/rm2_pins`: RM2 (U5) joint check, no cyw43 driver. First a pull test with the module held
   off (GP43 low): CS, DATA and CLK each read with pull-up then pull-down, and one that doesn't float
   is flagged STUCK LOW/HIGH. Then each line is held high, in pad order (CLK 3, DATA 5 (6 via R14,
