@@ -93,9 +93,9 @@ if (rtc.init()) {
 
 - `examples/rm2_pins`: RM2 (U5) joint check, no cyw43 driver. First a pull test with the module held
   off (GP43 low): CS, DATA and CLK each read with pull-up then pull-down, and one that doesn't float
-  is flagged STUCK LOW/HIGH. Then GP43-46 are held high 20 s each with a `>>> RM2 PIN 12 + 13` style
-  label; probe that castellation for 3.3 V (any key: another 20 s). Pads: WL_ON 12+13, CS 9,
-  DATA 5 (6 via R14, 10 via R15), CLK 3. Build it for `led_processor_board`.
+  is flagged STUCK LOW/HIGH. Then each line is held high, in pad order (CLK 3, DATA 5 (6 via R14,
+  10 via R15), CS 9, WL_ON 12+13), with a `>>> RM2 PIN 3  (CLK)` style label until you press a key;
+  probe that castellation for 3.3 V. Build it for `led_processor_board`.
 
 - `examples/psram_test`: stress test for U4, the 8 MB PSRAM (APS6404L, QMI CS1 on GPIO47). Passes
   run forever, alternating 150 MHz and 200 MHz (`-DPSRAM_TEST_FAST_KHZ=250000` to push harder; it
