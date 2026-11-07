@@ -91,6 +91,12 @@ if (rtc.init()) {
   `>>> GP0-31 HIGH` / `low` on each change. Plain GPIO, no pixel data.
   `-DPIN_TEST_HALF_PERIOD_MS=` changes the period. Build it for `led_processor_board`.
 
+- `examples/rm2_pins`: RM2 (U5) joint check, no cyw43 driver. First a pull test with the module held
+  off (GP43 low): CS, DATA and CLK each read with pull-up then pull-down, and one that doesn't float
+  is flagged STUCK LOW/HIGH. Then GP43-46 are held high 20 s each with a `>>> RM2 PIN 12 + 13` style
+  label; probe that castellation for 3.3 V (any key: another 20 s). Pads: WL_ON 12+13, CS 9,
+  DATA 5 (6 via R14, 10 via R15), CLK 3. Build it for `led_processor_board`.
+
 - `examples/psram_test`: stress test for U4, the 8 MB PSRAM (APS6404L, QMI CS1 on GPIO47). Passes
   run forever, alternating 150 MHz and 200 MHz (`-DPSRAM_TEST_FAST_KHZ=250000` to push harder; it
   raises the core to 1.20 V above 200 MHz). Each pass: walking ones/zeros on the data bits, an
