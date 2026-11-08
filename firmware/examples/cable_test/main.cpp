@@ -2,9 +2,9 @@
 // (J5-J8). The board works out which two shrouds you used, checks the wiring, then sends fast data
 // down every data line in both directions and reads it back at the other end.
 //
-// 1. Wiring (DC). All 32 pins pulled up, then pulled down: a data line that won't follow the pulls
-//    is shorted to GND or to 3.3 V / 5 V in the cable. Then each pin in turn is pulled low (weak
-//    drive) and every other pin is read, which maps the cable: data n on one shroud should land on
+// 1. Wiring (DC). All 32 pins pulled up: a data line that reads low is shorted to GND in the
+//    cable. Then each pin in turn is pulled low (weak drive) and every other pin is read, which
+//    maps the cable (and a pin that won't go low is shorted to 3.3 V / 5 V): data n on one shroud should land on
 //    data n on the other and nowhere else. Opens, crossed lines and line-to-line shorts show up
 //    here. Lines that fail this are left out of the speed tests (they'd only fail them).
 //
@@ -118,30 +118,33 @@ static Wiring checkWiring() {
     Wiring w = {};
     resetPins();
 
-    // Pull-down read. Drive everything low briefly first: the RP2350's pull-down can otherwise hold
-    // a floating pin up around 2 V (erratum E9).
-    gpio_put_masked(ALL_PINS, 0);
-    gpio_set_dir_out_masked(ALL_PINS);
-    sleep_us(2);
-    allInputs(false);
-    sleep_us(100);
-    w.highMask = gpio_get_all() & ALL_PINS;
-
-    allInputs(true);
+    // Pull-up read: a data line that stays low is shorted to GND. (No pull-down read: the RP2350's
+    // pull-downs can leave a pin floating around 2 V (erratum E9), which looked like a short to
+    // power on a cable that had just been plugged in.)
     sleep_us(100);
     w.lowMask = ~gpio_get_all() & ALL_PINS;
-    uint32_t stuck = w.lowMask | w.highMask;
 
+    // Each pin pulled low in turn (2 mA drive), everything else pulled up: whatever follows it is
+    // wired to it. A pin that won't go low itself is shorted to 3.3 V / 5 V.
     for (int g = 0; g < 32; g++) {
-        if (stuck & (1u << g)) {
+        if (w.lowMask & (1u << g)) {
             continue;
         }
         gpio_put(g, 0);
         gpio_set_dir(g, GPIO_OUT);
         sleep_us(30);
-        w.conn[g] = ~gpio_get_all() & ALL_PINS & ~(1u << g) & ~stuck;
+        uint32_t in = gpio_get_all();
         gpio_set_dir(g, GPIO_IN);
+        if (in & (1u << g)) {
+            w.highMask |= 1u << g;
+        } else {
+            w.conn[g] = ~in & ALL_PINS & ~(1u << g) & ~w.lowMask;
+        }
         sleep_us(30);  // let the pull-up bring it (and whatever it touches) back up
+    }
+    uint32_t stuck = w.lowMask | w.highMask;
+    for (int g = 0; g < 32; g++) {
+        w.conn[g] &= ~w.highMask;
     }
 
     // Which pair of shrouds? The one with the most straight-through lines, or failing that, the
@@ -288,9 +291,12 @@ static void runLoopback(int s, int n) {
 }
 
 // Counts mismatches per lane over n words; bit-time k of a word is byte k, lane l is bit l.
+// The first word is skipped: the pins start each run at 0, so the first bit or two of a pattern
+// that starts high (a victim held at 1, say) would read wrong at early sample points and look like
+// crosstalk or slow edges on every line.
 static void countErrors(int n, uint8_t lanes, uint32_t errs[LANES]) {
     uint32_t laneMask = lanes * 0x01010101u;
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         uint32_t x = (txbuf[i] ^ rxbuf[i]) & laneMask;
         if (!x) continue;
         for (int l = 0; l < LANES; l++) {
@@ -461,6 +467,7 @@ static bool fullTest(const Wiring &w) {
     printf("  ----  ---   -------   -------   ----------------------------\n");
     Grade worst = G_PASS;
     int fails = 0, weaks = 0;
+    int fastest = S_MAX + 1;
     for (int l = 0; l < LANES; l++) {
         Grade g;
         char st[16] = "    --", xt[16] = "    --", note[64] = "";
@@ -479,6 +486,7 @@ static bool fullTest(const Wiring &w) {
                 if (s1 > settle) settle = s1;
                 if (s2 > xtalk) xtalk = s2;
             }
+            if (settle < fastest) fastest = settle;
             fmtTime(st, settle);
             fmtTime(xt, xtalk);
             Grade gs = gradeOf(settle), gx = gradeOf(xtalk);
@@ -497,6 +505,12 @@ static bool fullTest(const Wiring &w) {
            " WEAK < %.0f ns\n",
            clock_get_hz(clk_sys) / (float) PERIOD / 1e6f, nsPerCycle * S_MIN, nsPerCycle * S_MAX,
            nsPerCycle * (S_PASS + 1), nsPerCycle * (S_WEAK + 1));
+    if (fastest <= S_MAX) {
+        char ft[16];
+        fmtTime(ft, fastest);
+        printf("  fastest line:%s, which is about the chip's own out-to-in delay; a bad crimp is"
+               " slower.\n", ft);
+    }
     printf("  not tested here: GND (odd pins 1-11), 3V3 (13), 5V (15); check with a meter.\n");
 
     bool pass = worst == G_PASS;
@@ -608,6 +622,31 @@ static void waitingMessage() {
            cablesPassed);
 }
 
+// What the wiring check saw on every pin, for when a cable isn't recognised. One character per
+// data line D1-D8: '.' nothing, 'L' stuck low (GND), 'H' stuck high (power), or the J number of the
+// shroud whose pin follows this one ('*' if it follows pins on more than one shroud).
+static void dumpRaw(const Wiring &w) {
+    printf("    pins D1-D8:");
+    for (int sh = 0; sh < SHROUDS; sh++) {
+        printf("  J%d ", jNum(sh));
+        for (int l = 0; l < LANES; l++) {
+            int g = gpioOf(sh, l);
+            char c = '.';
+            if (w.lowMask & (1u << g)) {
+                c = 'L';
+            } else if (w.highMask & (1u << g)) {
+                c = 'H';
+            } else if (w.conn[g]) {
+                int first = __builtin_ctz(w.conn[g]) / LANES;
+                int last = (31 - __builtin_clz(w.conn[g])) / LANES;
+                c = first == last ? (char) ('0' + jNum(first)) : '*';
+            }
+            putchar(c);
+        }
+    }
+    printf("\n");
+}
+
 int main() {
     stdio_init_all();
     sm = pio_claim_unused_sm(pio, true);
@@ -628,27 +667,38 @@ int main() {
     absolute_time_t nextReminder = make_timeout_time_ms(10000);
     while (true) {
         Wiring w = checkWiring();
-        if (!w.present) {
-            if (absolute_time_diff_us(nextReminder, get_absolute_time()) >= 0) {
-                waitingMessage();
-                nextReminder = make_timeout_time_ms(10000);
+        bool stable = false;
+        if (w.present) {
+            // Give both ends a moment to seat, then make sure we see the same thing twice.
+            sleep_ms(700);
+            Wiring w2 = checkWiring();
+            stable = sameCable(w, w2);
+            w = w2;
+        }
+        if (stable) {
+            while (true) {
+                fullTest(w);
+                if (!soak(w)) break;
+                w = checkWiring();
+                if (!w.present) break;
             }
-            getchar_timeout_us(200000);
+            waitingMessage();
+            nextReminder = make_timeout_time_ms(10000);
             continue;
         }
-        // Give both ends a moment to seat, then make sure we see the same thing twice.
-        sleep_ms(700);
-        Wiring w2 = checkWiring();
-        if (!sameCable(w, w2)) {
-            continue;
+        // Waiting (or a cable that isn't reading the same twice in a row): remind every 10 s with
+        // what the pins show, and on 'd' right away.
+        if (absolute_time_diff_us(nextReminder, get_absolute_time()) >= 0) {
+            waitingMessage();
+            if (w.present) {
+                printf("    something is connected but not reading the same twice in a row:\n");
+            }
+            dumpRaw(w);
+            nextReminder = make_timeout_time_ms(10000);
         }
-        while (true) {
-            fullTest(w2);
-            if (!soak(w2)) break;
-            w2 = checkWiring();
-            if (!w2.present) break;
+        int c = getchar_timeout_us(200000);
+        if (c == 'd' || c == 'D') {
+            dumpRaw(w);
         }
-        waitingMessage();
-        nextReminder = make_timeout_time_ms(10000);
     }
 }

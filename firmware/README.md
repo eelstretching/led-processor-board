@@ -93,14 +93,15 @@ if (rtc.init()) {
 
 - `examples/cable_test`: IDC ribbon tester. Unplug the output boards, plug one ribbon between any
   two of J5-J8 and watch tio; the board finds which two shrouds you used. First a wiring check
-  (pull-up/pull-down for shorts to GND or power, then each pin pulled low in turn to map opens,
-  crossed lines and line-to-line shorts), then a speed sweep: one PIO state machine drives the 8
+  (pull-ups for shorts to GND, then each pin pulled low in turn to map opens, crossed lines,
+  line-to-line shorts and shorts to power), then a speed sweep: one PIO state machine drives the 8
   data lines on one shroud at 4.5 Mbit/s (about 5.7x the LEDs) and samples the other end 7-213 ns
   after each edge, with random, alone, quiet-victim and opposite-phase crosstalk patterns, both
   directions. Each line gets its settle and crosstalk time and PASS (< 60 ns) / WEAK (< 150 ns) /
   FAIL, then a big `PASS`/`FAIL` banner. After that it soaks with a live error count per line
   (wiggle the cable at the connectors) until you pull the cable, then waits for the next one and
-  keeps a tally; `r` retests. GND, 3V3 and 5V conductors land on the same nets at both ends, so
+  keeps a tally; `r` retests. While waiting, each reminder (and `d`) shows what every data pin
+  sees, for a cable that isn't recognised. GND, 3V3 and 5V conductors land on the same nets at both ends, so
   check those with a meter. Build it for `led_processor_board`.
 
 - `examples/radio_stress`: RM2 bring-up stress test. One cold radio bring-up per boot, then a
