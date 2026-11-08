@@ -608,6 +608,31 @@ static void waitingMessage() {
            cablesPassed);
 }
 
+// What the wiring check saw on every pin, for when a cable isn't recognised. One character per
+// data line D1-D8: '.' nothing, 'L' stuck low (GND), 'H' stuck high (power), or the J number of the
+// shroud whose pin follows this one ('*' if it follows pins on more than one shroud).
+static void dumpRaw(const Wiring &w) {
+    printf("    pins D1-D8:");
+    for (int sh = 0; sh < SHROUDS; sh++) {
+        printf("  J%d ", jNum(sh));
+        for (int l = 0; l < LANES; l++) {
+            int g = gpioOf(sh, l);
+            char c = '.';
+            if (w.lowMask & (1u << g)) {
+                c = 'L';
+            } else if (w.highMask & (1u << g)) {
+                c = 'H';
+            } else if (w.conn[g]) {
+                int first = __builtin_ctz(w.conn[g]) / LANES;
+                int last = (31 - __builtin_clz(w.conn[g])) / LANES;
+                c = first == last ? (char) ('0' + jNum(first)) : '*';
+            }
+            putchar(c);
+        }
+    }
+    printf("\n");
+}
+
 int main() {
     stdio_init_all();
     sm = pio_claim_unused_sm(pio, true);
@@ -631,9 +656,13 @@ int main() {
         if (!w.present) {
             if (absolute_time_diff_us(nextReminder, get_absolute_time()) >= 0) {
                 waitingMessage();
+                dumpRaw(w);
                 nextReminder = make_timeout_time_ms(10000);
             }
-            getchar_timeout_us(200000);
+            int c = getchar_timeout_us(200000);
+            if (c == 'd' || c == 'D') {
+                dumpRaw(w);
+            }
             continue;
         }
         // Give both ends a moment to seat, then make sure we see the same thing twice.
