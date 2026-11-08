@@ -288,9 +288,12 @@ static void runLoopback(int s, int n) {
 }
 
 // Counts mismatches per lane over n words; bit-time k of a word is byte k, lane l is bit l.
+// The first word is skipped: the pins start each run at 0, so the first bit or two of a pattern
+// that starts high (a victim held at 1, say) would read wrong at early sample points and look like
+// crosstalk or slow edges on every line.
 static void countErrors(int n, uint8_t lanes, uint32_t errs[LANES]) {
     uint32_t laneMask = lanes * 0x01010101u;
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i < n; i++) {
         uint32_t x = (txbuf[i] ^ rxbuf[i]) & laneMask;
         if (!x) continue;
         for (int l = 0; l < LANES; l++) {
@@ -461,6 +464,7 @@ static bool fullTest(const Wiring &w) {
     printf("  ----  ---   -------   -------   ----------------------------\n");
     Grade worst = G_PASS;
     int fails = 0, weaks = 0;
+    int fastest = S_MAX + 1;
     for (int l = 0; l < LANES; l++) {
         Grade g;
         char st[16] = "    --", xt[16] = "    --", note[64] = "";
@@ -479,6 +483,7 @@ static bool fullTest(const Wiring &w) {
                 if (s1 > settle) settle = s1;
                 if (s2 > xtalk) xtalk = s2;
             }
+            if (settle < fastest) fastest = settle;
             fmtTime(st, settle);
             fmtTime(xt, xtalk);
             Grade gs = gradeOf(settle), gx = gradeOf(xtalk);
@@ -497,6 +502,12 @@ static bool fullTest(const Wiring &w) {
            " WEAK < %.0f ns\n",
            clock_get_hz(clk_sys) / (float) PERIOD / 1e6f, nsPerCycle * S_MIN, nsPerCycle * S_MAX,
            nsPerCycle * (S_PASS + 1), nsPerCycle * (S_WEAK + 1));
+    if (fastest <= S_MAX) {
+        char ft[16];
+        fmtTime(ft, fastest);
+        printf("  fastest line:%s, which is about the chip's own out-to-in delay; a bad crimp is"
+               " slower.\n", ft);
+    }
     printf("  not tested here: GND (odd pins 1-11), 3V3 (13), 5V (15); check with a meter.\n");
 
     bool pass = worst == G_PASS;
