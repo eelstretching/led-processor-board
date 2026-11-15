@@ -76,6 +76,8 @@ if (rtc.init()) {
   shrouds, J5-J8) each show 200 green pixels with every 10th one red as a tick mark (10, 20, ... 200)
   at brightness 16/256, driven together by one PIO state machine and resent every 20 ms, so strands
   can be plugged in hot and unused outputs do no harm. A full strand ends on a red tick.
+  Type a number and Enter in `tio` (e.g. `150`) to light that many pixels instead, up to 1000
+  (`-DALL_STRANDS_MAX=`); `0` turns them all off, and pixels past the count go dark.
   `-DALL_STRANDS_LEN=`, `-DALL_STRANDS_TICK=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
   Build it for `led_processor_board`.
 
@@ -140,8 +142,8 @@ if (rtc.init()) {
   keeps them in the last 4 KB of flash, so a shared .uf2 carries none. Press `w` to change them.
   `-DUBER_BRIGHTNESS=` and `-DUBER_LEDS=0` (leave GPIO 0-31 alone).
 
-Every example turns on USB serial, so a running board always shows up as a tty (strand_test and
-all_strands print a status line every 5 s) and `picotool load -f -x file.uf2` can reboot it into
+Every example turns on USB serial, so a running board always shows up as a tty (strand_test prints a
+status line every 5 s, all_strands every 10 s) and `picotool load -f -x file.uf2` can reboot it into
 BOOTSEL and flash it without touching the buttons. Keep it that way for new examples.
 
 ## Setting the clock from a Mac
