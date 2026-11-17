@@ -1,6 +1,8 @@
-# Every output the same: STRAND_LEN pixels green with every TICK_EVERY-th one red, on GPIO 0-31
+# Every output the same: STRAND_LEN pixels green (or a count typed on USB serial, up to
+# ALL_STRANDS_MAX) with every TICK_EVERY-th one red, on GPIO 0-31
 # (J5-J8), for seeing a whole prop lit at once. Override with e.g. -DALL_STRANDS_BRIGHTNESS=32.
 set(ALL_STRANDS_LEN 200 CACHE STRING "Pixels lit on every strand")
+set(ALL_STRANDS_MAX 1000 CACHE STRING "Most pixels a typed count can light")
 set(ALL_STRANDS_TICK 10 CACHE STRING "Every Nth pixel is red (0 = no ticks)")
 set(ALL_STRANDS_BRIGHTNESS 16 CACHE STRING "all_strands brightness out of 256")
 
@@ -10,6 +12,7 @@ pico_generate_pio_header(all_strands ${CMAKE_CURRENT_LIST_DIR}/ws2811_parallel.p
 
 target_compile_definitions(all_strands PRIVATE
     STRAND_LEN=${ALL_STRANDS_LEN}
+    MAX_PIXELS=${ALL_STRANDS_MAX}
     TICK_EVERY=${ALL_STRANDS_TICK}
     BRIGHTNESS=${ALL_STRANDS_BRIGHTNESS}
 )
