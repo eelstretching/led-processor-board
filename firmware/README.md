@@ -81,6 +81,15 @@ if (rtc.init()) {
   `-DALL_STRANDS_LEN=`, `-DALL_STRANDS_TICK=` and `-DALL_STRANDS_BRIGHTNESS=` change it.
   Build it for `led_processor_board`.
 
+- `examples/strand_order`: checks the MegaTree's strand order once it's up the pole. GPIO 0-31 light
+  one strand at a time, auto-advancing every 3 s from 1 to 32, then one dark step marking the lap
+  start. Each lit strand's colour gives its shroud (OUT1/J5 red, OUT2/J6 green, OUT3/J7 blue,
+  OUT4/J8 yellow) and white dots on every other pixel at both ends count its data line / output
+  board terminal (3 dots = terminal 3); tio prints the same, big. Keys: `n`/space next, `p`
+  previous, number + Enter jumps (0 = off), `a` auto on/off, `+`/`-` step time, `c` cumulative
+  (strands 1..N lit), `b` brightness 8/16/32, `?` help. Boots at 16/256 (`-DSTRAND_ORDER_BRIGHTNESS=`,
+  `-DSTRAND_ORDER_STEP_S=`, `-DSTRAND_ORDER_LEN=`). Build it for `led_processor_board`.
+
 - `examples/ota_test` + `drivers/ota` + `tools/ota_push.py`: over-the-air updates. The flash gets
   A/B firmware slots (`ota/partitions.json`), a new image is pushed over WiFi into the slot that
   isn't running, and the bootrom's try-before-you-buy rolls back anything that doesn't come up on
